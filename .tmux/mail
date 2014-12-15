@@ -1,0 +1,11 @@
+#mail session
+
+new -s "mail" -n Mail
+neww -n "RSS"
+neww -n IRC
+neww -n Music
+selectw -t 1
+send-keys -t 1 "mutt" C-m
+send-keys -t 2 "newsbeuter" C-m
+send-keys -t 3 "weechat" C-m
+send-keys -t "Music" 'cmus' C-m

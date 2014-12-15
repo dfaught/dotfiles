@@ -1,0 +1,38 @@
+# dev session
+#
+
+neww -n "Libraries"
+send-keys -t "Libraries" 'wd r3p' C-m
+
+neww -n "Project"
+send-keys -t "Project" 'wd r3p' C-m
+splitw -h -p 25 -t 0 
+
+neww -n "Build"
+send-keys -t "Build" 'wd r3p' C-m
+splitw -h -p 50 -t 0 
+
+neww -n "XDP-T"
+send-keys -t "XDP-T" 'wd xdpt' C-m
+
+neww -n "XDP-T Projects"
+send-keys -t "XDP-T Projects" 'wd xdpt' C-m
+splitw -h -p 25 -t 0 
+
+neww -n "XDP-T Builds"
+send-keys -t "XDP-T Builds" 'wd xdpt' C-m
+splitw -h -p 50 -t 0 
+
+neww -n Sas
+send-keys -t "Sas" 'wd r3p' C-m
+
+neww -n Tools
+send-keys -t "Tools" 'wd r3p' C-m
+send-keys -t "Tools" 'cd ./Tools' C-m
+
+neww -n Remote
+splitw -h -p 50 -t 0 
+selectw -t 1
+renamew "SubSystems"
+send-keys -t "SubSystems" 'wd r3p' C-m
+
