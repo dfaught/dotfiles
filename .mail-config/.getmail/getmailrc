@@ -1,0 +1,18 @@
+[retriever]
+type = SimplePOP3Retriever
+server = pop-server.tx.rr.com
+port = 110
+username = dixonfaught@tx.rr.com
+
+[destination]
+#type = Maildir
+#path = ~/home-ext/Maildir/Family/Family/
+type = MDA_external
+path = /usr/bin/maildrop
+unixfrom = True
+
+[options]
+read_all = false
+delete = false
+
+

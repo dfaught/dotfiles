@@ -1,0 +1,13 @@
+[retriever]
+type = SimplePOP3Retriever
+server = pop-server.tx.rr.com
+port = 110
+username = dfaught@tx.rr.com
+
+[destination]
+type = Maildir
+path = ~/home-ext/Maildir/dfaught/dfaught/
+
+[options]
+read_all = false
+delete = false
