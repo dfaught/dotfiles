@@ -1,0 +1,9 @@
+*.log
+.*.log
+*.sql
+*.sqlite
+*.pyc
+*.o
+*.lo
+*.so
+*.com
