@@ -1,0 +1,33 @@
+text/html; chromium '%s' test=test -n "$DISPLAY"; needsterminal;
+text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+
+application/msword; libreoffice --writer %U %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice --writer %U %s;
+application/vnd.ms-word; libreoffice --writer %U %s;
+
+application/excel; libreoffice --calc %U %s;
+application/msexcel; libreoffice --calc %U %s;
+application/x-excel; libreoffice --calc %U %s;
+application/vnd.ms-excel; libreoffice --calc %U %s;
+application/x-msexcel; libreoffice --calc %U %s;
+application/ms-excel; libreoffice --calc %U %s;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice --calc %U %s;
+
+application/ppt; libreoffice --impress %U %s;
+application/vnd.ms-powerpoint; libreoffice --impress %U %s;
+application/x-mspowerpoint; libreoffice --impress %U %s;
+
+application/pdf; mutt_bgrun acroread -tempFile -openInNewInstance %s;
+
+image/*; mutt_bgrun ristretto %s;
+
+application/x-zip-compressed; mutt_bgrun xarchiver %s;
+application/rar; mutt_bgrun xarchiver %s;
+application/tar; mutt_bgrun xarchiver %s;
+application/tarz; mutt_bgrun xarchiver %s;
+application/gzip; mutt_bgrun xarchiver %s;
+application/bzip; mutt_bgrun xarchiver %s;
+application/x-lzma; mutt_bgrun xarchiver %s;
+application/x-lzma-compressed-tar; mutt_bgrun xarchiver %s;
+application/x-xz; mutt_bgrun xarchiver %s;
+application/x-xz-compressed-tar; mutt_bgrun xarchiver %s;

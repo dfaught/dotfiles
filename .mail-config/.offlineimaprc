@@ -1,0 +1,121 @@
+# Offlineimap sample configuration file
+
+# This file documents *all* possible options and can be quite scary.
+# Looking for a quick start?  Take a look at offlineimap.conf.minimal.
+# More details can be found in the included user documention, which is
+# also available at: http://docs.offlineimap.org/en/latest/
+
+# NOTE: Settings generally support python interpolation. This means
+# values can contain python format strings which refer to other values
+# in the same section, or values in a special DEFAULT section. This
+# allows you for example to use common settings for multiple accounts:
+#
+# [Repository Gmail1]
+# trashfolder: %(gmailtrashfolder)s
+#
+# [Repository Gmail2]
+# trashfolder: %(gmailtrashfolder)s
+#
+# [DEFAULT]
+# gmailtrashfolder = [Google Mail]/Papierkorb
+#
+# would set the trashfolder setting for your German gmail accounts.
+
+# NOTE2: This implies that any '%' needs to be encoded as '%%'
+
+##################################################
+# General definitions
+##################################################
+
+[general]
+
+accounts = Work, Personal
+#accounts = Personal
+pythonfile = /home/derek/.mail-config/offlineimap.py
+
+maxsyncaccounts = 2
+
+# You can specify one or more user interface modules for OfflineIMAP
+# to use.  OfflineIMAP will try the first in the list, and if it
+# fails, the second, and so forth.
+#
+# The pre-defined options are:
+# Blinkenlights -- A fancy (terminal) interface
+# TTYUI         -- a text-based (terminal) interface
+# Basic         -- Noninteractive interface suitable for cron'ing
+# Quiet         -- Noninteractive interface, generates no output
+#                  except for errors.
+# MachineUI     -- Interactive interface suitable for machine
+#                  parsing.
+#
+# You can override this with a command-line option -u.
+
+ui = Quiet
+#ui = MachineUI
+#ui = Blinkenlights
+#ui = TTYUI
+
+########## Advanced settings
+
+# pythonfile = ~/.offlineimap.py
+# socktimeout = 60
+# fsync = true
+
+##################################################
+# Mailbox name recorder
+##################################################
+
+[mbnames]
+enabled = yes
+filename = ~/.config/mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+##################################################
+# Accounts
+##################################################
+
+[Account Work]
+localrepository = work-local
+remoterepository = work-remote
+status-backend = sqlite
+autorefresh = 2
+quick = 10
+
+[Repository work-local]
+type = Maildir
+localfolders = ~/home-ext/Maildir/Work
+
+[Repository work-remote]
+type = IMAP
+remotehost = localhost
+remoteport = 1143
+remoteuser = CORPORATE\derek.faught
+remotepasseval = keyring.get_password("system", "work")
+realdelete=yes
+maxconnections = 3
+folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views', foldername)
+nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
+
+[Account Personal]
+localrepository = personal-local
+remoterepository = personal-remote
+status-backend = sqlite
+autorefresh = 5
+quick = 10
+
+[Repository personal-local]
+type = Maildir
+localfolders = ~/home-ext/Maildir/Personal
+
+[Repository personal-remote]
+type = IMAP
+remotehost = mail.derekfaught.com
+remoteport = 143
+remoteuser = derek@derekfaught.com
+remotepasseval = keyring.get_password("system", "derek@derekfaught.com")
+realdelete=yes
+folderfilter = lambda foldername: not re.search('(Camel|Jobs|Junk|Trash|Sent|Copy|Drafts|Del)', foldername)
+

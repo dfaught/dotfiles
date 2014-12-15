@@ -1,0 +1,3 @@
+macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
+macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o && getmail && getmail -ln --rcfile=getmailrc-dfaught<enter>" "sync IMAP"
+macro index <F3>   "<shell-escape>getmail<enter>" "sync Family"

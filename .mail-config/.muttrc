@@ -1,0 +1,139 @@
+#======================================================#
+# Boring details
+set realname = "Derek Faught"
+set use_from = yes
+set envelope_from = yes
+
+# Use a signature
+set signature="~/dfaughtsig.txt"
+
+# Use msmtp rather than sendmail. Check that 
+# the path is correct for your system:
+set sendmail="/usr/bin/msmtp""
+
+# If not set in ~/.bashrc:
+set spoolfile = "~/home-ext/Maildir/"
+set print_command="/usr/bin/muttprint %s"
+set print_split
+set print="yes"
+set sleep_time = 0
+#======================================================#
+# Folders
+
+set mbox_type=Maildir
+set folder="~/home-ext/Maildir/"      # Local mailboxes stored here
+set record="+sent/"           # Where to store sent messages
+set postponed="+drafts/"   # Where to store draft messages
+set mask="!^\\.[^.]"
+
+# offlineimap generates our mailboxes
+source ~/.config/mutt/mailboxes
+mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam"
+mailboxes "+dfaught/dfaught"
+
+#source ~/.config/mutt/crypto
+
+set sort_browser=date    # Sort mailboxes by date
+
+#======================================================#
+# What to show and order of headers
+ignore *
+unignore Date: From: User-Agent: \
+         Cc: Reply-To: Subject: Mail-Followup-To:
+hdr_order Date From Subject To CC
+
+set sort=threads
+set sort_browser=reverse-date
+set sort_aux=reverse-last-date-received
+
+#======================================================#
+# which editor do you want to use? 
+# vim of course!
+set editor="vim \"+set spell\" +8" 
+set edit_headers=yes      # See the headers when editing
+  
+# Odds and ends
+
+set smart_wrap       # Don't wrap mid-word
+set pager_context=5  # Retain 5 lines of previous page when scrolling.
+set status_on_top    # Status bar on top.
+push <show-version>  # Shows mutt version at startup
+
+set duplicate_threads = yes
+
+#email addresses with esc-1 and esc-2. Sets the status bar at the
+# top too so you know which from address you're using
+set mailcap_path 	= ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+
+folder-hook =Personal set from = "derek@derekfaught.com"
+folder-hook =Work set from = "derek.faught@rocketgaming.com"
+folder-hook =Family set from = "dixonfaught@tx.rr.com"
+folder-hook =dfaught set from = "dfaught@tx.rr.com"
+
+#
+# SIDEBAR STUFF
+
+# Sidebar Patch --------------------------------------
+set sidebar_delim   = '│'
+set sidebar_visible = yes
+set sidebar_width   = 60
+color sidebar_new yellow default
+set sidebar_shortpath=yes
+
+bind index,pager \ck sidebar-prev
+bind index,pager \cj sidebar-next
+bind index,pager \co sidebar-open
+
+#Search Stuff
+set query_command= "~/.mutt/mutt-ldap.pl '%s'"
+bind editor <Tab> complete-query
+
+
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 15 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+#set date_format = "%a, %b %d, %Y at %I:%M:%S%p %Z"
+set index_format = "%4C %Z %[%a %b %d %Y %R] %30L (%c) %s"
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+bind pager R  group-reply
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+#Skip some options
+set include=yes
+set forward_quote=yes
+set copy=yes
+set delete=yes
+set confirmappend=no
+set fast_reply=yes
+#set mime_forward=yes
+#set mime_forward_rest=yes
+
+#======================================================#
+# Colours: defaults are a little bleak so experiment!
+
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc            # In their own file 
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc            # In their own file 
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc            # In their own file 
+#source ~/.mutt/mutt-colors-solarized-light-256.muttrc            # In their own file 
+
+################################################
+# Macrosss
+################################################
+
+source ~/.mutt/macros
+
+macro index,pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro index d "<save-message>+trash<enter>" "move message to the trash"
+
