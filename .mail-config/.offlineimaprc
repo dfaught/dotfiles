@@ -31,7 +31,7 @@
 
 accounts = Work, Personal
 #accounts = Personal
-pythonfile = /home/derek/.mail-config/offlineimap.py
+pythonfile = /home/derek/dotfiles/.mail-config/offlineimap.py
 
 maxsyncaccounts = 2
 
@@ -57,7 +57,6 @@ ui = Quiet
 
 ########## Advanced settings
 
-# pythonfile = ~/.offlineimap.py
 # socktimeout = 60
 # fsync = true
 
@@ -93,7 +92,7 @@ type = IMAP
 remotehost = localhost
 remoteport = 1143
 remoteuser = CORPORATE\derek.faught
-remotepasseval = keyring.get_password("system", "work")
+remotepasseval = get_password("system", "work")
 realdelete=yes
 maxconnections = 3
 folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views', foldername)
@@ -115,7 +114,7 @@ type = IMAP
 remotehost = mail.derekfaught.com
 remoteport = 143
 remoteuser = derek@derekfaught.com
-remotepasseval = keyring.get_password("system", "derek@derekfaught.com")
+remotepasseval = get_password("system", "derek@derekfaught.com")
 realdelete=yes
 folderfilter = lambda foldername: not re.search('(Camel|Jobs|Junk|Trash|Sent|Copy|Drafts|Del)', foldername)
 

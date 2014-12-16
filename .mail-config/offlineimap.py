@@ -1,7 +1,12 @@
 #!/usr/bin/python
 
 import keyring
-import sys
+# import sys
 
-pwd = keyring.get_password(sys.argv[1], sys.argv[2])
-print(pwd)
+
+def get_password(ring, account):
+    pwd = keyring.get_password(ring, account)
+    return pwd
+
+
+# print(get_password(sys.argv[1], sys.argv[2]))
