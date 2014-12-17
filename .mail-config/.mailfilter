@@ -3,9 +3,9 @@ MAILBOX="$HOME/home-ext/Maildir/Family"
 if (/^From: HomeDepotReceipt.*/ || /^From: .*online-billpay.com/ || /^From: .*billing.*t-mobile.*/)
   to $MAILBOX/Expenses/
 elsif (/^From: .*allenisd.*/ || /^From: .*schoolmenu.*/)
-  if (/^Subject: Meghann*/ && /^Subject: *Grading Notification$/)
+  if (/^Subject: .*Meghann .*Grading Notification$/)
     to $MAILBOX/Meghann/
-  elsif (/^Subject: Ethan*/ && /^Subject: *Grading Notification$/)
+  elsif (/^Subject: .*Ethan .*Grading Notification$/)
     to $MAILBOX/Ethan/
   else
     to $MAILBOX/School/

@@ -88,7 +88,7 @@ bind index,pager \cj sidebar-next
 bind index,pager \co sidebar-open
 
 #Search Stuff
-set query_command= "~/.mutt/mutt-ldap.pl '%s'"
+set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
 bind editor <Tab> complete-query
 
 

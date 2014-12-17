@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import keyring
-# import sys
+import sys
 
 
 def get_password(ring, account):
@@ -9,4 +9,5 @@ def get_password(ring, account):
     return pwd
 
 
-# print(get_password(sys.argv[1], sys.argv[2]))
+if __name__ == '__main__':
+    print(get_password(sys.argv[1], sys.argv[2]))

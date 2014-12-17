@@ -31,7 +31,7 @@
 
 accounts = Work, Personal
 #accounts = Personal
-pythonfile = /home/derek/dotfiles/.mail-config/offlineimap.py
+pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap.py
 
 maxsyncaccounts = 2
 
