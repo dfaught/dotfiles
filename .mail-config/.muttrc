@@ -5,7 +5,7 @@ set use_from = yes
 set envelope_from = yes
 
 # Use a signature
-set signature="~/dfaughtsig.txt"
+#set signature="~/dfaughtsig.txt"
 
 # Use msmtp rather than sendmail. Check that 
 # the path is correct for your system:
@@ -30,6 +30,7 @@ set mask="!^\\.[^.]"
 source ~/.config/mutt/mailboxes
 mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam"
 mailboxes "+dfaught/dfaught"
+mailboxes "+trash"
 
 #source ~/.config/mutt/crypto
 
@@ -128,6 +129,8 @@ source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc       
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc            # In their own file 
 #source ~/.mutt/mutt-colors-solarized-light-256.muttrc            # In their own file 
 
+set allow_ansi=yes
+
 ################################################
 # Macrosss
 ################################################
@@ -135,5 +138,8 @@ source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc       
 source ~/.mutt/macros
 
 macro index,pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
-macro index d "<save-message>+trash<enter>" "move message to the trash"
+folder-hook =Personal macro index d "<save-message>+trash<enter>" "move message to the trash"
+folder-hook =Family macro index d "<save-message>+trash<enter>" "move message to the trash"
+folder-hook =dfaught macro index d "<save-message>+trash<enter>" "move message to the trash"
+folder-hook =Work macro index D "<save-message>+trash<enter>" "move message to the trash"
 

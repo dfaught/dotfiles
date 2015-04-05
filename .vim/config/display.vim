@@ -46,13 +46,26 @@ let g:solarized_visibility="normal"
 color solarized
 
 " Diff colors - standard vimdiff colors aren't very helpful, especially not with solarized.
-highlight DiffAdd      cterm=bold  ctermfg=green ctermbg=240
-highlight DiffChange   cterm=bold  ctermfg=yellow ctermbg=240
-highlight DiffDelete   cterm=bold  ctermfg=red   ctermbg=240
+highlight DiffAdd      cterm=bold  ctermfg=34 ctermbg=234
+highlight DiffChange   cterm=bold  ctermfg=249 ctermbg=240
+highlight DiffDelete   cterm=bold  ctermfg=160   ctermbg=241
 highlight DiffText     cterm=bold  ctermfg=black ctermbg=37
 
+set cursorline
+set cursorcolumn
 "long lines support"
 set colorcolumn=120
+
+" Override Solarized color column colors
+if has('gui_running')
+  "highlight ColorColumn guibg=orange
+  "highlight CursorColumn guibg=wheat
+  "highlight CursorLine guibg=tan
+else
+  "highlight ColorColumn ctermbg=12
+  "highlight CursorColumn ctermbg=
+  "highlight CursorLine guibg=tan
+endif
 
 "Code Folding
 au FileType cs set foldmethod=syntax

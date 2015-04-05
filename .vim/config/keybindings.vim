@@ -36,7 +36,7 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "    F7   -  unused
 "    F8   -  CtlrP fuzzy file search
 "    F9   -  CtlrP fuzzy buffer search
-"    F10  -  Unused
+"    F10  -  Gundo
 "    F11  -  Unused
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
@@ -49,6 +49,7 @@ autocmd Filetype c,cpp,h,hpp inoremap <silent><F5>         <Esc>:wa!<cr>:Pyclewn
 nnoremap  <silent><F6>        '?
 nnoremap  <silent><F8>       :CtrlP<CR>
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
+nnoremap <silent><F10> :GundoToggle<CR>
 
 "Crushes previous window allow max space for current.
 map   <C-J><Space> <C-W>j<C-W>_
@@ -160,15 +161,16 @@ vnoremap <Leader><Tab> :Sscratch<CR>
 inoremap <Leader><Tab> :Sscratch<CR>
 
 " YouCompleteMe mappings
-noremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Mark keys
 nnoremap <leader>mc :MarkClear<CR>
 
 " Diff mappings
-nnoremap <leader>gl :diffg LO<CR>
-nnoremap <leader>gr :diffg RE<CR>
+nnoremap <leader>gl :diffg MINE<CR>
+nnoremap <leader>gr :diffg THEIRS<CR>
 nnoremap <leader>gb :diffg BA<CR>
 nnoremap <leader>nd ]c
 nnoremap <leader>pd [c
 nnoremap <leader>du :diffupdate<CR>
+

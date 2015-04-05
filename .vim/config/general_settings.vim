@@ -19,7 +19,6 @@ set shiftwidth=2
 set expandtab
 
 set wildmenu
-set cursorline
 set scrolljump=5
 set scrolloff=3
 
