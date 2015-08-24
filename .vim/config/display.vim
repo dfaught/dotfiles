@@ -7,9 +7,11 @@ set showmatch
 set ignorecase
 set smartcase
 set smarttab
+set laststatus=2
 
 "linenumbers
 set relativenumber
+set nu
 
 " Encoding - utf8 for powerline
 set encoding=utf-8
@@ -35,10 +37,10 @@ filetype indent on
 set background=dark
 "set background=light
 "let g:solarized_contrast="low"
-"let g:solarized_contrast="normal"
-let g:solarized_contrast="high"
-let g:solarized_term_colors=256
-"let g:solarized_term_colors=16
+let g:solarized_contrast="normal"
+"let g:solarized_contrast="high"
+let g:solarized_termcolors=256
+"let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 "let g:solarized_visibility="low"
 let g:solarized_visibility="normal"
@@ -58,13 +60,13 @@ set colorcolumn=120
 
 " Override Solarized color column colors
 if has('gui_running')
-  "highlight ColorColumn guibg=orange
-  "highlight CursorColumn guibg=wheat
-  "highlight CursorLine guibg=tan
+  highlight ColorColumn guibg=orange
+  "highlight CursorColumn guibg=
+  "highlight CursorLine guibg=
 else
-  "highlight ColorColumn ctermbg=12
-  "highlight CursorColumn ctermbg=
-  "highlight CursorLine guibg=tan
+  highlight ColorColumn ctermbg=166
+"  highlight CursorColumn ctermbg=245
+ " highlight CursorLine ctermbg=245
 endif
 
 "Code Folding
@@ -74,3 +76,4 @@ au FileType cpp set foldmethod=syntax
 au FileType cpp set foldlevelstart=4
 au FileType py set foldmethod=syntax
 au FileType py set foldlevelstart=4
+

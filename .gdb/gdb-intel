@@ -1,0 +1,261 @@
+
+define flagsx86
+    # OF (overflow) flag
+    if (((unsigned int)$eflags >> 0xB) & 1)
+        printf "O "
+        set $_of_flag = 1
+    else
+        printf "o "
+        set $_of_flag = 0
+    end
+    # DF (direction) flag
+    if (((unsigned int)$eflags >> 0xA) & 1)
+        printf "D "
+    else
+        printf "d "
+    end
+    # IF (interrupt enable) flag
+    if (((unsigned int)$eflags >> 9) & 1)
+        printf "I "
+    else
+        printf "i "
+    end
+    # TF (trap) flag
+    if (((unsigned int)$eflags >> 8) & 1)
+        printf "T "
+    else
+        printf "t "
+    end
+    # SF (sign) flag
+    if (((unsigned int)$eflags >> 7) & 1)
+        printf "S "
+        set $_sf_flag = 1
+    else
+        printf "s "
+        set $_sf_flag = 0
+    end
+    # ZF (zero) flag
+    if (((unsigned int)$eflags >> 6) & 1)
+        printf "Z "
+    	set $_zf_flag = 1
+    else
+        printf "z "
+	    set $_zf_flag = 0
+    end
+    # AF (adjust) flag
+    if (((unsigned int)$eflags >> 4) & 1)
+        printf "A "
+    else
+        printf "a "
+    end
+    # PF (parity) flag
+    if (((unsigned int)$eflags >> 2) & 1)
+        printf "P "
+	    set $_pf_flag = 1
+    else
+        printf "p "
+    	set $_pf_flag = 0
+    end
+    # CF (carry) flag
+    if ((unsigned int)$eflags & 1)
+        printf "C "
+	    set $_cf_flag = 1
+    else
+        printf "c "
+    	set $_cf_flag = 0
+    end
+    printf "\n"
+end
+document flagsx86
+Syntax: flagsx86
+| Auxiliary function to set X86/X64 cpu flags.
+end
+
+define regx64
+    # 64bits stuff
+    printf "  "
+    # RAX
+    color $COLOR_REGNAME
+    printf "RAX:"
+    if ($rax != $oldrax && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $rax
+    # RBX
+    color $COLOR_REGNAME
+    printf "RBX:"
+    if ($rbx != $oldrbx && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $rbx
+    # RBP
+    color $COLOR_REGNAME
+    printf "RBP:"
+    if ($rbp != $oldrbp && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $rbp
+    # RSP
+    color $COLOR_REGNAME
+    printf "RSP:"
+    if ($rsp != $oldrsp && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $rsp
+    color_bold
+    color_underline
+    color $COLOR_CPUFLAGS
+    flags
+    color_reset
+    printf "  "
+    # RDI
+    color $COLOR_REGNAME
+    printf "RDI:"
+    if ($rdi != $oldrdi && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+	end
+	printf " 0x%016lX  ", $rdi
+	# RSI
+    color $COLOR_REGNAME
+   	printf "RSI:"
+	if ($rsi != $oldrsi && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+	end
+	printf " 0x%016lX  ", $rsi
+	# RDX
+    color $COLOR_REGNAME
+   	printf "RDX:"
+	if ($rdx != $oldrdx && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+	end
+	printf " 0x%016lX  ", $rdx
+	# RCX
+    color $COLOR_REGNAME
+   	printf "RCX:"
+	if ($rcx != $oldrcx && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $rcx
+    # RIP
+    color $COLOR_REGNAME
+    printf "RIP:"
+    color $COLOR_REGVAL_MODIFIED
+    printf " 0x%016lX\n  ", $rip
+    # R8
+    color $COLOR_REGNAME
+   	printf "R8 :"
+	if ($r8 != $oldr8 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r8
+    # R9
+    color $COLOR_REGNAME
+   	printf "R9 :"
+    if ($r9 != $oldr9 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r9
+    # R10
+    color $COLOR_REGNAME
+   	printf "R10:"
+    if ($r10 != $oldr10 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r10
+    # R11
+   	color $COLOR_REGNAME
+    printf "R11:"
+	if ($r11 != $oldr11 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r11
+    # R12
+    color $COLOR_REGNAME
+	printf "R12:"
+    if ($r12 != $oldr12 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX\n  ", $r12
+    # R13
+    color $COLOR_REGNAME
+   	printf "R13:"
+    if ($r13 != $oldr13 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r13
+    # R14
+    color $COLOR_REGNAME
+    printf "R14:"
+    if ($r14 != $oldr14 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX  ", $r14
+    # R15
+	color $COLOR_REGNAME
+    printf "R15:"
+    if ($r15 != $oldr15 && $SHOWREGCHANGES == 1)
+	    color $COLOR_REGVAL_MODIFIED
+	else
+	    color $COLOR_REGVAL
+    end
+    printf " 0x%016lX\n  ", $r15
+  	color $COLOR_REGNAME
+    printf "CS:"
+    color $COLOR_REGVAL
+    printf " %04X  ", $cs
+    color $COLOR_REGNAME
+    printf "DS:"
+    color $COLOR_REGVAL
+    printf " %04X  ", $ds
+    color $COLOR_REGNAME
+    printf "ES:"
+    color $COLOR_REGVAL
+    printf " %04X  ", $es
+    color $COLOR_REGNAME
+    printf "FS:"
+    color $COLOR_REGVAL
+    printf " %04X  ", $fs
+    color $COLOR_REGNAME
+    printf "GS:"
+    color $COLOR_REGVAL
+    printf " %04X  ", $gs
+    color $COLOR_REGNAME
+    printf "SS:"
+    color $COLOR_REGVAL
+    printf " %04X", $ss
+    color_reset
+end
+document regx64
+Syntax: regx64
+| Auxiliary function to display X86_64 registers.
+end

@@ -1,0 +1,277 @@
+
+define flagsarm
+# conditional flags are
+# negative/less than (N), bit 31 of CPSR
+# zero (Z), bit 30
+# Carry/Borrow/Extend (C), bit 29
+# Overflow (V), bit 28
+    # negative/less than (N), bit 31 of CPSR
+    if (($cpsr >> 0x1f) & 1)
+        printf "N "
+	    set $_n_flag = 1
+    else
+        printf "n "
+	    set $_n_flag = 0
+    end
+    # zero (Z), bit 30
+    if (($cpsr >> 0x1e) & 1)
+        printf "Z "
+	    set $_z_flag = 1
+    else
+        printf "z "
+	    set $_z_flag = 0
+    end
+    # Carry/Borrow/Extend (C), bit 29
+    if (($cpsr >> 0x1d) & 1)
+        printf "C "
+    	set $_c_flag = 1
+    else
+        printf "c "
+	    set $_c_flag = 0
+    end
+    # Overflow (V), bit 28
+    if (($cpsr >> 0x1c) & 1)
+        printf "V "
+        set $_v_flag = 1
+    else
+        printf "v "
+        set $_v_flag = 0
+    end
+    # Sticky overflow (Q), bit 27    
+    if (($cpsr >> 0x1b) & 1)
+        printf "Q "
+        set $_q_flag = 1
+    else
+        printf "q "
+        set $_q_flag = 0
+    end
+    # Java state bit (J), bit 24
+    # When T=1:
+    # J = 0 The processor is in Thumb state.
+    # J = 1 The processor is in ThumbEE state.
+    if (($cpsr >> 0x18) & 1)
+        printf "J "
+        set $_j_flag = 1
+    else
+        printf "j "
+        set $_j_flag = 0
+    end
+    # Data endianness bit (E), bit 9
+    if (($cpsr >> 9) & 1)
+        printf "E "
+        set $_e_flag = 1
+    else
+        printf "e "
+        set $_e_flag = 0
+    end
+    # Imprecise abort disable bit (A), bit 8
+    # The A bit is set to 1 automatically. It is used to disable imprecise data aborts. 
+    # It might not be writable in the Nonsecure state if the AW bit in the SCR register is reset.
+    if (($cpsr >> 8) & 1)
+        printf "A "
+        set $_a_flag = 1
+    else
+        printf "a "
+        set $_a_flag = 0
+    end
+    # IRQ disable bit (I), bit 7
+    # When the I bit is set to 1, IRQ interrupts are disabled.
+    if (($cpsr >> 7) & 1)
+        printf "I "
+        set $_i_flag = 1
+    else
+        printf "i "
+        set $_i_flag = 0
+    end
+    # FIQ disable bit (F), bit 6
+    # When the F bit is set to 1, FIQ interrupts are disabled. 
+    # FIQ can be nonmaskable in the Nonsecure state if the FW bit in SCR register is reset.
+    if (($cpsr >> 6) & 1)
+        printf "F "
+        set $_f_flag = 1
+    else
+        printf "f "
+        set $_f_flag = 0
+    end
+    # Thumb state bit (F), bit 5
+    # if 1 then the processor is executing in Thumb state or ThumbEE state depending on the J bit
+    if (($cpsr >> 5) & 1)
+        printf "T "
+        set $_t_flag = 1
+    else
+        printf "t "
+        set $_t_flag = 0
+    end
+    # TODO: GE bit ?
+end
+document flagsarm
+Syntax: flagsarm
+| Auxiliary function to set ARM cpu flags.
+end
+
+define cpsr
+	eflags
+end
+document cpsr
+Syntax: cpsr
+| Print cpsr register.
+end
+
+define regarm
+    printf "  "
+    # R0
+    color $COLOR_REGNAME
+    printf "R0:"
+    if ($r0 != $oldr0 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $r0
+    # R1
+    color $COLOR_REGNAME
+    printf "R1:"
+    if ($r1 != $oldr1 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X  ", $r1
+	# R2
+    color $COLOR_REGNAME
+    printf "R2:"
+    if ($r2 != $oldr2 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $r2
+	# R3
+    color $COLOR_REGNAME
+    printf "R3:"
+    if ($r3 != $oldr3 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X\n", $r3
+    printf "  "
+	# R4
+    color $COLOR_REGNAME
+    printf "R4:"
+    if ($r4 != $oldr4 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $r4
+    # R5
+    color $COLOR_REGNAME
+    printf "R5:"
+    if ($r5 != $oldr5 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X  ", $r5
+	# R6
+    color $COLOR_REGNAME
+    printf "R6:"
+    if ($r6 != $oldr6 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $r6
+	# R7
+    color $COLOR_REGNAME
+    printf "R7:"
+    if ($r7 != $oldr7 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X\n", $r7
+    printf "  "
+	# R8
+    color $COLOR_REGNAME
+    printf "R8:"
+    if ($r8 != $oldr8 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $r8
+	# R9
+    color $COLOR_REGNAME
+    printf "R9:"
+    if ($r9 != $oldr9 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X  ", $r9
+	# R10
+    color $COLOR_REGNAME
+    printf "R10:"
+    if ($r10 != $oldr10 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X  ", $r10
+	# R11
+    color $COLOR_REGNAME
+    printf "R11:"
+    if ($r11 != $oldr11 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X ", $r11
+    dumpjump
+    printf "\n"
+    # R12
+    color $COLOR_REGNAME
+    printf "  R12:"
+    if ($r12 != $oldr12 && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X", $r12
+    printf "  "
+    # SP
+    color $COLOR_REGNAME
+    printf "SP:"
+    if ($sp != $oldsp && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf " 0x%08X  ", $sp
+	# LR
+    color $COLOR_REGNAME
+    printf "LR:"
+    if ($lr != $oldlr && $SHOWREGCHANGES == 1)
+        color $COLOR_REGVAL_MODIFIED
+    else
+        color $COLOR_REGVAL
+    end
+    printf "  0x%08X  ", $lr
+	# PC
+    color $COLOR_REGNAME
+    printf "PC:"
+    color $COLOR_REGVAL_MODIFIED
+    printf "  0x%08X  ", $pc
+    color_bold
+    color_underline
+    color $COLOR_CPUFLAGS
+    flags
+	color_reset
+    printf "\n"
+end
+document regarm
+Syntax: regarm
+| Auxiliary function to display ARM registers.
+end

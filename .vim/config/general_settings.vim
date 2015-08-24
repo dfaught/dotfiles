@@ -1,7 +1,6 @@
 "general_settings.vim
 
 set hls!
-set nu!
 set cin!
 set nocompatible
 set autoread

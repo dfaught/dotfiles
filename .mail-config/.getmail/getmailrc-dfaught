@@ -5,9 +5,12 @@ port = 110
 username = dfaught@tx.rr.com
 
 [destination]
-type = Maildir
-path = ~/home-ext/Maildir/dfaught/dfaught/
+#type = Maildir
+#path = /home/derek~/home-ext/Maildir/dfaught/
+type = MDA_external
+path = /usr/bin/maildrop
+unixfrom = True
 
 [options]
 read_all = false
-delete = false
+delete = true

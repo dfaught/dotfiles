@@ -1,0 +1,6 @@
+MAILBOX="$HOME/home-ext/Maildir/dfaught"
+
+if (/^X-Mailing-List:.*linux-kernel.*/)
+  to $MAILBOX/linux-kernel/
+
+DEFAULT="$MAILBOX/dfaught"

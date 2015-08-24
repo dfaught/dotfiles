@@ -42,8 +42,8 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :ls<CR>
 nnoremap  <silent><F3>        :set relativenumber!<CR>
-autocmd Filetype cs noremap   <silent><F5>        :wa!<cr>:OmniSharpBuild<cr>
-autocmd Filetype cs inoremap  <silent><F5>        <Esc>:wa!<cr>:OmniSharpBuild<cr>
+autocmd Filetype cs noremap   <silent><F5>        :wa!<cr>:OmniSharpBuildAsync<cr>
+autocmd Filetype cs inoremap  <silent><F5>        <Esc>:wa!<cr>:OmniSharpBuildAsync<cr>
 autocmd Filetype c,cpp,h,hpp nnoremap <silent><F5>         :wa!<cr>:Pyclewn<cr>
 autocmd Filetype c,cpp,h,hpp inoremap <silent><F5>         <Esc>:wa!<cr>:Pyclewn<cr>
 nnoremap  <silent><F6>        '?
@@ -63,10 +63,10 @@ nnoremap   <C-H> <C-W>h
 nnoremap   <C-L> <C-W>l
 
 "resize windows
-nnoremap <C-k8> <C-W>+
-nnoremap <C-k2> <C-W>-
-nnoremap <C-k4> <C-W>>
-nnoremap <C-k6> <C-W><
+map <A-Up>    <C-W>+<C-W>+
+map <A-Down>  <C-W>-<C-W>-
+map <A-Right> <C-W>><C-W>>
+map <A-Left>  <C-W><<C-W><
 
 "window shortcuts
 map <Leader>v <C-w>v
@@ -156,12 +156,15 @@ map       ;;                 :NERDTreeToggle<CR>
 nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 "Scracth mappings
-nnoremap <Leader><Tab> :Sscratch<CR>
-vnoremap <Leader><Tab> :Sscratch<CR>
-inoremap <Leader><Tab> :Sscratch<CR>
+"nnoremap <Leader>sc :Sscratch<CR>
+"vnoremap <Leader>sc :Sscratch<CR>
+"inoremap <Leader>sc :Sscratch<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
+noremap <leader>gp :YcmCompleter GetParent<CR>
+noremap <leader>gt :YcmCompleter GetType<CR>
+noremap <leader>F  :YcmCompleter FixIt<CR> 
 
 " Mark keys
 nnoremap <leader>mc :MarkClear<CR>
@@ -173,4 +176,31 @@ nnoremap <leader>gb :diffg BA<CR>
 nnoremap <leader>nd ]c
 nnoremap <leader>pd [c
 nnoremap <leader>du :diffupdate<CR>
+
+" Pyclewn mappings
+map <leader>p :exe "Cprint" . expand("<cword>")<CR>
+map <leader>P :exe "Cprint" . expand("*<cword>")<CR>
+
+"Tabular mappings
+nmap <Leader><Tab>= :Tabularize /=<CR>
+vmap <Leader><Tab>= :Tabularize /=<CR>
+nmap <Leader><Tab>. :Tabularize /\.<CR>
+vmap <Leader><Tab>. :Tabularize /\.<CR>
+nmap <Leader><Tab>: :Tabularize /:<CR>
+vmap <Leader><Tab>: :Tabularize /:<CR>
+nmap <Leader><Tab>> :Tabularize /><CR>
+vmap <Leader><Tab>> :Tabularize /><CR>
+nmap <Leader><Tab>& :Tabularize /&&<CR>
+vmap <Leader><Tab>& :Tabularize /&&<CR>
+
+"ViMux mappings
+nmap <Leader>vp :VimuxPromptCommand<CR>
+vmap <Leader>vp :VimuxPromptCommand<CR>
+imap <Leader>vp :VimuxPromptCommand<CR>
+nmap <Leader>vl :VimuxRunLastCommand<CR>
+vmap <Leader>vl :VimuxRunLastCommand<CR>
+imap <Leader>vl :VimuxRunLastCommand<CR>
+nmap <Leader>vo :VimuxOpenPane<CR>
+vmap <Leader>vo :VimuxOpenPane<CR>
+imap <Leader>vo :VimuxOpenPane<CR>
 

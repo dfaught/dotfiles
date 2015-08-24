@@ -57,8 +57,8 @@ ui = Quiet
 
 ########## Advanced settings
 
-# socktimeout = 60
-# fsync = true
+socktimeout = 180
+fsync = true
 
 ##################################################
 # Mailbox name recorder
@@ -94,7 +94,7 @@ remoteport = 1143
 remoteuser = CORPORATE\derek.faught
 remotepasseval = get_password("system", "work")
 realdelete=yes
-maxconnections = 3
+maxconnections = 1
 folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views', foldername)
 nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
 

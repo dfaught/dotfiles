@@ -1,0 +1,2 @@
+
+set extended-prompt Thread[\[\e[0;33m\t\[\e[0m\]] Frame: \[\e[1;31m\f\[\e[0m\] \n(gdb)

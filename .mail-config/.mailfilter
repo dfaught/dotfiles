@@ -1,43 +1,71 @@
-MAILBOX="$HOME/home-ext/Maildir/Family"
+if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
+{
+  MAILBOX="$HOME/home-ext/Maildir/Family"
 
-if (/^From: HomeDepotReceipt.*/ || /^From: .*online-billpay.com/ || /^From: .*billing.*t-mobile.*/)
-  to $MAILBOX/Expenses/
-elsif (/^From: .*allenisd.*/ || /^From: .*schoolmenu.*/)
-  if (/^Subject: .*Meghann .*Grading Notification$/)
-    to $MAILBOX/Meghann/
-  elsif (/^Subject: .*Ethan .*Grading Notification$/)
-    to $MAILBOX/Ethan/
-  else
-    to $MAILBOX/School/
-elsif (/^From: .*quicken.com/ || /^From: .*Texanscu.org/)
-  to $MAILBOX/Finance/
-elsif (/^From: .*abhelo-subscriber.com/ || \
-    /^From: .*staples.com/ || \
-    /^From: .*charlotterusse.com/ || \
-    /^From: .*giftsforyounow.com/ || \
-    /^From: .*personalcreations.com/ || \
-    /^From: .*entertainment.com/ || \
-    /^From: .*dalworth.com/ || \
-    /^From: .*beyondbackyards.com/ || \
-    /^From: .*celebritycruises.com/ || \
-    /^From: *.nestlecafe.com/ || \
-    /^From: *.angieslist.com/ || \
-    /^From: .*endicia.com/ || \
-    /^From: .*spiritairlines.com/ || \
-    /^From: .*target.com/ || \
-    /^From: .*amexpub.com/ || \
-    /^From: .*fishbowl.com/ || \
-    /^From: .*geocapital.com/ || \
-    /^From: .*800bear.com/ || \
-    /^From: .*frontgate.com/ || \
-    /^From: .*legolanddiscoverycentre.messages2.com/ || \
-    /^From: .*kellogs.com/ || \
-    /^From: .*CommunityUUChurch.com/ || \
-    /^From: .*airfiltersdelivered.com/ || \
-    /^From: .*elcocobeach.com/ || \
-    /^From: .*demandforced3.com/)
-  to $MAILBOX/Spam/
+  if (/^From: HomeDepotReceipt.*/ || /^From: .*online-billpay.com/ || /^From: .*billing.*t-mobile.*/)
+    to $MAILBOX/Expenses/
+  elsif (/^From: .*allenisd.*/ || /^From: .*schoolmenu.*/ || /^From: .*instructure.*/)
+    if (/^Subject: .*Meghann .*Grading Notification$/)
+      to $MAILBOX/Meghann/
+    elsif (/^Subject: .*Ethan .*Grading Notification$/)
+      to $MAILBOX/Ethan/
+    else
+      to $MAILBOX/School/
+  elsif (/^From: .*quicken.com/ || /^From: .*Texanscu.org/)
+    to $MAILBOX/Finance/
+  elsif (/^From: .*abhelo-subscriber.com/ || \
+      /^From: .*staples.com/ || \
+      /^From: .*Target.com/ || \
+      /^From: .*charlotterusse.com/ || \
+      /^From: .*giftsforyounow.com/ || \
+      /^From: .*personalcreations.com/ || \
+      /^From: .*entertainment.com/ || \
+      /^From: .*dalworth.com/ || \
+      /^From: .*beyondbackyards.com/ || \
+      /^From: .*celebritycruises.com/ || \
+      /^From: *.nestlecafe.com/ || \
+      /^From: *.angieslist.com/ || \
+      /^From: .*endicia.com/ || \
+      /^From: .*spiritairlines.com/ || \
+      /^From: .*target.com/ || \
+      /^From: .*amexpub.com/ || \
+      /^From: .*fishbowl.com/ || \
+      /^From: .*geocapital.com/ || \
+      /^From: .*800bear.com/ || \
+      /^From: .*frontgate.com/ || \
+      /^From: .*legolanddiscoverycentre.messages2.com/ || \
+      /^From: .*kellogs.com/ || \
+      /^From: .*CommunityUUChurch.com/ || \
+      /^From: .*airfiltersdelivered.com/ || \
+      /^From: .*elcocobeach.com/ || \
+      /^From: .*demandforced3.com/)
+    to $MAILBOX/Spam/
+
+  DEFAULT="$MAILBOX/Family"
+}
 else
-  to $MAILBOX/Family/
+{
+  MAILBOX="$HOME/home-ext/Maildir/dfaught"
 
-DEFAULT="$MAILBOX/Family/"
+  if (/^X-Mailing-List:.*linux-kernel.*/)
+    to $MAILBOX/linux-kernel/
+  elsif (/^X-Mailing-List:.*linux-gpio.*/)
+    to $MAILBOX/linux-gpio/
+  elsif (/^X-Mailing-List:.*linux-gcc.*/)
+    to $MAILBOX/linux-gcc/
+  elsif (/^X-Mailing-List:.*linux-crypto.*/)
+    to $MAILBOX/linux-crypto/
+  elsif (/^X-Mailing-List:.*linux-usb.*/)
+    to $MAILBOX/linux-usb/
+  elsif (/^X-Mailing-List:.*linux-newbies.*/)
+    to $MAILBOX/linux-newbies/
+  elsif (/^X-Mailing-List:.*linux-serial.*/)
+    to $MAILBOX/linux-serial/
+  elsif (/^X-Mailing-List:.*kernel-janitors.*/)
+    to $MAILBOX/kernel-janitors/
+
+  DEFAULT="$MAILBOX/dfaught"
+}
+
+
+
