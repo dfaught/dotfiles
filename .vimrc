@@ -26,3 +26,4 @@ if has("autocmd")
 endif " has("autocmd")
 
 "set showcmd
+set noshowmode

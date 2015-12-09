@@ -3,16 +3,32 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
   MAILBOX="$HOME/home-ext/Maildir/Family"
 
   if (/^From: HomeDepotReceipt.*/ || /^From: .*online-billpay.com/ || /^From: .*billing.*t-mobile.*/)
+  {
     to $MAILBOX/Expenses/
+  }
   elsif (/^From: .*allenisd.*/ || /^From: .*schoolmenu.*/ || /^From: .*instructure.*/)
-    if (/^Subject: .*Meghann .*Grading Notification$/)
+  {
+    if (/^Subject: .*Meghann .*Grading Notification$/ || /^Subject: .*Meghann .*Progress Report$/)
+    {
       to $MAILBOX/Meghann/
-    elsif (/^Subject: .*Ethan .*Grading Notification$/)
+    }
+    elsif (/^Subject: .*Ethan .*Grading Notification$/ || /^Subject: .*Ethan .*Progress Report$/ || /^From: .*instructure.*/)
+    {
       to $MAILBOX/Ethan/
+    }
+    elsif (/^Subject: .*Tyler .*Grading Notification$/ || /^Subject: .*Tyler .*Progress Report$/)
+    {
+      to $MAILBOX/Tyler/
+    }
     else
+    {
       to $MAILBOX/School/
+    }
+  }
   elsif (/^From: .*quicken.com/ || /^From: .*Texanscu.org/)
+  {
     to $MAILBOX/Finance/
+  }
   elsif (/^From: .*abhelo-subscriber.com/ || \
       /^From: .*staples.com/ || \
       /^From: .*Target.com/ || \
@@ -39,9 +55,13 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
       /^From: .*airfiltersdelivered.com/ || \
       /^From: .*elcocobeach.com/ || \
       /^From: .*demandforced3.com/)
+  {
     to $MAILBOX/Spam/
-
-  DEFAULT="$MAILBOX/Family"
+  }
+  else
+  {
+    DEFAULT="$MAILBOX/Family"
+  }
 }
 else
 {

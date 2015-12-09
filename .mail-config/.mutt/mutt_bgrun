@@ -109,6 +109,6 @@ cp "$file" "$tmpfile"
 
 (
     "$viewer" $options "$tmpfile"
-    rm -f "$tmpfile"
-    rmdir "$tmpdir"
+#    rm -f "$tmpfile"
+#    rmdir "$tmpdir"
 ) &

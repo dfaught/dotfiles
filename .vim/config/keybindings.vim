@@ -37,7 +37,7 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "    F8   -  CtlrP fuzzy file search
 "    F9   -  CtlrP fuzzy buffer search
 "    F10  -  Gundo
-"    F11  -  Unused
+"    F11  -  Geeknote
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :ls<CR>
@@ -63,10 +63,10 @@ nnoremap   <C-H> <C-W>h
 nnoremap   <C-L> <C-W>l
 
 "resize windows
-map <A-Up>    <C-W>+<C-W>+
-map <A-Down>  <C-W>-<C-W>-
-map <A-Right> <C-W>><C-W>>
-map <A-Left>  <C-W><<C-W><
+map <C-w><Up>    <C-W>+<C-W>+
+map <C-w><Down>  <C-W>-<C-W>-
+map <C-w><Left> <C-W>><C-W>>
+map <C-w><Right>  <C-W><<C-W><
 
 "window shortcuts
 map <Leader>v <C-w>v
@@ -162,17 +162,18 @@ nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
+noremap <leader>jh :YcmCompleter GoToInclude<CR>
 noremap <leader>gp :YcmCompleter GetParent<CR>
 noremap <leader>gt :YcmCompleter GetType<CR>
-noremap <leader>F  :YcmCompleter FixIt<CR> 
+noremap <leader>fi  :YcmCompleter FixIt<CR> 
 
 " Mark keys
 nnoremap <leader>mc :MarkClear<CR>
 
 " Diff mappings
-nnoremap <leader>gl :diffg MINE<CR>
+nnoremap <leader>gl :diffg LOCAL<CR>
 nnoremap <leader>gr :diffg THEIRS<CR>
-nnoremap <leader>gb :diffg BA<CR>
+nnoremap <leader>gb :diffg BASE<CR>
 nnoremap <leader>nd ]c
 nnoremap <leader>pd [c
 nnoremap <leader>du :diffupdate<CR>
@@ -204,3 +205,13 @@ nmap <Leader>vo :VimuxOpenPane<CR>
 vmap <Leader>vo :VimuxOpenPane<CR>
 imap <Leader>vo :VimuxOpenPane<CR>
 
+"Geeknote mappings
+nmap <Leader>gn :Geeknote<CR>
+nmap <Leader>nc :GeeknoteCreateNote<space>
+
+"VCSCommand mappings
+"nnoremap <Leader>cn <Plug>VCSAnnotate
+"nvoremap <Leader>cn <Plug>VCSAnnotate
+
+"DoxygenToolkit mappings
+nmap <Leader>dx :Dox<CR>

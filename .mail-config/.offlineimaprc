@@ -89,9 +89,14 @@ localfolders = ~/home-ext/Maildir/Work
 
 [Repository work-remote]
 type = IMAP
+remotehost = mail.rocketgaming.com
+#ssl = yes
+#sslcacertfile = ~/tmp/certs/mail-ca.pem
+#remoteport = 443
 remotehost = localhost
 remoteport = 1143
 remoteuser = CORPORATE\derek.faught
+#remoteuser = derek.faught@rocketgaming.com
 remotepasseval = get_password("system", "work")
 realdelete=yes
 maxconnections = 1

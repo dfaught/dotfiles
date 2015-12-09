@@ -2,17 +2,22 @@
 #
 
 neww -n "Libraries"
-send-keys -t "Libraries" 'wd ss' C-m
+send-keys -t "Libraries" 'wd ssd' C-m
+send-keys -t '. ./set-env.sh' C-m
 
 neww -n "Project"
-send-keys -t "Project" 'wd ss' C-m
+send-keys -t "Project" 'wd ssd' C-m
 splitw -h -p 25 -t 0 
-send-keys -t 1 'wd ss' C-m
+send-keys -t 1 'wd ssd' C-m
+
+neww -n "Thirdparty"
+send-keys -t "Libraries" 'wd ssd' C-m
+send-keys -t '. ./set-env.sh' C-m
 
 neww -n "Build"
-send-keys -t 0 'wd ss' C-m
 splitw -h -p 50 -t 0 
-send-keys -t 1 'wd ss' C-m
+send-keys -t 0 'wd ssd' C-m
+send-keys -t 1 'wd ssd' C-m
 send-keys -t 1 '. ./set-env.sh' C-m
 
 neww -n "Debug"
@@ -22,24 +27,20 @@ splitw -v -p 50
 select-pane -t 1
 splitw -h -p 50
 select-pane -t 0
-send-keys -t 0 'wd ss' C-m
-send-keys -t 1 'wd ss' C-m
-send-keys -t 2 'wd ss' C-m
-send-keys -t 3 'wd ss' C-m
-send-keys -t 4 'wd ss' C-m
-
-neww -n "Thirdparty"
-send-keys -t "Thirdparty" 'wd ss' C-m
-send-keys -t "Thirdparty" 'cd ./IODeviceController' C-m
+send-keys -t 0 'wd ssd' C-m
+send-keys -t 1 'wd ssd' C-m
+send-keys -t 2 'wd ssd' C-m
+send-keys -t 3 'wd ssd' C-m
+send-keys -t 4 'wd ssd' C-m
 
 neww -n Tools
-send-keys -t "Tools" 'wd ss' C-m
+send-keys -t "Tools" 'wd ssd' C-m
 send-keys -t "Tools" 'cd ./Tools' C-m
 
 neww -n Remote
 splitw -h -p 50 -t 0 
 selectw -t 1
 renamew "Modules"
-send-keys -t "Modules" 'wd ss' C-m
+send-keys -t "Modules" 'wd ssd' C-m
 send-keys -t "Modules" '. ./set-env.sh' C-m
 

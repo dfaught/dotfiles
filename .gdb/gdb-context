@@ -181,7 +181,7 @@ define smallregisters
     	set $si  = $rsi & 0xffff
     	# from rdi
     	set $edi = $rdi & 0xffffffff
-    	set $di  = $rdi & 0xffff		
+    	set $di  = $rdi & 0xffff
     #32 bits stuff
     else
 	    # from eax
@@ -203,7 +203,7 @@ define smallregisters
     	# from esi
     	set $si = $esi & 0xffff
     	# from edi
-	    set $di = $edi & 0xffff		
+	    set $di = $edi & 0xffff
      end
 end
 document smallregisters
@@ -216,7 +216,7 @@ end
 # initialize variable
 set $displayobjectivec = 0
 
-define context 
+define context
     color $COLOR_SEPARATOR
     if $SHOWCPUREGISTERS == 1
 	    printf "----------------------------------------"
@@ -298,8 +298,8 @@ define context
 	    		color_reset
       	    	color $BLACK
       		    x/s $objectivec
-         	end   
-         	set $displayobjectivec = 0     
+         	end
+         	set $displayobjectivec = 0
         end
         if $displayobjectivec == 1
             color $COLOR_SEPARATOR
@@ -312,8 +312,8 @@ define context
 		    printf "[ObjectiveC]\n"
 		    color_reset
           	color $BLACK
-          	x/s $objectivec 
-        end   
+          	x/s $objectivec
+        end
     end
     color_reset
 # and this is the end of this little crap
@@ -333,7 +333,7 @@ define context
     color_reset
     set $context_i = $CONTEXTSIZE_CODE
     if ($context_i > 0)
-        if ($SETCOLOR1STLINE == 1)	
+        if ($SETCOLOR1STLINE == 1)
 	        color $GREEN
             if ($ARM == 1)
                 #       | $cpsr.t (Thumb flag)
@@ -357,13 +357,22 @@ define context
         set $context_i--
     end
     color $COLOR_SEPARATOR
+    printf "--------------------------------------------------------------------------"
+    if ($64BITS == 1)
+	    printf "---------------------------------------------"
+    end
+    color_bold
+    printf"[call stack]\n"
+    color_reset
+    bt 5
+    color $COLOR_SEPARATOR
     printf "----------------------------------------"
     printf "----------------------------------------"
     if ($64BITS == 1)
         printf "---------------------------------------------\n"
-	else
-	    printf "\n"
-	end
+    else
+        printf "\n"
+    end
     color_reset
 end
 document context

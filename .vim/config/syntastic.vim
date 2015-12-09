@@ -4,8 +4,8 @@
 let g:syntastic_check_on_open=1
 
 "use fancy symbols
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+"let g:syntastic_error_symbol='✗'
+"let g:syntastic_warning_symbol='⚠'
 
 "enable ballons
 let g:syntastic_enable_ballons=1

@@ -4,6 +4,6 @@
 
 "switched to Ag but too lazy to make another file.
 
-let g:agprg="ag --column --smart-case"
-let g:aghighlight=1
+let g:ag_prg="ag --column --smart-case"
+let g:ag_highlight=1
 

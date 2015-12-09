@@ -1,5 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
+
+import gi
+gi.require_version('GnomeKeyring', '1.0')
 import keyring
 import sys
 

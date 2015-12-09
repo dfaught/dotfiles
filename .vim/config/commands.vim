@@ -65,3 +65,10 @@ endfunction"
 autocmd FileType qf wincmd J
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+function s:TrimTrailingSpace()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction

@@ -1,40 +1,50 @@
 text/html; chromium '%s' test=test -n "$DISPLAY"; needsterminal;
 text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+
 text/calendar; gcalcli --detail_url=short --calendar='derekfaught@gmail.com' import -v %s
 
-application/msword; libreoffice --writer %U %s;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice --writer %U %s;
-application/vnd.ms-word; libreoffice --writer %U %s;
+application/msword; mutt_bgrun libreoffice --writer %U %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; mutt_bgrun  libreoffice --writer %U %s;
+application/vnd.ms-word; mutt_bgrun libreoffice --writer %U %s;
 
-application/excel; libreoffice --calc %U %s;
-application/msexcel; libreoffice --calc %U %s;
-application/x-excel; libreoffice --calc %U %s;
-application/vnd.ms-excel; libreoffice --calc %U %s;
-application/x-msexcel; libreoffice --calc %U %s;
-application/ms-excel; libreoffice --calc %U %s;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice --calc %U %s;
+application/excel; mutt_bgrun libreoffice --calc %U %s;
+application/msexcel; mutt_bgrun libreoffice --calc %U %s;
+application/x-excel; mutt_bgrun libreoffice --calc %U %s;
+application/vnd.ms-excel; mutt_bgrun libreoffice --calc %U %s;
+application/x-msexcel; mutt_bgrun libreoffice --calc %U %s;
+application/ms-excel; mutt_bgrun libreoffice --calc %U %s;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; mutt_bgrun libreoffice --calc %U %s;
 
-application/ppt; libreoffice --impress %U %s;
-application/vnd.ms-powerpoint; libreoffice --impress %U %s;
-application/x-mspowerpoint; libreoffice --impress %U %s;
+application/ppt; mutt_bgrun libreoffice --impress %U %s;
+application/vnd.ms-powerpoint; mutt_bgrun libreoffice --impress %U %s;
+application/x-mspowerpoint; mutt_bgrun libreoffice --impress %U %s;
 
 application/pdf; mutt_bgrun acroread -tempFile -openInNewInstance %s;
 
 image/*; mutt_bgrun ristretto %s;
 
 application/x-zip-compressed; mutt_bgrun xarchiver %s;
+application/x-zip-compressed; unzip -l %s; copiousoutput
 application/rar; mutt_bgrun xarchiver %s;
+application/rar; unrar -l %s; copiousoutput
 application/tar; mutt_bgrun xarchiver %s;
+application/tar; tar -t %s; copiousoutput
 application/tgz; mutt_bgrun xarchiver %s;
+application/tgz; tar -tz %s; copiousoutput
 application/tarz; mutt_bgrun xarchiver %s;
+application/tarz; tar -tz %s; copiousoutput
 application/gzip; mutt_bgrun xarchiver %s;
 application/bzip; mutt_bgrun xarchiver %s;
 application/zip; mutt_bgrun xarchiver %s;
+application/zip; unzip -l %s; copiousoutput
 application/x-lzma; mutt_bgrun xarchiver %s;
 application/x-lzma-compressed-tar; mutt_bgrun xarchiver %s;
 application/x-xz; mutt_bgrun xarchiver %s;
+application/x-7z; mutt_bgrun xarchiver %s;
+application/x-7z; 7z -l %s; copiousoutput
 application/x-xz-compressed-tar; mutt_bgrun xarchiver %s;
 
 application/log; mutt_bgrun gvim %s;
+#text/plain; cat -v %s; copiousoutput
 text/plain; mutt_bgrun gvim %s;
 

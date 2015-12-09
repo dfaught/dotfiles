@@ -3,9 +3,8 @@
 set realname = "Derek Faught"
 set use_from = yes
 set envelope_from = yes
+set attribution = "+++ %n [%d]:"
 
-# Use a signature
-#set signature="~/dfaughtsig.txt"
 
 # Use msmtp rather than sendmail. Check that
 # the path is correct for your system:
@@ -28,9 +27,14 @@ set mask="!^\\.[^.]"
 
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
-mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam"
+mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam"
 mailboxes "+dfaught/dfaught" "+dfaught/linux-kernel" "+dfaught/linux-newbies" "+dfaught/linux-gpio" "+dfaught/linux-gcc" "+dfaught/linux-serial" "+dfaught/linux-crypto" "+dfaught/linux-usb" "+dfaught/kernel-janitors"
 mailboxes "+trash"
+
+set alias_file=~/dotfiles/.mail-config/.aliases
+set sort_alias=alias
+set reverse_alias=yes
+source $alias_file
 
 #source ~/.config/mutt/crypto
 
@@ -40,17 +44,23 @@ set sort_browser=date    # Sort mailboxes by date
 # What to show and order of headers
 ignore *
 unignore To: Date: From: User-Agent: \
-         Cc: Reply-To: Subject: Mail-Followup-To:
-hdr_order Date From Subject To CC
+         Cc: Bcc: Reply-To: Subject: Mail-Followup-To:
+hdr_order Date From Subject To CC Bcc
 
 set sort=threads
 set sort_browser=reverse-date
 set sort_aux=reverse-last-date-received
 
+#unset collapse_unread  # never collapse unread messages
+set uncollapse_jump    # jumps to first unread msg of thread on uncollapse
+
 #======================================================#
 # which editor do you want to use?
 # vim of course!
-set editor="vim \"+set spell\" +8"
+#set editor="vim \"+set spell\" +"
+folder-hook . source ./.mutt/bottom-repyly
+folder-hook =Work source ./.mutt/top-reply
+
 set edit_headers=yes      # See the headers when editing
 
 # Odds and ends
@@ -65,7 +75,7 @@ set duplicate_threads = yes
 #email addresses with esc-1 and esc-2. Sets the status bar at the
 # top too so you know which from address you're using
 set mailcap_path 	= ~/.mutt/mailcap
-auto_view text/html
+auto_view text/html text/enriched application/zip application/7z application/rar application/tar application/tgz application/tarz application/zip application/x-zip-compressed
 alternative_order text/plain text/enriched text/html
 
 
@@ -78,21 +88,30 @@ folder-hook =dfaught set from = "dfaught@tx.rr.com"
 # SIDEBAR STUFF
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '│'
+set sidebar_delim   = '|'
+set sidebar_delim_chars = '/.'
 set sidebar_visible = yes
 set sidebar_width   = 60
-color sidebar_new yellow default
-set sidebar_shortpath=yes
+color sidebar_new color45 default
+color sidebar_flagged color9 default
+#set sidebar_shortpath=yes
 
+bind index gg      first-entry
+bind index G      last-entry
+bind index re     recall-message
+bind index,pager r      reply
+bind index,pager R      group-reply
 bind index,pager \ck sidebar-prev
 bind index,pager \cj sidebar-next
 bind index,pager \co sidebar-open
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
 
 #Search Stuff
 set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
 bind editor <Tab> complete-query
-
-
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 15 # number of index lines to show
@@ -104,11 +123,10 @@ unset markers              # no ugly plus signs
 set mark_old=no
 set text_flowed=yes
 
-#set date_format = "%a, %b %d, %Y at %I:%M:%S%p %Z"
-set index_format = "%4C %Z %[%a %b %d %Y %R] %M %30L (%c) %s"
+set date_format = "%F %R %z"
+set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? " 
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-bind pager R  group-reply
 
 # View attachments properly.
 bind attach <return> view-mailcap
@@ -128,8 +146,9 @@ set fast_reply=yes
 
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc            # In their own file
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc            # In their own file
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+source ~/.mutt/colors
 
 set allow_ansi=yes
 
