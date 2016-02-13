@@ -1,0 +1,61 @@
+# dev session
+#
+
+neww -n "Libraries"
+send-keys -t "Libraries" 'wd r3pf' C-m
+
+neww -n "Project"
+send-keys -t "Project" 'wd r3pf' C-m
+splitw -h -p 25 -t 0
+send-keys -t 1 'wd r3pf' C-m
+
+neww -n Thirdparty
+send-keys -t "Thirdparty" 'wd r3pf' C-m
+
+neww -n "Build"
+splitw -h -p 50 -t 0
+send-keys -t 0 'wd r3pf' C-m
+send-keys -t 1 'wd r3pf' C-m
+send-keys -t 1 '. ./set-env.sh' C-m
+
+neww -n Debug
+splitw -h -p 50
+select-pane -t 1
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+send-keys -t 0 'wd r3pf' C-m
+send-keys -t 1 'wd r3pf' C-m
+send-keys -t 2 'wd r3pf' C-m
+send-keys -t 3 'wd r3pf' C-m
+send-keys -t 4 'wd r3pf' C-m
+
+neww -n Tools
+send-keys -t "Tools" 'wd r3pf' C-m
+
+neww -n Dev
+splitw -h -p 60 -t 0
+select-pane -t 1
+splitw -v -p 50
+select-pane -t 0
+send-keys -t 0 'wd r3pd' C-m
+send-keys -t 1 'wd r3pf' C-m
+send-keys -t 2 'wd r3pd' C-m
+
+neww -n Release
+splitw -h -p 60 -t 0
+select-pane -t 1
+splitw -v -p 50
+select-pane -t 0
+send-keys -t 0 'wd r3pr' C-m
+send-keys -t 1 'wd r3pd' C-m
+send-keys -t 2 'wd r3pr' C-m
+
+neww -n Remote
+send-keys -t "Remote" 'wd r3pf' C-m
+
+selectw -t 1
+renamew "Modules"
+send-keys -t "Modules" 'wd r3pf' C-m
+

@@ -27,7 +27,7 @@ set mask="!^\\.[^.]"
 
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
-mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam"
+mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam" "+Family/Keep"
 mailboxes "+dfaught/dfaught" "+dfaught/linux-kernel" "+dfaught/linux-newbies" "+dfaught/linux-gpio" "+dfaught/linux-gcc" "+dfaught/linux-serial" "+dfaught/linux-crypto" "+dfaught/linux-usb" "+dfaught/kernel-janitors"
 mailboxes "+trash"
 
@@ -75,9 +75,20 @@ set duplicate_threads = yes
 #email addresses with esc-1 and esc-2. Sets the status bar at the
 # top too so you know which from address you're using
 set mailcap_path 	= ~/.mutt/mailcap
-auto_view text/html text/enriched application/zip application/7z application/rar application/tar application/tgz application/tarz application/zip application/x-zip-compressed
-alternative_order text/plain text/enriched text/html
-
+set implicit_autoview=yes
+auto_view text/html
+auto_view text/calendar
+auto_view ext/plain
+auto_view ext/enriched
+auto_view pplication/zip
+auto_view pplication/7z
+auto_view pplication/rar
+auto_view pplication/tar
+auto_view pplication/tgz
+auto_view pplication/tarz
+auto_view pplication/zip
+auto_view pplication/x-zip-compressed
+alternative_order text/html text/calendar text/enriched text/plain
 
 folder-hook =Personal set from = "derek@derekfaught.com"
 folder-hook =Work set from = "derek.faught@rocketgaming.com"
@@ -101,9 +112,11 @@ bind index G      last-entry
 bind index re     recall-message
 bind index,pager r      reply
 bind index,pager R      group-reply
-bind index,pager \ck sidebar-prev
-bind index,pager \cj sidebar-next
-bind index,pager \co sidebar-open
+bind index,pager K sidebar-prev
+bind index,pager J sidebar-next
+bind index,pager O sidebar-open
+bind pager \ek  previous-undeleted
+bind pager \ej  next-undeleted
 bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
@@ -124,7 +137,7 @@ set mark_old=no
 set text_flowed=yes
 
 set date_format = "%F %R %z"
-set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? " 
+set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? "
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 
@@ -144,11 +157,11 @@ set fast_reply=yes
 #======================================================#
 # Colours: defaults are a little bleak so experiment!
 
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc            # In their own file
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc            # In their own file
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc            # In their own file
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
-source ~/.mutt/colors
+#source ~/.mutt/colors
 
 set allow_ansi=yes
 

@@ -2,16 +2,20 @@
 
 #new -s "mail" -n Mail
 renamew -t 1 "Mail"
+splitw -h -l 100
 neww -n Mail
-neww -n RSS
-#neww -n IRC
+#neww -n RSS
 neww -n Music
-neww -n IRC
+#neww -n IRC
+neww -n EverNote
 neww -n Misc
 selectw -t 1
-send-keys -t 1 "~/.mail-config/imap-mail.sh &> mail.log &" C-m
-send-keys -t 1 "mutt" C-m
+send-keys -t 0 "~/.mail-config/imap-mail.sh &> mail.log &" C-m
+send-keys -t 0 "mutt" C-m
+send-keys -t 1 "remind -z -k'reminder.sh %s' ~/.reminders &" C-m
+send-keys -t 1 "wyrd" C-m
 send-keys -t 2 "mutt" C-m
-send-keys -t 3 "newsbeuter" C-m
-send-keys -t 4 'cmus' C-m
-send-keys -t 5 "weechat" C-m
+#send-keys -t 3 "newsbeuter" C-m
+send-keys -t 3 'cmus' C-m
+#send-keys -t 5 "weechat" C-m
+send-keys -t 4 "vim" C-m

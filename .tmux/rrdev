@@ -3,17 +3,19 @@
 
 neww -n "Libraries"
 send-keys -t "Libraries" 'wd r3pd' C-m
+send-keys -t '. ./set-env.sh' C-m
 
 neww -n "Project"
 send-keys -t "Project" 'wd r3pd' C-m
-splitw -h -p 25 -t 0 
+splitw -h -p 25 -t 0
 send-keys -t 1 'wd r3pd' C-m
 
 neww -n Thirdparty
 send-keys -t "Thirdparty" 'wd r3pd' C-m
+send-keys -t '. ./set-env.sh' C-m
 
 neww -n "Build"
-splitw -h -p 50 -t 0 
+splitw -h -p 50 -t 0
 send-keys -t 0 'wd r3pd' C-m
 send-keys -t 1 'wd r3pd' C-m
 send-keys -t 1 '. ./set-env.sh' C-m
@@ -36,7 +38,7 @@ send-keys -t "Tools" 'wd r3pd' C-m
 send-keys -t "Tools" 'cd ./Tools' C-m
 
 neww -n Release
-splitw -h -p 60 -t 0 
+splitw -h -p 60 -t 0
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0

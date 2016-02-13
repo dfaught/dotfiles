@@ -1,7 +1,8 @@
 text/html; chromium '%s' test=test -n "$DISPLAY"; needsterminal;
-text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+text/html; w3m -I %{charset} -T text/html -dump %s; nametemplate=%s.html; copiousoutput;
 
-text/calendar; gcalcli --detail_url=short --calendar='derekfaught@gmail.com' import -v %s
+text/calendar; cat %s | ical2rem-cli >> ~/.reminders;
+text/calendar; cat %s | ical2rem-cli; copiousoutput;
 
 application/msword; mutt_bgrun libreoffice --writer %U %s;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; mutt_bgrun  libreoffice --writer %U %s;
@@ -14,6 +15,7 @@ application/vnd.ms-excel; mutt_bgrun libreoffice --calc %U %s;
 application/x-msexcel; mutt_bgrun libreoffice --calc %U %s;
 application/ms-excel; mutt_bgrun libreoffice --calc %U %s;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; mutt_bgrun libreoffice --calc %U %s;
+#application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/office-to-html.sh %s; copiousoutput
 
 application/ppt; mutt_bgrun libreoffice --impress %U %s;
 application/vnd.ms-powerpoint; mutt_bgrun libreoffice --impress %U %s;

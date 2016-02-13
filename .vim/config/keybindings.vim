@@ -3,7 +3,7 @@
 " Repeat the last command
 nnoremap <Leader>. @:
 
-" clear out search 
+" clear out search
 nnoremap <Esc><Esc> :noh<cr>
 
 "tab to move through brackets"
@@ -19,9 +19,9 @@ nnoremap d<tab> d%
 " The current buffer will be saved before switching to the next one.
 " Choose :bprevious or :bnext
 "-------------------------------------------------------------------------------
-noremap  <silent> <s-tab>       :if &modifiable && !&readonly && 
+noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
      \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly && 
+inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
      \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "    F4   -  System use - do not map
 "    F5   -  OmniSharpBuild
 "    F6   -  vim-signature: show marks in current buffer
-"    F7   -  unused
+"    F7   -  Trim trailing whites
 "    F8   -  CtlrP fuzzy file search
 "    F9   -  CtlrP fuzzy buffer search
 "    F10  -  Gundo
@@ -46,8 +46,10 @@ autocmd Filetype cs noremap   <silent><F5>        :wa!<cr>:OmniSharpBuildAsync<c
 autocmd Filetype cs inoremap  <silent><F5>        <Esc>:wa!<cr>:OmniSharpBuildAsync<cr>
 autocmd Filetype c,cpp,h,hpp nnoremap <silent><F5>         :wa!<cr>:Pyclewn<cr>
 autocmd Filetype c,cpp,h,hpp inoremap <silent><F5>         <Esc>:wa!<cr>:Pyclewn<cr>
-nnoremap  <silent><F6>        '?
-nnoremap  <silent><F8>       :CtrlP<CR>
+"nnoremap  <silent><F6>        '?
+nnoremap  <silent><F7>       :ShowWhiteToggle<CR>
+nnoremap  <silent><Leader><F7>     :call TrimWhiteSpace()<CR>
+nnoremap  <silent><F8>       :CtrlPMixed<CR>
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
 nnoremap <silent><F10> :GundoToggle<CR>
 
@@ -80,8 +82,17 @@ map <Leader>b <C-^>
 " Kill the current buffer
 map <Leader>xb :bd<CR>
 
+map <Leader>sa :saveas
+
 " Yank the line
 map Y y$
+vnoremap <Leader>y "+y
+vnoremap <Leader>d "+d
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
+
 "select all
 nnoremap <Leader>a ggVG
 
@@ -98,7 +109,9 @@ nnoremap <silent> <leader><space> za
 "Close/Open all folds"
 nmap <silent> <leader>z zm
 nmap <silent> <leader>zz zr
+
 "Fold levels - thanks SPF
+"Change these... you never use them.
 nmap <leader>F1 :set foldlevel=1<CR>
 nmap <leader>F2 :set foldlevel=2<CR>
 nmap <leader>F3 :set foldlevel=3<CR>
@@ -113,17 +126,10 @@ nmap <leader>F9 :set foldlevel=9<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Stupid shift key fixes
-"cmap W w 						
-"cmap WQ wq
-"cmap wQ wq
-"cmap Q q
-"cmap Tabe tabe
-
 "tmux remappings - I map <C-A> to be the tmux trigger key...
-nmap <C-N> <C-A>
-vmap <C-N> <C-A>
-imap <C-N> <C-A>
+"nmap <C-N> <C-A>
+"vmap <C-N> <C-A>
+"imap <C-N> <C-A>
 
 " ag bindings
 nnoremap <Leader>s :Ag!<space>
@@ -156,22 +162,23 @@ map       ;;                 :NERDTreeToggle<CR>
 nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 "Scracth mappings
-"nnoremap <Leader>sc :Sscratch<CR>
-"vnoremap <Leader>sc :Sscratch<CR>
-"inoremap <Leader>sc :Sscratch<CR>
+nnoremap <Leader>sb :Sscratch<CR>
+vnoremap <Leader>sb :Sscratch<CR>
+inoremap <Leader>sb :Sscratch<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
 noremap <leader>jh :YcmCompleter GoToInclude<CR>
 noremap <leader>gp :YcmCompleter GetParent<CR>
 noremap <leader>gt :YcmCompleter GetType<CR>
-noremap <leader>fi  :YcmCompleter FixIt<CR> 
+noremap <leader>gd :YcmCompleter GetDoc<CR>
+noremap <leader>fi  :YcmCompleter FixIt<CR>
 
 " Mark keys
 nnoremap <leader>mc :MarkClear<CR>
 
 " Diff mappings
-nnoremap <leader>gl :diffg LOCAL<CR>
+nnoremap <leader>gl :diffg MINE<CR>
 nnoremap <leader>gr :diffg THEIRS<CR>
 nnoremap <leader>gb :diffg BASE<CR>
 nnoremap <leader>nd ]c
@@ -205,13 +212,30 @@ nmap <Leader>vo :VimuxOpenPane<CR>
 vmap <Leader>vo :VimuxOpenPane<CR>
 imap <Leader>vo :VimuxOpenPane<CR>
 
+nnoremap <Leader>K :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
+
 "Geeknote mappings
 nmap <Leader>gn :Geeknote<CR>
 nmap <Leader>nc :GeeknoteCreateNote<space>
 
-"VCSCommand mappings
-"nnoremap <Leader>cn <Plug>VCSAnnotate
-"nvoremap <Leader>cn <Plug>VCSAnnotate
-
 "DoxygenToolkit mappings
 nmap <Leader>dx :Dox<CR>
+
+"Zoomwin
+nmap <Leader>Z <C-w>o
+imap <Leader>Z <C-w>o
+vmap <Leader>Z <C-w>o
+
+"insert current buffer name
+imap <Leader>fn <c-r>=expand('%:t:r')<CR>
+
+" When you press gv you Ag after the selected text
+"vnoremap <silent> av :call VisualSelection('gv', '')<CR>
+
+" paste mode
+nnoremap <Leader>tp :set paste!<CR>
+inoremap <Leader>tp <Esc>:set paste!<CR>a
+vnoremap <Leader>tp :set paste!<CR>
+
+"spelling stuff
+nnoremap <leader>w :call FixLastSpellingError()<cr>

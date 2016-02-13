@@ -62,13 +62,60 @@ endfunction"
 " " Note: Normally, :cwindow jumps to the quickfix window if the command opens it
 " " (but not if it's already open). However, as part of the autocmd, this doesn't
 " " seem to happen.
-autocmd FileType qf wincmd J
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+"autocmd FileType qf wincmd J
+"autocmd QuickFixCmdPost [^l]* nested cwindow
+"autocmd QuickFixCmdPost    l* nested lwindow
 
-function s:TrimTrailingSpace()
+" Removes trailing spaces
+function! TrimWhiteSpace()
   let l = line(".")
   let c = col(".")
-  %s/\s\+$//e
+  %s/\s*$//
+  ''
   call cursor(l, c)
+endfunction
+
+function! Unix2Local()
+  let udate = expand("<cword>")
+  normal dw
+  let l = line(".")
+  let c = col(".")-1
+  call cursor(l, c)
+  "execute '$read !~/scripts/unix2local.sh '.udate
+  let @x = system('~/scripts/unix2local.sh '.udate)
+  normal "xp
+  normal kJ
+endfunction
+
+"function! VisualSelection(direction, extra_filter) range
+    "let l:saved_reg = @"
+    "execute "normal! vgvy"
+
+    "let l:pattern = escape(@", '\\/.*$^~[]')
+    "let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    "if a:direction == 'b'
+        "execute "normal ?" . l:pattern . "^M"
+    "elseif a:direction == 'gv'
+        "execute "Ag \"" . l:pattern . "\" " )
+    "elseif a:direction == 'replace'
+        "call CmdLine("%s" . '/'. l:pattern . '/')
+    "elseif a:direction == 'f'
+        "execute "normal /" . l:pattern . "^M"
+    "endif
+
+    "let @/ = l:pattern
+    "let @" = l:saved_reg
+"endfunction
+
+"should have sudo'd on open dummy
+command! W w !sudo tee % > /dev/null
+
+function! FixLastSpellingError()
+ let position = getpos('.')[1:3]
+ let current_line_length = len(getline('.'))
+ normal! [s1z=
+ let new_line_length = len(getline('.'))
+ let position[1] += (new_line_length - current_line_length)
+ call cursor(position)
 endfunction

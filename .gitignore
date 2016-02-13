@@ -7,3 +7,5 @@
 *.lo
 *.so
 *.com
+*session*
+*plugins*

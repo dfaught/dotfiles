@@ -5,7 +5,6 @@ set showcmd
 set showmatch
 set ignorecase
 set smartcase
-set smarttab
 set laststatus=2
 
 "linenumbers
@@ -38,26 +37,26 @@ filetype indent on
 "Color & theme
 "set background=light
 "let g:solarized_contrast="low"
-"let g:solarized_contrast="normal"
+let g:solarized_contrast="normal"
 "let g:solarized_contrast="high"
 "let g:solarized_termcolors=256
-"let g:solarized_termcolors=16
-"let g:solarized_termtrans=1
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
 "let g:solarized_visibility="low"
-"let g:solarized_visibility="normal"
+let g:solarized_visibility="normal"
 "let g:solarized_visibility="high"
-"colorscheme solarized
-colorscheme kalisi
+colorscheme solarized
+"colorscheme kalisi
 "colorscheme tungsten
 "colorscheme base16-solarized
 
 set background=dark
 
 " Diff colors - standard vimdiff colors aren't very helpful, especially not with solarized.
-"highlight DiffAdd      cterm=bold  ctermfg=34 ctermbg=234
-"highlight DiffChange   cterm=bold  ctermfg=249 ctermbg=240
-"highlight DiffDelete   cterm=bold  ctermfg=160   ctermbg=241
-"highlight DiffText     cterm=bold  ctermfg=black ctermbg=37
+highlight DiffAdd      ctermfg=8 ctermbg=2
+highlight DiffChange   cterm=undercurl ctermfg=3 ctermbg=8
+highlight DiffDelete   ctermfg=1   ctermbg=8
+highlight DiffText     cterm=bold  ctermfg=15 ctermbg=4
 
 set cursorline
 set cursorcolumn
@@ -65,15 +64,15 @@ set cursorcolumn
 set colorcolumn=120
 
 " Override Solarized color column colors
-"if has('gui_running')
-"  highlight ColorColumn guibg=orange
-"  "highlight CursorColumn guibg=
-"  "highlight CursorLine guibg=
-"else
-"  highlight ColorColumn ctermbg=52
-""  highlight CursorColumn ctermbg=245
-" " highlight CursorLine ctermbg=245
-"endif
+if has('gui_running')
+  highlight ColorColumn guibg=orange
+  "highlight CursorColumn guibg=
+  "highlight CursorLine guibg=
+else
+  highlight ColorColumn ctermbg=52
+"  highlight CursorColumn ctermbg=245
+ " highlight CursorLine ctermbg=245
+endif
 
 "Code Folding
 au FileType cs set foldmethod=syntax
@@ -82,4 +81,10 @@ au FileType cpp set foldmethod=syntax
 au FileType cpp set foldlevelstart=4
 au FileType py set foldmethod=syntax
 au FileType py set foldlevelstart=4
+
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
+
+"let c_space_errors=1
+
+"set ambiwidth=double
 

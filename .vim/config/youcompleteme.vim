@@ -1,7 +1,7 @@
 "youcompleteme.vim
 
 let g:ycm_confirm_extra_conf                        = 0
-let g:ycm_global_ycm_extra_conf                     = '~/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf                     = '~/.ycm_extra_conf.py'
 
 let g:ycm_auto_start_csharp_server                  = 1
 let g:ycm_auto_stop_csharp_server                   = 1
@@ -30,3 +30,6 @@ let g:ycm_add_preview_to_completeopt                = 1
 "let g:ycm_key_list_previous_completion              = ['<C-S-Tab>', '<Up>']
 
 let g:ycm_goto_buffer_command                       = 'horizontal-split'
+
+"let g:ycm_server_keep_logfiles=1
+"let g:ycm_server_log_level=debug

@@ -3,6 +3,7 @@
 
 au BufRead /tmp/mutt-* set tw=120
 au BufRead /tmp/mutt-* setlocal fo+=aw
+au BufRead /tmp/mutt-* call AutoCorrect()
 
 " Define the default highlighting.
 hi def link mailVerbatim          Special
