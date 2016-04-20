@@ -27,3 +27,5 @@ hi def link mailQuoteExp4         mailQuoted4
 hi def link mailQuoteExp5         mailQuoted5
 hi def link mailQuoteExp6         mailQuoted6
 
+hi clear SpellBad
+hi SpellBad ctermfg=15 ctermbg=1

@@ -28,7 +28,7 @@ set mask="!^\\.[^.]"
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
 mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam" "+Family/Keep"
-mailboxes "+dfaught/dfaught" "+dfaught/linux-kernel" "+dfaught/linux-newbies" "+dfaught/linux-gpio" "+dfaught/linux-gcc" "+dfaught/linux-serial" "+dfaught/linux-crypto" "+dfaught/linux-usb" "+dfaught/kernel-janitors"
+mailboxes "+dfaught/dfaught"
 mailboxes "+trash"
 
 set alias_file=~/dotfiles/.mail-config/.aliases
@@ -100,12 +100,12 @@ folder-hook =dfaught set from = "dfaught@tx.rr.com"
 
 # Sidebar Patch --------------------------------------
 set sidebar_delim   = '|'
-set sidebar_delim_chars = '/.'
 set sidebar_visible = yes
 set sidebar_width   = 60
 color sidebar_new color45 default
 color sidebar_flagged color9 default
-#set sidebar_shortpath=yes
+set sidebar_shortpath = yes
+set sidebar_folderindent = yes
 
 bind index gg      first-entry
 bind index G      last-entry

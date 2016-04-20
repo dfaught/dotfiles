@@ -20,8 +20,9 @@ application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; mutt_bgrun li
 application/ppt; mutt_bgrun libreoffice --impress %U %s;
 application/vnd.ms-powerpoint; mutt_bgrun libreoffice --impress %U %s;
 application/x-mspowerpoint; mutt_bgrun libreoffice --impress %U %s;
+application/vnd.openxmlformats-officedocument.presentationml.presentation; mutt_bgrun libreoffice --impress %U %s;
 
-application/pdf; mutt_bgrun acroread -tempFile -openInNewInstance %s;
+application/pdf; mutt_bgrun evince %s;
 
 image/*; mutt_bgrun ristretto %s;
 

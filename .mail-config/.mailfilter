@@ -54,7 +54,9 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
       /^From: .*CommunityUUChurch.com/ || \
       /^From: .*airfiltersdelivered.com/ || \
       /^From: .*elcocobeach.com/ || \
-      /^From: .*demandforced3.com/)
+      /^From: .*demandforced3.com/ || \
+      /^From: .*frontgate-email.com/ || \
+      /^From: .*appliance-alerts.com/)
   {
     to $MAILBOX/Spam/
   }
