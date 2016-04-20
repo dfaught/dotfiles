@@ -24,12 +24,16 @@ let g:ycm_complete_in_strings                       = 1
 
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files       = 1
+let g:ymc_seed_identifiers_with_syntax              = 1
 let g:ycm_add_preview_to_completeopt                = 1
 
-"let g:ycm_key_list_select_completion                = ['<C-Tab>', '<Down>']
-"let g:ycm_key_list_previous_completion              = ['<C-S-Tab>', '<Up>']
+let g:ycm_key_list_select_completion                = ['<Tab>', '<Down>']
+let g:ycm_key_list_previous_completion              = ['<S-Tab>', '<Up>']
 
 let g:ycm_goto_buffer_command                       = 'horizontal-split'
 
 "let g:ycm_server_keep_logfiles=1
 "let g:ycm_server_log_level=debug
+
+"I use <C-Space> for tmux now.
+let g:ycm_key_invoke_completion = '<C-CR>'

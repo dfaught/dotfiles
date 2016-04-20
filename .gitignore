@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 .*.log
 *.sql
@@ -9,3 +10,8 @@
 *.com
 *session*
 *plugins*
+=======
+doc/tags
+*.lock
+.vim-flavor
+>>>>>>> 1bb8b6278e901cbc282535cabb1f6e17f8059e2a
