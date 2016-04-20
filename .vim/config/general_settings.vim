@@ -30,7 +30,9 @@ set smartindent
 set gdefault
 set incsearch
 set backspace=indent,eol,start
-set mouse=a
+"set mouse=a
 set mousehide
 
 set vb t_vb=
+
+set nospell

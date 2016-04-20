@@ -28,41 +28,42 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "  some additional hot keys
 "-------------------------------------------------------------------------------
 "    F1   -  System use - do not map
-"    F2   -  Show list of buffers
+"    F2   -  Toggle spelling
 "    F3   -  set relative number
 "    F4   -  System use - do not map
-"    F5   -  OmniSharpBuild
+"    F5   -  Dispatch
 "    F6   -  vim-signature: show marks in current buffer
 "    F7   -  Trim trailing whites
 "    F8   -  CtlrP fuzzy file search
 "    F9   -  CtlrP fuzzy buffer search
 "    F10  -  Gundo
-"    F11  -  Geeknote
+"    F11  -  Unused
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
-nnoremap  <silent><F2>        :ls<CR>
+nnoremap  <silent><F2>        :set spell!<CR>
+vnoremap  <silent><F2>        :set spell!<CR>
+inoremap  <silent><F2>        :set spell!<CR>
 nnoremap  <silent><F3>        :set relativenumber!<CR>
-autocmd Filetype cs noremap   <silent><F5>        :wa!<cr>:OmniSharpBuildAsync<cr>
-autocmd Filetype cs inoremap  <silent><F5>        <Esc>:wa!<cr>:OmniSharpBuildAsync<cr>
-autocmd Filetype c,cpp,h,hpp nnoremap <silent><F5>         :wa!<cr>:Pyclewn<cr>
-autocmd Filetype c,cpp,h,hpp inoremap <silent><F5>         <Esc>:wa!<cr>:Pyclewn<cr>
-"nnoremap  <silent><F6>        '?
+nnoremap  <silent><F5>        :wa!<cr>:Dispatch<cr>
+inoremap  <silent><F5>        <Esc>:wa!<cr>:Dispatch<cr>
+nnoremap  <silent><Leader><F5>        :wa!<cr>:Pyclewn<cr>
+nnoremap  <silent><F6>        :call InterestingWords('n')<CR>
+inoremap  <silent><F6>        :call InterestingWords('n')<CR>
+vnoremap  <silent><F6>        :call InterestingWords('v')<CR>
+nnoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
+inoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
+vnoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
+nnoremap  <silent><F7>       :ShowWhiteToggle<CR>
 nnoremap  <silent><F7>       :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7>     :call TrimWhiteSpace()<CR>
 nnoremap  <silent><F8>       :CtrlPMixed<CR>
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
 nnoremap <silent><F10> :GundoToggle<CR>
 
-"Crushes previous window allow max space for current.
-map   <C-J><Space> <C-W>j<C-W>_
-map   <C-K><Space> <C-W>k<C-W>_
-map   <C-H><Space> <C-W>h<C-W><Bar>
-map   <C-L><Space> <C-W>l<C-W><Bar>
-
-nnoremap   <C-J> <C-W>j
-nnoremap   <C-K> <C-W>k
-nnoremap   <C-H> <C-W>h
-nnoremap   <C-L> <C-W>l
+"noremap   <C-J> <C-W>j
+"noremap   <C-K> <C-W>k
+"noremap   <C-H> <C-W>h
+"noremap   <C-L> <C-W>l
 
 "resize windows
 map <C-w><Up>    <C-W>+<C-W>+
@@ -110,26 +111,9 @@ nnoremap <silent> <leader><space> za
 nmap <silent> <leader>z zm
 nmap <silent> <leader>zz zr
 
-"Fold levels - thanks SPF
-"Change these... you never use them.
-nmap <leader>F1 :set foldlevel=1<CR>
-nmap <leader>F2 :set foldlevel=2<CR>
-nmap <leader>F3 :set foldlevel=3<CR>
-nmap <leader>F4 :set foldlevel=4<CR>
-nmap <leader>F5 :set foldlevel=5<CR>
-nmap <leader>F6 :set foldlevel=6<CR>
-nmap <leader>F7 :set foldlevel=7<CR>
-nmap <leader>F8 :set foldlevel=8<CR>
-nmap <leader>F9 :set foldlevel=9<CR>
-
 "V mode mappings
 vnoremap < <gv
 vnoremap > >gv
-
-"tmux remappings - I map <C-A> to be the tmux trigger key...
-"nmap <C-N> <C-A>
-"vmap <C-N> <C-A>
-"imap <C-N> <C-A>
 
 " ag bindings
 nnoremap <Leader>s :Ag!<space>
@@ -174,16 +158,13 @@ noremap <leader>gt :YcmCompleter GetType<CR>
 noremap <leader>gd :YcmCompleter GetDoc<CR>
 noremap <leader>fi  :YcmCompleter FixIt<CR>
 
-" Mark keys
-nnoremap <leader>mc :MarkClear<CR>
-
 " Diff mappings
-nnoremap <leader>gl :diffg MINE<CR>
-nnoremap <leader>gr :diffg THEIRS<CR>
-nnoremap <leader>gb :diffg BASE<CR>
-nnoremap <leader>nd ]c
-nnoremap <leader>pd [c
-nnoremap <leader>du :diffupdate<CR>
+nnoremap <leader>gl :diffg MINE<CR>:diffupdate<CR>
+nnoremap <leader>gr :diffg THEIRS<CR>:diffupdate<CR>
+nnoremap <leader>gb :diffg BASE<CR>:diffupdate<CR>
+nnoremap <localleader>nd ]c
+nnoremap <localleader>pd [c
+nnoremap <localleader>du :diffupdate<CR>
 
 " Pyclewn mappings
 map <leader>p :exe "Cprint" . expand("<cword>")<CR>
@@ -238,4 +219,10 @@ inoremap <Leader>tp <Esc>:set paste!<CR>a
 vnoremap <Leader>tp :set paste!<CR>
 
 "spelling stuff
-nnoremap <leader>w :call FixLastSpellingError()<cr>
+noremap <leader>w :call FixLastSpellingError()<cr>
+noremap <leader>W z=
+
+nnoremap <silent> <S-Down> :<C-u>call <SID>Undojoin()<CR>:<C-u>move +1<CR>==:<C-u>call <SID>SetUndojoinFlag('n')<CR>
+nnoremap <silent> <S-Up>   :<C-u>call <SID>Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call <SID>SetUndojoinFlag('n')<CR>
+xnoremap <silent> <S-Down> :<C-u>call <SID>Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call <SID>SetUndojoinFlag('v')<CR>gv
+xnoremap <silent> <S-Up>   :<C-u>call <SID>Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call <SID>SetUndojoinFlag('v')<CR>gv>'

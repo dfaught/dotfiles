@@ -119,3 +119,20 @@ function! FixLastSpellingError()
  let position[1] += (new_line_length - current_line_length)
  call cursor(position)
 endfunction
+
+function! s:SetUndojoinFlag(mode)
+    augroup undojoin_flag
+        autocmd!
+        if a:mode ==# 'v'
+            autocmd CursorMoved * autocmd undojoin_flag CursorMoved * autocmd! undojoin_flag
+        else
+            autocmd CursorMoved * autocmd! undojoin_flag
+        endif
+    augroup END
+endfunction
+
+function! s:Undojoin()
+    if exists('#undojoin_flag#CursorMoved')
+        silent! undojoin
+    endif
+endfunction

@@ -1,3 +1,3 @@
 "supertab
 
-let g:SuperTabDefaultCompletionType='<C-Tab>'
+let g:SuperTabDefaultCompletionType='<Tab>'
