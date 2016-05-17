@@ -3,6 +3,9 @@
 
 let g:syntastic_check_on_open=1
 
+au FileType cpp let g:syntastic_check_on_open=0
+au FileType cpp set foldlevelstart=4
+
 "use fancy symbols
 "let g:syntastic_error_symbol='✗'
 "let g:syntastic_warning_symbol='⚠'
@@ -24,8 +27,8 @@ let g:syntastic_stl_format= '[%E{E: %e}%B{, } %W{W: %w}]'
 let g:syntastic_enable_c_checker=0
 let g:syntastic_enable_cpp_checker=0
 let g:syntastic_c_checkers=['gcc']
-let g:syntastic_c_check_header=1
-let g:syntastic_cpp_check_header=1
+let g:syntastic_c_check_header=0
+let g:syntastic_cpp_check_header=0
 let g:syntastic_c_remove_include_errors=1
 let g:syntastic_cpp_remove_include_errors=1
 let g:syntastic_cpp_no_include_search=1
