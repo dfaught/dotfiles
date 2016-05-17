@@ -25,12 +25,10 @@ set scrolloff=3
 "indent
 set autoindent
 set smartindent
-"test
 
 set gdefault
 set incsearch
 set backspace=indent,eol,start
-"set mouse=a
 set mousehide
 
 set vb t_vb=

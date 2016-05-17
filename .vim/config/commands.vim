@@ -120,7 +120,7 @@ function! FixLastSpellingError()
  call cursor(position)
 endfunction
 
-function! s:SetUndojoinFlag(mode)
+function! SetUndojoinFlag(mode)
     augroup undojoin_flag
         autocmd!
         if a:mode ==# 'v'
@@ -131,7 +131,7 @@ function! s:SetUndojoinFlag(mode)
     augroup END
 endfunction
 
-function! s:Undojoin()
+function! Undojoin()
     if exists('#undojoin_flag#CursorMoved')
         silent! undojoin
     endif

@@ -13,6 +13,7 @@ vnoremap <tab> %
 "actions w %
 nnoremap c<tab> c%
 nnoremap d<tab> d%
+nnoremap y<tab> y%
 
 "-------------------------------------------------------------------------------
 " Fast switching between buffers
@@ -29,7 +30,7 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 "    F1   -  System use - do not map
 "    F2   -  Toggle spelling
-"    F3   -  set relative number
+"    F3   -  Unused
 "    F4   -  System use - do not map
 "    F5   -  Dispatch
 "    F6   -  vim-signature: show marks in current buffer
@@ -43,21 +44,34 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
 inoremap  <silent><F2>        :set spell!<CR>
-nnoremap  <silent><F3>        :set relativenumber!<CR>
-nnoremap  <silent><F5>        :wa!<cr>:Dispatch<cr>
-inoremap  <silent><F5>        <Esc>:wa!<cr>:Dispatch<cr>
+
+"nnoremap  <silent><F3>        :set relativenumber!<CR>
+
+nnoremap  <silent><F5>                :wa!<cr>:Dispatch<cr>
+inoremap  <silent><F5>                <Esc>:wa!<cr>:Dispatch<cr>
 nnoremap  <silent><Leader><F5>        :wa!<cr>:Pyclewn<cr>
-nnoremap  <silent><F6>        :call InterestingWords('n')<CR>
-inoremap  <silent><F6>        :call InterestingWords('n')<CR>
-vnoremap  <silent><F6>        :call InterestingWords('v')<CR>
-nnoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
-inoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
-vnoremap  <silent><Leader><F6>        :call UncolorAllWords()<CR>
-nnoremap  <silent><F7>       :ShowWhiteToggle<CR>
-nnoremap  <silent><F7>       :ShowWhiteToggle<CR>
-nnoremap  <silent><Leader><F7>     :call TrimWhiteSpace()<CR>
+
+nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
+inoremap  <silent><F6>         :call InterestingWords('n')<CR>
+vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
+nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
+inoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
+vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
+
+nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
+vnoremap  <silent><F7>         :ShowWhiteToggle<CR>
+inoremap  <silent><F7>         :ShowWhiteToggle<CR>
+nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
+vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
+
 nnoremap  <silent><F8>       :CtrlPMixed<CR>
+inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
+inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+
 nnoremap <silent><F10> :GundoToggle<CR>
 
 "noremap   <C-J> <C-W>j
@@ -94,6 +108,9 @@ nnoremap <Leader>P "+P
 vnoremap <Leader>p "+p
 vnoremap <Leader>P "+P
 
+"yank all to clipboard
+nnoremap <Leader>A :%y+<CR>
+
 "select all
 nnoremap <Leader>a ggVG
 
@@ -108,7 +125,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "Toggle current fold"
 nnoremap <silent> <leader><space> za
 "Close/Open all folds"
-nmap <silent> <leader>z zm
+nmap <silent> <leader>cz zm
 nmap <silent> <leader>zz zr
 
 "V mode mappings
@@ -116,7 +133,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " ag bindings
-nnoremap <Leader>s :Ag!<space>
+nnoremap <Leader>s :Ag
 
 "make mappings for Dispatch
 nmap <Leader>M :Make<CR>
@@ -162,8 +179,8 @@ noremap <leader>fi  :YcmCompleter FixIt<CR>
 nnoremap <leader>gl :diffg MINE<CR>:diffupdate<CR>
 nnoremap <leader>gr :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <leader>gb :diffg BASE<CR>:diffupdate<CR>
-nnoremap <localleader>nd ]c
-nnoremap <localleader>pd [c
+nnoremap <localleader>n ]c
+nnoremap <localleader>p [c
 nnoremap <localleader>du :diffupdate<CR>
 
 " Pyclewn mappings
@@ -222,7 +239,10 @@ vnoremap <Leader>tp :set paste!<CR>
 noremap <leader>w :call FixLastSpellingError()<cr>
 noremap <leader>W z=
 
-nnoremap <silent> <S-Down> :<C-u>call <SID>Undojoin()<CR>:<C-u>move +1<CR>==:<C-u>call <SID>SetUndojoinFlag('n')<CR>
-nnoremap <silent> <S-Up>   :<C-u>call <SID>Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call <SID>SetUndojoinFlag('n')<CR>
-xnoremap <silent> <S-Down> :<C-u>call <SID>Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call <SID>SetUndojoinFlag('v')<CR>gv
-xnoremap <silent> <S-Up>   :<C-u>call <SID>Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call <SID>SetUndojoinFlag('v')<CR>gv>'
+nnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>move +1<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
+nnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
+xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv
+xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
+
+" Misc stuff or stuff to try
+nnoremap <Space><Space> :w<CR>

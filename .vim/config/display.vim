@@ -75,14 +75,15 @@ else
   endif
 endif
 
-"Code Folding
-au FileType cs set foldmethod=syntax
-au FileType cs set foldlevelstart=3
-au FileType cpp set foldmethod=syntax
-au FileType cpp set foldlevelstart=4
-au FileType py set foldmethod=syntax
-au FileType py set foldlevelstart=4
+"Code Folding - I'm tired of unfolding everything
+"au FileType cs set foldmethod=syntax
+"au FileType cs set foldlevelstart=3
+"au FileType cpp set foldmethod=syntax
+"au FileType cpp set foldlevelstart=4
+"au FileType py set foldmethod=syntax
+"au FileType py set foldlevelstart=4
 
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
+set ttyfast
 set lazyredraw
