@@ -2,8 +2,9 @@
 "
 
 au BufRead /tmp/mutt-* set tw=120
-au BufRead /tmp/mutt-* setlocal fo+=aw
+au BufRead /tmp/mutt-* setlocal fo+=awnq
 au BufRead /tmp/mutt-* call AutoCorrect()
+au Bufread /tmp/mutt-* setlocal formatlistpat=^\\s*[\\[({]\\\?\\([0-9]\\+\\\|[iIvVxXlLcCdDmM]\\+\\\|[a-zA-Z]\\)[\\]:.)}]\\s\\+\\\|^\\s*[-+o*]\\s\\+)]]
 
 " Define the default highlighting.
 hi def link mailVerbatim          Special
