@@ -92,7 +92,8 @@ map <Leader>x :close<CR>
 map <Leader>r <C-W>=
 
 " Toggle to last buffer
-map <Leader>b <C-^>
+"map <Leader>b <C-^>
+map <BS> <C-^>
 
 " Kill the current buffer
 map <Leader>xb :bd<CR>
@@ -136,13 +137,13 @@ vnoremap > >gv
 nnoremap <Leader>s :Ag
 
 "make mappings for Dispatch
-nmap <Leader>M :Make<CR>
-imap <Leader>M <Esc>:wa<CR>:Make<CR>
-vmap <Leader>M <Esc>:Make<CR>
+nmap <Leader>M :Make<Space>
+imap <Leader>M <Esc>:wa<Space>:Make<Space>
+vmap <Leader>M <Esc>:Make<Space>
 
-nmap <C-CR> :Make!<CR>
-imap <C-CR> <Esc>:Make!<CR>
-vmap <C-CR> <Esc>:Make!<CR>
+nmap <C-CR> :Make!<Space>
+imap <C-CR> <Esc>:Make!<Space>
+vmap <C-CR> <Esc>:Make!<Space>
 
 nmap <C-E> :Copen<CR>
 vmap <C-E> <Esc>:Copen<CR>
@@ -158,9 +159,6 @@ map       ::       <Esc><Esc>:TagbarToggle<CR>
 "NERDTree mappings
 nmap <silent> <leader>; :NERDTreeFind<CR>
 map       ;;                 :NERDTreeToggle<CR>
-
-"Rainbow paren mapping
-nnoremap <leader>R :RainbowParenthesesToggle<CR>
 
 "Scracth mappings
 nnoremap <Leader>sb :Sscratch<CR>
@@ -227,9 +225,6 @@ vmap <Leader>Z <C-w>o
 "insert current buffer name
 imap <Leader>fn <c-r>=expand('%:t:r')<CR>
 
-" When you press gv you Ag after the selected text
-"vnoremap <silent> av :call VisualSelection('gv', '')<CR>
-
 " paste mode
 nnoremap <Leader>tp :set paste!<CR>
 inoremap <Leader>tp <Esc>:set paste!<CR>a
@@ -244,5 +239,8 @@ nnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call 
 xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv
 xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
-" Misc stuff or stuff to try
+" Experimental stuff or stuff to try below this line
 nnoremap <Space><Space> :w<CR>
+
+" Used primarly from Mutt
+nnoremap Q  :wq<CR>

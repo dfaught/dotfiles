@@ -29,6 +29,14 @@ if $TERM == "xterm" || $TERM == "xterm-256color-italic" || $TERM == "screen-256c
   set t_Co=256
 endif
 
+if has('termguicolors')
+  set termguicolors
+endif
+
+if has('guicolors')
+  set guicolors
+endif
+
 " Syntax & filetype
 syntax on
 filetype indent on
@@ -76,12 +84,14 @@ else
 endif
 
 "Code Folding - I'm tired of unfolding everything
+set foldmethod=syntax
+set foldlevelstart=99
 "au FileType cs set foldmethod=syntax
-"au FileType cs set foldlevelstart=3
+"au FileType cs set foldlevelstart=99
 "au FileType cpp set foldmethod=syntax
-"au FileType cpp set foldlevelstart=4
+"au FileType cpp set foldlevelstart=99
 "au FileType py set foldmethod=syntax
-"au FileType py set foldlevelstart=4
+"au FileType py set foldlevelstart=99
 
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 

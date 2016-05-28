@@ -33,8 +33,8 @@ send-keys -t 2 'wd ssf' C-m
 send-keys -t 3 'wd ssf' C-m
 send-keys -t 4 'wd ssf' C-m
 
-neww -n Release
-splitw -h -p 60 -t 0 
+neww -n Dev
+splitw -h -p 40 -t 0 
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0
