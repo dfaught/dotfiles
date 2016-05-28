@@ -92,7 +92,8 @@ map <Leader>x :close<CR>
 map <Leader>r <C-W>=
 
 " Toggle to last buffer
-map <Leader>b <C-^>
+"map <Leader>b <C-^>
+map <BS> <C-^>
 
 " Kill the current buffer
 map <Leader>xb :bd<CR>
@@ -244,5 +245,8 @@ nnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call 
 xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv
 xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
-" Misc stuff or stuff to try
+" Experimental stuff or stuff to try below this line
 nnoremap <Space><Space> :w<CR>
+
+" Used primarly from Mutt
+nnoremap Q  :wq<CR>
