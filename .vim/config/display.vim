@@ -29,13 +29,13 @@ if $TERM == "xterm" || $TERM == "xterm-256color-italic" || $TERM == "screen-256c
   set t_Co=256
 endif
 
-if has('termguicolors')
-  set termguicolors
-endif
+"if has('termguicolors')
+  "set termguicolors
+"endif
 
-if has('guicolors')
-  set guicolors
-endif
+"if has('guicolors')
+  "set guicolors
+"endif
 
 " Syntax & filetype
 syntax on
@@ -61,6 +61,9 @@ highlight DiffAdd      ctermfg=8 ctermbg=2
 highlight DiffChange   ctermfg=3 ctermbg=8
 highlight DiffDelete   ctermfg=1   ctermbg=8
 highlight DiffText     cterm=bold  ctermfg=15 ctermbg=4
+
+" I switched to 24-bit color and solarized because hard to see in the gutter
+highlight SignColumn   ctermbg=8
 
 set cursorline
 set cursorcolumn

@@ -3,7 +3,7 @@ execute pathogen#infect()
 filetype plugin on
 
 let mapleader=','
-let maplocalleader='-'
+let maplocalleader='\'
 
 runtime! config/**/*
 
