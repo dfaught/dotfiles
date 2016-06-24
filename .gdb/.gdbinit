@@ -11,7 +11,7 @@ set auto-load safe-path /
 
 python
 import sys
-sys.path.insert(0, '/home/derek/gits/gcc/libstdc++-v3/python/libstdcxx/v6')
+sys.path.insert(0, '/usr/local/share/gcc-4.9.2/python/libstdcxx/v6')
 #from libstdcxx.v6.printers import register_libstdcxx_printers
 #register_libstdcxx_printers (None)
 end

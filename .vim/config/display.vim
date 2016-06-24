@@ -55,14 +55,6 @@ let g:solarized_visibility="normal"
 "let g:solarized_visibility="high"
 colorscheme solarized
 
-
-" Diff colors - standard vimdiff colors aren't very helpful, especially not with solarized.
-highlight DiffAdd      ctermfg=8 ctermbg=2
-highlight DiffChange   ctermfg=3 ctermbg=8
-highlight DiffDelete   ctermfg=1   ctermbg=8
-highlight DiffText     cterm=bold  ctermfg=15 ctermbg=4
-
-" I switched to 24-bit color and solarized because hard to see in the gutter
 highlight SignColumn   ctermbg=8
 
 set cursorline
@@ -78,12 +70,6 @@ else
   highlight ColorColumn ctermbg=52
   "highlight CursorLine cterm=underline ctermbg=8
   highlight CursorLine ctermbg=0
-
-  if &diff
-    set cursorcolumn!
-    set cursorline!
-    set spell!
-  endif
 endif
 
 "Code Folding - I'm tired of unfolding everything

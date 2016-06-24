@@ -2,13 +2,15 @@ filetype plugin off
 execute pathogen#infect()
 filetype plugin on
 
-let mapleader=','
+"let mapleader=','
+nnoremap <Space> <Nop>
+let mapleader=" "
 let maplocalleader='\'
 
 runtime! config/**/*
 
 if has("autocmd")
-    autocmd BufEnter * :lchdir %:p:h
+    "autocmd BufEnter * :lchdir %:p:h
     autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
     autocmd FileType mail set spell
 endif
