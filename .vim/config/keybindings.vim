@@ -22,8 +22,8 @@ nnoremap y<tab> y%
 "-------------------------------------------------------------------------------
 noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
      \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
-     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+"inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
+     "\                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
 "  some additional hot keys
@@ -43,19 +43,19 @@ inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
-inoremap  <silent><F2>        :set spell!<CR>
+"inoremap  <silent><F2>        :set spell!<CR>
 
 nnoremap  <silent><F3>        :lcd $WORKSPACE_ROOT<CR>
 
-nnoremap  <silent><F5>                :wa!<cr>:Dispatch<cr>
-inoremap  <silent><F5>                <Esc>:wa!<cr>:Dispatch<cr>
+nnoremap  <F5>                :wa!<cr>:Make<Space>
+"inoremap  <silent><F5>                <Esc>:wa!<cr>:Dispatch<cr>
 nnoremap  <silent><Leader><F5>        :wa!<cr>:Pyclewn<cr>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
 inoremap  <silent><F6>         :call InterestingWords('n')<CR>
 vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
-"inoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
+inoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 
 nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
@@ -137,18 +137,13 @@ vnoremap > >gv
 nnoremap <Leader>s :Ag<Space>
 
 "make mappings for Dispatch
-nnoremap <kEnter> :Make<Space>
-
 nmap <C-CR> :Make!<Space>
-imap <C-CR> <Esc>:Make!<Space>
 vmap <C-CR> <Esc>:Make!<Space>
 
 nmap <C-E> :Copen<CR>
 vmap <C-E> <Esc>:Copen<CR>
-imap <C-E> <Esc>:Copen<CR>
 
 nmap <C-M><C-C> :make clean<CR>
-imap <C-M><C-C> <Esc>:make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
 "Tagbar mapping
@@ -161,7 +156,6 @@ map       ;;                 :NERDTreeToggle<CR>
 "Scracth mappings
 nnoremap <Leader>sb :Sscratch<CR>
 vnoremap <Leader>sb :Sscratch<CR>
-"inoremap <Leader>sb :Sscratch<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -213,7 +207,7 @@ nmap <Leader>dx :Dox<CR>
 
 "Zoomwin
 nmap <Leader>Z <C-w>o
-"imap <Leader>Z <C-w>o
+imap <C-S-Z> <C-w>o
 vmap <Leader>Z <C-w>o
 
 "insert current buffer name
@@ -221,7 +215,7 @@ vmap <Leader>Z <C-w>o
 
 " paste mode
 nnoremap <Leader>tp :set paste!<CR>
-inoremap <C-t><C-p> <Esc>:set paste!<CR>a
+"inoremap <C-t><C-p> <Esc>:set paste!<CR>a
 vnoremap <Leader>tp :set paste!<CR>
 
 "spelling stuff
