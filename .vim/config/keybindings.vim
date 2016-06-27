@@ -48,28 +48,25 @@ vnoremap  <silent><F2>        :set spell!<CR>
 nnoremap  <silent><F3>        :lcd $WORKSPACE_ROOT<CR>
 
 nnoremap  <F5>                :wa!<cr>:Make<Space>
-"inoremap  <silent><F5>                <Esc>:wa!<cr>:Dispatch<cr>
-nnoremap  <silent><Leader><F5>        :wa!<cr>:Pyclewn<cr>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
-inoremap  <silent><F6>         :call InterestingWords('n')<CR>
+"inoremap  <silent><F6>         :call InterestingWords('n')<CR>
 vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
-inoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 
 nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
 vnoremap  <silent><F7>         :ShowWhiteToggle<CR>
-inoremap  <silent><F7>         :ShowWhiteToggle<CR>
+"inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
 nnoremap  <silent><F8>       :CtrlPMixed<CR>
-inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+"inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
 vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
 
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
-inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+"inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 
 nnoremap <silent><F10> :GundoToggle<CR>
@@ -207,7 +204,6 @@ nmap <Leader>dx :Dox<CR>
 
 "Zoomwin
 nmap <Leader>Z <C-w>o
-imap <C-S-Z> <C-w>o
 vmap <Leader>Z <C-w>o
 
 "insert current buffer name
@@ -228,7 +224,8 @@ xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C
 xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
 " Experimental stuff or stuff to try below this line
-nnoremap <Leader><Leader> :w<CR>
+nnoremap <Leader><Space> :w<CR>
 
 " Used primarly from Mutt
 au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>
+
