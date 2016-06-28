@@ -1,7 +1,7 @@
 "ultisnips.vim
 "
 
-let g:UltiSnipsExpandTrigger="<Enter>"
+let g:UltiSnipsExpandTrigger="<LocalLeader>\\"
 let g:UltiSnipsListSnippets="<C-s>"
 let g:UltiSnipsJumpForwardTrigger="<C-i>"
 let g:UltiSnipsJumpBackwardTrigger="<C-o>"

@@ -43,30 +43,30 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
-"inoremap  <silent><F2>        :set spell!<CR>
+inoremap  <silent><F2>        :set spell!<CR>
 
 nnoremap  <silent><F3>        :lcd $WORKSPACE_ROOT<CR>
 
 nnoremap  <F5>                :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
-"inoremap  <silent><F6>         :call InterestingWords('n')<CR>
+inoremap  <silent><F6>         :call InterestingWords('n')<CR>
 vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 
 nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
 vnoremap  <silent><F7>         :ShowWhiteToggle<CR>
-"inoremap  <silent><F7>         :ShowWhiteToggle<CR>
+inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
 nnoremap  <silent><F8>       :CtrlPMixed<CR>
-"inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
 vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
 
 nnoremap  <silent><F9>       :CtrlPBuffer<CR>
-"inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 
 nnoremap <silent><F10> :GundoToggle<CR>
