@@ -30,6 +30,8 @@ set noshowmode
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'dfaught/my-vim-snippets'
+
 Plug 'rking/ag.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
