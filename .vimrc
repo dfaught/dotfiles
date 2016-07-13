@@ -1,8 +1,3 @@
-"filetype plugin off
-"execute pathogen#infect()
-"filetype plugin on
-
-"let mapleader=','
 nnoremap <Space> <Nop>
 let mapleader=" "
 let maplocalleader='\'
@@ -25,10 +20,11 @@ if has("autocmd")
         \ endif
 endif " has("autocmd")
 
-"set showcmd
 set noshowmode
 
 call plug#begin('~/.vim/plugged')
+
+let $GIT_SSL_NO_VERIFY = 'true'
 
 Plug 'dfaught/my-vim-snippets'
 
