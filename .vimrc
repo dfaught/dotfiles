@@ -1,13 +1,11 @@
-filetype plugin off
-execute pathogen#infect()
-filetype plugin on
+"filetype plugin off
+"execute pathogen#infect()
+"filetype plugin on
 
 "let mapleader=','
 nnoremap <Space> <Nop>
 let mapleader=" "
 let maplocalleader='\'
-
-runtime! config/**/*
 
 if has("autocmd")
     "autocmd BufEnter * :lchdir %:p:h
@@ -29,3 +27,73 @@ endif " has("autocmd")
 
 "set showcmd
 set noshowmode
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'rking/ag.vim'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'Raimondi/delimitMate'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on':'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+
+Plug 'ervandew/supertab'
+
+Plug 'godlygeek/tabular'
+
+Plug 'majutsushi/tagbar'
+
+Plug 'edkolev/tmuxline.vim'
+
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+Plug 'https://repo.or.cz/vcscommand'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'panozzaj/vim-autocorrect'
+
+Plug 'craigemery/vim-autotag'
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+
+Plug 'neilagabriel/vim-geeknote'
+
+Plug 'alepex/vim-gtest'
+
+Plug 'lfv89/vim-interestingwords'
+
+Plug 'dzeban/vim-log-syntax'
+
+Plug 'chrisbra/vim-show-whitespace'
+
+Plug 'kshenoy/vim-signature'
+
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-startify'
+
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'benmills/vimux'
+
+Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --omnisharp-completer'}
+
+Plug 'regedarek/Zoomwin'
+
+call plug#end()
+
+runtime! config/**/*

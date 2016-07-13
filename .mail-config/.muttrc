@@ -27,7 +27,7 @@ set mask="!^\\.[^.]"
 
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
-mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam" "+Family/Keep"
+mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam" "+Family/Keep" "+Family/house-2120" "+Family/house-904"
 mailboxes "+dfaught/dfaught"
 mailboxes "+trash"
 
@@ -99,13 +99,13 @@ folder-hook =dfaught set from = "dfaught@tx.rr.com"
 # SIDEBAR STUFF
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '|'
+#set sidebar_delim_c   = '|'
 set sidebar_visible = yes
 set sidebar_width   = 60
 color sidebar_new color45 default
 color sidebar_flagged color9 default
-set sidebar_shortpath = yes
-set sidebar_folderindent = yes
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
 
 bind index gg      first-entry
 bind index G      last-entry
@@ -123,7 +123,8 @@ bind pager gg top
 bind pager G  bottom
 
 #Search Stuff
-set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
+#set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
+set query_command= "python2 ~/.mail-config/.mutt/mutt_ldap.py '%s'"
 bind editor <Tab> complete-query
 
 # Pager View Options ---------------------------------
