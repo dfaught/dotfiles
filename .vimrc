@@ -52,7 +52,7 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'https://repo.or.cz/vcscommand'
+Plug 'git://repo.or.cz/vcscommand'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
