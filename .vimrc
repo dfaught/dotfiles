@@ -75,6 +75,7 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'dzeban/vim-log-syntax'
 
 Plug 'chrisbra/vim-show-whitespace'
+Plug 'chrisbra/vim-diff-enhanced'
 
 Plug 'kshenoy/vim-signature'
 
