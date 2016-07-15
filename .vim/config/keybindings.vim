@@ -171,20 +171,12 @@ nnoremap <localleader>p [c
 nnoremap <localleader>du :diffupdate<CR>
 
 " Pyclewn mappings
-map <leader>p :exe "Cprint" . expand("<cword>")<CR>
-map <leader>P :exe "Cprint" . expand("*<cword>")<CR>
+"map <leader>p :exe "Cprint" . expand("<cword>")<CR>
+"map <leader>P :exe "Cprint" . expand("*<cword>")<CR>
 
-"Tabular mappings
-nmap <Leader><Tab>= :Tabularize /=<CR>
-vmap <Leader><Tab>= :Tabularize /=<CR>
-nmap <Leader><Tab>. :Tabularize /\.<CR>
-vmap <Leader><Tab>. :Tabularize /\.<CR>
-nmap <Leader><Tab>: :Tabularize /:<CR>
-vmap <Leader><Tab>: :Tabularize /:<CR>
-nmap <Leader><Tab>> :Tabularize /><CR>
-vmap <Leader><Tab>> :Tabularize /><CR>
-nmap <Leader><Tab>& :Tabularize /&&<CR>
-vmap <Leader><Tab>& :Tabularize /&&<CR>
+"Easy Align mappings
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "ViMux mappings
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
@@ -207,6 +199,7 @@ nmap <Leader>Z <C-w>o
 vmap <Leader>Z <C-w>o
 
 "insert current buffer name
+"Look in to accomplishing this with a snippet
 "imap <Leader>fn <c-r>=expand('%:t:r')<CR>
 
 " paste mode
