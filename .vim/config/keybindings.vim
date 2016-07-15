@@ -33,11 +33,11 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F3   -  Unused
 "    F4   -  System use - do not map
 "    F5   -  Dispatch
-"    F6   -  vim-signature: show marks in current buffer
+"    F6   -  Mark word/selection as interesting
 "    F7   -  Trim trailing whites
 "    F8   -  CtlrP fuzzy file search
 "    F9   -  CtlrP fuzzy buffer search
-"    F10  -  Gundo
+"    F10  -  Rainbows!
 "    F11  -  Unused
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ nnoremap  <silent><F9>       :CtrlPBuffer<CR>
 inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 
-nnoremap <silent><F10> :GundoToggle<CR>
+nnoremap <silent><F10> :RainboxParentheses!!<CR>
 
 "noremap   <C-J> <C-W>j
 "noremap   <C-K> <C-W>k

@@ -34,6 +34,8 @@ import time as _time
 import ldap as _ldap
 import ldap.sasl as _ldap_sasl
 
+import offlineimap as pwd
+
 _xdg_import_error = None
 try:
     import xdg.BaseDirectory as _xdg_basedirectory
@@ -71,9 +73,7 @@ class Config (_configparser.SafeConfigParser):
     def _setup_encoding_defaults(self):
         default_encoding = _locale.getpreferredencoding(do_setlocale=True)
         for key in ['output-encoding', 'argv-encoding']:
-            self.set(
-                    'system', key,
-                    self.get('system', key, raw=True) or default_encoding)
+            self.set( 'system', key, self.get('system', key, raw=True) or default_encoding)
 
             # HACK: convert sys.std{out,err} to Unicode (not needed in Python 3)
         output_encoding = self.get('system', 'output-encoding')
@@ -125,8 +125,7 @@ class Config (_configparser.SafeConfigParser):
     def _log_xdg_import_error(self):
         global _xdg_import_error
         if _xdg_import_error:
-            LOG.warning(u'could not import xdg.BaseDirectory '
-                        u'or lacking necessary support')
+            LOG.warning(u'could not import xdg.BaseDirectory or lacking necessary support')
             LOG.warning(_xdg_import_error)
             _xdg_import_error = None
 
@@ -140,6 +139,10 @@ CONFIG.set('connection', 'starttls', 'no')
 CONFIG.set('connection', 'basedn', 'ou=people')
 CONFIG.add_section('auth')
 CONFIG.set('auth', 'user', 'derek.faught')
+
+password = pwd.get_password('system', 'work')
+CONFIG.set('auth', 'password', password)
+
 CONFIG.set('auth', 'gssapi', 'no')
 CONFIG.add_section('query')
 CONFIG.set('query', 'filter', '')  # only match entries according to this filter
@@ -192,14 +195,11 @@ class LDAPConnection (object):
             sasl = _ldap_sasl.gssapi()
             self.connection.sasl_interactive_bind_s('', sasl)
         else:
-            self.connection.bind(
-                self.config.get('auth', 'user'),
-                self.config.get('auth', 'password'),
-                _ldap.AUTH_SIMPLE)
+            self.connection.bind( self.config.get('auth', 'user'), self.config.get('auth', 'password'), _ldap.AUTH_SIMPLE)
 
-            def unbind(self):
-                if self.connection is None:
-                    raise RuntimeError('not connected to an LDAP server')
+    def unbind(self):
+        if self.connection is None:
+            raise RuntimeError('not connected to an LDAP server')
         LOG.info(u'unbind from LDAP server')
         self.connection.unbind()
         self.connection = None
@@ -224,8 +224,8 @@ class LDAPConnection (object):
             except _ldap.ADMINLIMIT_EXCEEDED as e:
                 LOG.warn(u'could not handle query results: {0}'.format(e))
                 break
-                if res_data:
-                    # use `yield from res_data` in Python >= 3.3, see PEP 380
+            if res_data:
+                # use `yield from res_data` in Python >= 3.3, see PEP 380
                     for entry in res_data:
                         yield entry
 
@@ -269,10 +269,10 @@ class CachedLDAPConnection (LDAPConnection):
         self._cache = {}
         try:
             data = _json.load(open(path, 'rb'))
-except IOError as e:  # probably "No such file"
-    LOG.warn(u'error reading cache: {0}'.format(e))
-except (ValueError, KeyError) as e:  # probably a corrupt cache file
-    LOG.warn(u'error parsing cache: {0}'.format(e))
+        except IOError as e:  # probably "No such file"
+            LOG.warn(u'error reading cache: {0}'.format(e))
+        except (ValueError, KeyError) as e:  # probably a corrupt cache file
+            LOG.warn(u'error parsing cache: {0}'.format(e))
         else:
             version = data.get('version', None)
             if version == self._cache_version:
@@ -291,13 +291,10 @@ except (ValueError, KeyError) as e:  # probably a corrupt cache file
             f.write('\n'.encode('utf-8'))
 
     def _cache_store(self, query, entries):
-        self._cache[self._cache_key(query=query)] = {
-                'entries': entries,
-                'time': _time.time(),
-                }
+        self._cache[self._cache_key(query=query)] = { 'entries': entries, 'time': _time.time(), }
 
-        def _cache_lookup(self, query):
-            data = self._cache.get(self._cache_key(query=query), None)
+    def _cache_lookup(self, query):
+        data = self._cache.get(self._cache_key(query=query), None)
         if data is None:
             return (False, data)
         return (True, data['entries'])
