@@ -72,10 +72,10 @@ class Config (_configparser.SafeConfigParser):
         default_encoding = _locale.getpreferredencoding(do_setlocale=True)
         for key in ['output-encoding', 'argv-encoding']:
             self.set(
-                'system', key,
-                self.get('system', key, raw=True) or default_encoding)
+                    'system', key,
+                    self.get('system', key, raw=True) or default_encoding)
 
-        # HACK: convert sys.std{out,err} to Unicode (not needed in Python 3)
+            # HACK: convert sys.std{out,err} to Unicode (not needed in Python 3)
         output_encoding = self.get('system', 'output-encoding')
         _sys.stdout = _codecs.getwriter(output_encoding)(_sys.stdout)
         _sys.stderr = _codecs.getwriter(output_encoding)(_sys.stderr)
@@ -99,7 +99,7 @@ class Config (_configparser.SafeConfigParser):
         "Get configuration file paths"
         if _xdg_basedirectory:
             paths = list(reversed(list(
-                        _xdg_basedirectory.load_config_paths(''))))
+                _xdg_basedirectory.load_config_paths(''))))
             if not paths:  # setup something for a useful log message
                 paths.append(_xdg_basedirectory.save_config_path(''))
         else:
@@ -126,7 +126,7 @@ class Config (_configparser.SafeConfigParser):
         global _xdg_import_error
         if _xdg_import_error:
             LOG.warning(u'could not import xdg.BaseDirectory '
-                u'or lacking necessary support')
+                        u'or lacking necessary support')
             LOG.warning(_xdg_import_error)
             _xdg_import_error = None
 
@@ -140,18 +140,17 @@ CONFIG.set('connection', 'starttls', 'no')
 CONFIG.set('connection', 'basedn', 'ou=people')
 CONFIG.add_section('auth')
 CONFIG.set('auth', 'user', 'derek.faught')
-CONFIG.set('auth', 'password', '5cubapr0!0')
 CONFIG.set('auth', 'gssapi', 'no')
 CONFIG.add_section('query')
-CONFIG.set('query', 'filter', '') # only match entries according to this filter
-CONFIG.set('query', 'search-fields', 'cn displayName uid mail') # fields to wildcard search
+CONFIG.set('query', 'filter', '')  # only match entries according to this filter
+CONFIG.set('query', 'search-fields', 'cn displayName uid mail')  # fields to wildcard search
 CONFIG.add_section('results')
-CONFIG.set('results', 'optional-column', '') # mutt can display one optional column
+CONFIG.set('results', 'optional-column', '')  # mutt can display one optional column
 CONFIG.add_section('cache')
-CONFIG.set('cache', 'enable', 'yes') # enable caching by default
-CONFIG.set('cache', 'path', '') # cache results here, defaults to XDG
+CONFIG.set('cache', 'enable', 'yes')  # enable caching by default
+CONFIG.set('cache', 'path', '')  # cache results here, defaults to XDG
 CONFIG.set('cache', 'fields', '')  # fields to cache (if empty, setup in the main block)
-CONFIG.set('cache', 'longevity-days', '14') # Days before cache entries are invalidated
+CONFIG.set('cache', 'longevity-days', '14')  # Days before cache entries are invalidated
 CONFIG.add_section('system')
 # HACK: Python 2.x support, see http://bugs.python.org/issue13329#msg147475
 CONFIG.set('system', 'output-encoding', '')  # match .muttrc's $charset
@@ -183,10 +182,7 @@ class LDAPConnection (object):
         protocol = 'ldap'
         if self.config.getboolean('connection', 'ssl'):
             protocol = 'ldaps'
-        url = '{0}://{1}:{2}'.format(
-            protocol,
-            self.config.get('connection', 'server'),
-            self.config.get('connection', 'port'))
+        url = '{0}://{1}:{2}'.format( protocol, self.config.get('connection', 'server'), self.config.get('connection', 'port'))
         LOG.info(u'connect to LDAP server at {0}'.format(url))
         self.connection = _ldap.initialize(url)
         if (self.config.getboolean('connection', 'starttls') and
@@ -201,9 +197,9 @@ class LDAPConnection (object):
                 self.config.get('auth', 'password'),
                 _ldap.AUTH_SIMPLE)
 
-    def unbind(self):
-        if self.connection is None:
-            raise RuntimeError('not connected to an LDAP server')
+            def unbind(self):
+                if self.connection is None:
+                    raise RuntimeError('not connected to an LDAP server')
         LOG.info(u'unbind from LDAP server')
         self.connection.unbind()
         self.connection = None
@@ -215,29 +211,23 @@ class LDAPConnection (object):
         if query:
             post = u'*'
         fields = self.config.get('query', 'search-fields').split()
-        filterstr = u'(|{0})'.format(
-            u' '.join([u'({0}=*{1}{2})'.format(field, query, post) for
-                       field in fields]))
+        filterstr = u'(|{0})'.format( u' '.join([u'({0}=*{1}{2})'.format(field, query, post) for field in fields]))
         query_filter = self.config.get('query', 'filter')
         if query_filter:
             filterstr = u'(&({0}){1})'.format(query_filter, filterstr)
         LOG.info(u'search for {0}'.format(filterstr))
-        msg_id = self.connection.search(
-            self.config.get('connection', 'basedn'),
-            _ldap.SCOPE_SUBTREE,
-            filterstr.encode('utf-8'))
+        msg_id = self.connection.search( self.config.get('connection', 'basedn'), _ldap.SCOPE_SUBTREE, filterstr.encode('utf-8'))
         res_type = None
         while res_type != _ldap.RES_SEARCH_RESULT:
             try:
-                res_type, res_data = self.connection.result(
-                    msg_id, all=False, timeout=0)
+                res_type, res_data = self.connection.result( msg_id, all=False, timeout=0)
             except _ldap.ADMINLIMIT_EXCEEDED as e:
                 LOG.warn(u'could not handle query results: {0}'.format(e))
                 break
-            if res_data:
-                # use `yield from res_data` in Python >= 3.3, see PEP 380
-                for entry in res_data:
-                    yield entry
+                if res_data:
+                    # use `yield from res_data` in Python >= 3.3, see PEP 380
+                    for entry in res_data:
+                        yield entry
 
 
 class CachedLDAPConnection (LDAPConnection):
@@ -266,10 +256,9 @@ class CachedLDAPConnection (LDAPConnection):
             entries = []
             keys = self.config.get('cache', 'fields').split()
             for entry in super(CachedLDAPConnection, self).search(query=query):
-                cn,data = entry
+                cn, data = entry
                 # use dict comprehensions in Python >= 2.7, see PEP 274
-                cached_data = dict(
-                    [(key, data[key]) for key in keys if key in data])
+                cached_data = dict( [(key, data[key]) for key in keys if key in data])
                 entries.append((cn, cached_data))
                 yield entry
             self._cache_store(query=query, entries=entries)
@@ -280,38 +269,35 @@ class CachedLDAPConnection (LDAPConnection):
         self._cache = {}
         try:
             data = _json.load(open(path, 'rb'))
-        except IOError as e:  # probably "No such file"
-            LOG.warn(u'error reading cache: {0}'.format(e))
-        except (ValueError, KeyError) as e:  # probably a corrupt cache file
-            LOG.warn(u'error parsing cache: {0}'.format(e))
+except IOError as e:  # probably "No such file"
+    LOG.warn(u'error reading cache: {0}'.format(e))
+except (ValueError, KeyError) as e:  # probably a corrupt cache file
+    LOG.warn(u'error parsing cache: {0}'.format(e))
         else:
             version = data.get('version', None)
             if version == self._cache_version:
                 self._cache = data.get('queries', {})
             else:
                 LOG.debug(u'drop outdated local cache {0} != {1}'.format(
-                        version, self._cache_version))
-        self._cull_cache()
+                    version, self._cache_version))
+                self._cull_cache()
 
     def _save_cache(self):
         path = _os_path.expanduser(self.config.get('cache', 'path'))
         LOG.info(u'save cache to {0}'.format(path))
-        data = {
-            'queries': self._cache,
-            'version': self._cache_version,
-            }
+        data = { 'queries': self._cache, 'version': self._cache_version, }
         with open(path, 'wb') as f:
             _json.dump(data, f, indent=2, separators=(',', ': '))
             f.write('\n'.encode('utf-8'))
 
     def _cache_store(self, query, entries):
         self._cache[self._cache_key(query=query)] = {
-            'entries': entries,
-            'time': _time.time(),
-            }
+                'entries': entries,
+                'time': _time.time(),
+                }
 
-    def _cache_lookup(self, query):
-        data = self._cache.get(self._cache_key(query=query), None)
+        def _cache_lookup(self, query):
+            data = self._cache.get(self._cache_key(query=query), None)
         if data is None:
             return (False, data)
         return (True, data['entries'])
@@ -327,7 +313,7 @@ class CachedLDAPConnection (LDAPConnection):
 
     def _cull_cache(self):
         cull_days = self.config.getint('cache', 'longevity-days')
-        day_seconds = 24*60*60
+        day_seconds = 24 * 60 * 60
         expire = _time.time() - cull_days * day_seconds
         for key in list(self._cache.keys()):  # cull the cache
             if self._cache[key]['time'] < expire:
@@ -340,6 +326,7 @@ def _decode_query_data(obj):
         return obj
     return unicode(obj, 'utf-8')
 
+
 def format_columns(address, data):
     yield _decode_query_data(address)
     yield _decode_query_data(data.get('displayName', data['cn'])[-1])
@@ -347,8 +334,9 @@ def format_columns(address, data):
     if optional_column in data:
         yield _decode_query_data(data[optional_column][-1])
 
+
 def format_entry(entry):
-    cn,data = entry
+    cn, data = entry
     if 'mail' in data:
         for m in data['mail']:
             # http://www.mutt.org/doc/manual/manual-4.html#ss4.5
