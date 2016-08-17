@@ -37,7 +37,7 @@ neww -n Tools
 send-keys -t "Tools" 'wd r3pf' C-m
 
 neww -n Dev
-splitw -h -p 70 -t 0
+splitw -h -p 40 -t 0
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0
@@ -46,7 +46,7 @@ send-keys -t 1 'wd r3pf' C-m
 send-keys -t 2 'wd r3pd' C-m
 
 neww -n Release
-splitw -h -p 70 -t 0
+splitw -h -p 40 -t 0
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0

@@ -48,7 +48,7 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'git://repo.or.cz/vcscommand'
+Plug 'git://repo.or.cz/vcscommand/'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -92,6 +92,12 @@ Plug 'benmills/vimux'
 Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --omnisharp-completer'}
 
 Plug 'regedarek/Zoomwin'
+
+Plug 'vim-scripts/DoxygenToolkit.vim'
+
+Plug 'mtth/scratch.vim'
+
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 

@@ -151,8 +151,8 @@ nmap <silent> <leader>; :NERDTreeFind<CR>
 map       ;;                 :NERDTreeToggle<CR>
 
 "Scracth mappings
-nnoremap <Leader>sb :Sscratch<CR>
-vnoremap <Leader>sb :Sscratch<CR>
+"nnoremap <Leader>sb :Scratch<CR>
+"vnoremap <Leader>sb :Scratch<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -221,4 +221,3 @@ nnoremap <Leader><Space> :w<CR>
 
 " Used primarly from Mutt
 au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>
-
