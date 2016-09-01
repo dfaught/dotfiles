@@ -5,6 +5,7 @@ if &diff
   set cursorcolumn!
   set cursorline!
   set spell!
+  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
 endif
 
 " Diff colors - standard vimdiff colors aren't very helpful, especially not with solarized.
