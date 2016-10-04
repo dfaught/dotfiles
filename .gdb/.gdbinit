@@ -1,32 +1,14 @@
 # Create a named pipe to get outputs from gdb
-shell test -e /tmp/coloutPipe && rm /tmp/coloutPipe
-shell mkfifo /tmp/coloutPipe
-
-#source ~/.gdb/gdb-config-vars
-
-
-#python from .gdb-helpers import *
-
 set auto-load safe-path /
 
 python
 import sys
 sys.path.insert(0, '/usr/local/share/gcc-4.9.2/python/libstdcxx/v6')
-#from libstdcxx.v6.printers import register_libstdcxx_printers
-#register_libstdcxx_printers (None)
+sys.path.insert(0, '/usr/lib/python2.7/site-packages')
 end
 
 source ~/.gdb/gdb-dashboard
-
-#source ~/.gdb/gdb-aliases
-#source ~/.gdb/gdb-arm
-#source ~/.gdb/gdb-intel
-#source ~/.gdb/gdb-process
-#source ~/.gdb/gdb-colout
-#source ~/.gdb/gdb-context
-#source ~/.gdb/gdb-hooks
 source ~/.gdb/gdb-prompts
-#source ~/.gdb/gdb-big
 
 dashboard -style style_high '1;37'
 dashboard -style prompt_not_running '\\[\\e[1;30m\\]>>>\\[\\e[0m\\]'
@@ -48,8 +30,11 @@ dashboard -style style_selected_1 '0;34'
 dashboard -style divider_label_style_off_primary '33'
 dashboard -style divider_fill_char_secondary '\xe2\x94\x80'
 dashboard -style style_low '0;32'
+dashboard -style syntax_highlighting 'solarized'
 
 dashboard source -style context 15
+dashboard source -style 
+
 dashboard assembly -style context 10
 dashboard stack -style limit 10
 dashboard stack -style local False
