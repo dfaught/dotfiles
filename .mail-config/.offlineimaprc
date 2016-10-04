@@ -28,9 +28,7 @@
 ##################################################
 
 [general]
-
 accounts = Work, Personal
-#accounts = Personal
 pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap.py
 
 maxsyncaccounts = 2
@@ -57,7 +55,7 @@ ui = Quiet
 
 ########## Advanced settings
 
-socktimeout = 180
+socktimeout = 360
 fsync = true
 
 ##################################################
@@ -89,14 +87,10 @@ localfolders = ~/home-ext/Maildir/Work
 
 [Repository work-remote]
 type = IMAP
-remotehost = mail.rocketgaming.com
 ssl = no
-#sslcacertfile = ~/tmp/certs/mail-ca.pem
-#remoteport = 443
 remotehost = localhost
 remoteport = 1143
 remoteuser = CORPORATE\derek.faught
-#remoteuser = derek.faught@rocketgaming.com
 remotepasseval = get_password("system", "work")
 realdelete=yes
 maxconnections = 1
@@ -116,12 +110,13 @@ localfolders = ~/home-ext/Maildir/Personal
 
 [Repository personal-remote]
 type = IMAP
-remotehost = mail.derekfaught.com
-remoteport = 143
-ssl = no
-#sslcacertfile = ~/tmp/certs/mail-ca.pem
+remotehost = mail.privateemail.com
+remoteport = 993
+ssl = yes
+#sslcacertfile = /etc/ssl/certs/privateemail.pem
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = derek@derekfaught.com
 remotepasseval = get_password("system", "derek@derekfaught.com")
 realdelete=yes
-folderfilter = lambda foldername: not re.search('(Camel|Jobs|Junk|Trash|Sent|Copy|Drafts|Del)', foldername)
+#folderfilter = lambda foldername: not re.search('(Camel|Jobs|Junk|Trash|Sent|Copy|Drafts|Del)', foldername)
 

@@ -68,7 +68,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'neilagabriel/vim-geeknote'
 
-Plug 'alepex/vim-gtest'
+Plug 'alepez/vim-gtest'
 
 Plug 'lfv89/vim-interestingwords'
 

@@ -37,6 +37,8 @@ application/tgz; tar -tz %s; copiousoutput
 application/tarz; mutt_bgrun xarchiver %s;
 application/tarz; tar -tz %s; copiousoutput
 application/gzip; mutt_bgrun xarchiver %s;
+application/x-gzip; mutt_bgrun xarchiver %s;
+application/x-gzip; tar -tz %s; copiousoutput
 application/bzip; mutt_bgrun xarchiver %s;
 application/zip; mutt_bgrun xarchiver %s;
 application/zip; unzip -l %s; copiousoutput

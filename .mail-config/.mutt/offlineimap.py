@@ -1,11 +1,12 @@
 #!/usr/bin/python2
 
 
-import keyring
 import sys
 import gi
 
 gi.require_version('GnomeKeyring', '1.0')
+
+import keyring
 
 
 def get_password(ring, account):

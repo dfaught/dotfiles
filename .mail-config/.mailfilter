@@ -8,15 +8,15 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
   }
   elsif (/^From: .*allenisd.*/ || /^From: .*schoolmenu.*/ || /^From: .*instructure.*/)
   {
-    if (/^Subject: .*Meghann .*Grading Notification$/ || /^Subject: .*Meghann .*Progress Report$/)
+    if (/^Subject: .*Meghann .*Grading Notification$/ || /^Subject: .*Meghann .*Progress Report$/ || /Meghann/:b)
     {
       to $MAILBOX/Meghann/
     }
-    elsif (/^Subject: .*Ethan .*Grading Notification$/ || /^Subject: .*Ethan .*Progress Report$/ || /^From: .*instructure.*/)
+    elsif (/^Subject: .*Ethan .*Grading Notification$/ || /^Subject: .*Ethan .*Progress Report$/ || /^From: .*instructure.*/ || /Ethan/:b)
     {
       to $MAILBOX/Ethan/
     }
-    elsif (/^Subject: .*Tyler .*Grading Notification$/ || /^Subject: .*Tyler .*Progress Report$/)
+    elsif (/^Subject: .*Tyler .*Grading Notification$/ || /^Subject: .*Tyler .*Progress Report$/ || /Tyler/:b)
     {
       to $MAILBOX/Tyler/
     }

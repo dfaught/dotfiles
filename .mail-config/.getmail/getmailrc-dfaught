@@ -13,4 +13,4 @@ unixfrom = True
 
 [options]
 read_all = false
-delete = true
+delete = false
