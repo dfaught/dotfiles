@@ -45,7 +45,7 @@ nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
 inoremap  <silent><F2>        :set spell!<CR>
 
-nnoremap  <silent><F3>        :lcd $WORKSPACE_ROOT<CR>
+nnoremap  <silent><F3>        :
 
 nnoremap  <F5>                :wa!<cr>:Make<Space>
 
@@ -61,15 +61,23 @@ inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-nnoremap  <silent><F8>       :CtrlPMixed<CR>
-inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
-vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+"nnoremap  <silent><F8>       :CtrlPMixed<CR>
+"inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
+"vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
 
-nnoremap  <silent><F9>       :CtrlPBuffer<CR>
-inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
-vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+nnoremap  <silent><F8>       :Files<CR>
+inoremap  <silent><F8>       <Esc>:Files<CR>
+vnoremap  <silent><F8>       <Esc>:Files<CR>
 
-nnoremap <silent><F10> :RainboxParentheses!!<CR>
+"nnoremap  <silent><F9>       :CtrlPBuffer<CR>
+"inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+"vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
+
+nnoremap  <silent><F9>       :Buffers<CR>
+inoremap  <silent><F9>       <Esc>:Buffers<CR>
+vnoremap  <silent><F9>       <Esc>:Buffers<CR>
+
+nnoremap <silent><F10> :Marks<CR>
 
 "noremap   <C-J> <C-W>j
 "noremap   <C-K> <C-W>k
