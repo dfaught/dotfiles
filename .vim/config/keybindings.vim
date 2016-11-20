@@ -103,7 +103,8 @@ map <BS> <C-^>
 " Kill the current buffer
 map <Leader>xb :bd<CR>
 
-map <Leader>sa :saveas
+nnoremap <Leader>sa :saveas
+nnoremap <Leader><Space> :w<CR>
 
 " Yank the line
 map Y y$
@@ -192,6 +193,7 @@ nnoremap <Leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vo :VimuxOpenPane<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
+nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
 nnoremap <Leader>K :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
 
@@ -225,7 +227,7 @@ xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C
 xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
 " Experimental stuff or stuff to try below this line
-nnoremap <Leader><Space> :w<CR>
+nnoremap <S-K> i<CR><ESC>k$
 
 " Used primarly from Mutt
 au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>

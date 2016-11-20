@@ -80,3 +80,12 @@ function! LcdToProjectRoot()
 endfunction
 
 autocmd BufEnter *.cpp exe 'call LcdToProjectRoot()'
+
+function! RunUnitTests(cmd)
+  let vmx_setting = g:VimuxOrientation
+  let g:VimuxOrientation = "h"
+
+  call VimuxRunCommand(a:cmd)
+
+  let g:VimuxOrientation = vmx_setting
+endfunction

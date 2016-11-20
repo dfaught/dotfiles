@@ -40,8 +40,6 @@ Plug 'scrooloose/syntastic'
 
 Plug 'ervandew/supertab'
 
-Plug 'godlygeek/tabular'
-
 Plug 'majutsushi/tagbar'
 
 Plug 'edkolev/tmuxline.vim'
@@ -65,10 +63,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-
-Plug 'neilagabriel/vim-geeknote'
-
-Plug 'alepez/vim-gtest'
 
 Plug 'lfv89/vim-interestingwords'
 
@@ -100,6 +94,8 @@ Plug 'mtth/scratch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
 Plug 'junegunn/fzf.vim'
+
+"Plug 'juneedahamed/vc.vim'
 
 call plug#end()
 
