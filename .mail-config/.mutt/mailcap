@@ -4,6 +4,11 @@ text/html; w3m -I %{charset} -T text/html -dump %s; nametemplate=%s.html; copiou
 text/calendar; cat %s | ical2rem-cli >> ~/.reminders;
 text/calendar; cat %s | ical2rem-cli; copiousoutput;
 
+text/x-diff; mutt_bgrun gvim %s
+text/x-diff; cat %s | sed 's/$//'; copiousoutput;
+text/x-patch; mutt_bgrun gvim %s
+text/x-patch; cat %s | sed 's/$//'; copiousoutput;
+
 application/msword; mutt_bgrun libreoffice --writer %U %s;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; mutt_bgrun  libreoffice --writer %U %s;
 application/vnd.ms-word; mutt_bgrun libreoffice --writer %U %s;
