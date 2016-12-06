@@ -29,13 +29,10 @@ if $TERM == "xterm" || $TERM == "xterm-256color-italic" || $TERM == "screen-256c
   set t_Co=256
 endif
 
-"if has('termguicolors')
-  "set termguicolors
-"endif
+set termguicolors
 
-"if has('guicolors')
-  "set guicolors
-"endif
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Syntax & filetype
 syntax on
@@ -45,15 +42,19 @@ filetype indent on
 set background=dark
 "set background=light
 "let g:solarized_contrast="low"
-let g:solarized_contrast="normal"
+"let g:solarized_contrast="normal"
 "let g:solarized_contrast="high"
 "let g:solarized_termcolors=256
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 "let g:solarized_termtrans=1
 "let g:solarized_visibility="low"
 let g:solarized_visibility="normal"
 "let g:solarized_visibility="high"
-colorscheme solarized
+"colorscheme solarized
+
+let g:solarized_term_italics=1
+
+colorscheme solarized8_dark_high
 
 highlight SignColumn   ctermbg=8
 

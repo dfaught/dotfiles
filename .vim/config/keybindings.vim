@@ -45,8 +45,6 @@ nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
 inoremap  <silent><F2>        :set spell!<CR>
 
-nnoremap  <silent><F3>        :
-
 nnoremap  <F5>                :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
@@ -159,10 +157,6 @@ map       ::       <Esc><Esc>:TagbarToggle<CR>
 nmap <silent> <leader>; :NERDTreeFind<CR>
 map       ;;                 :NERDTreeToggle<CR>
 
-"Scracth mappings
-"nnoremap <Leader>sb :Scratch<CR>
-"vnoremap <Leader>sb :Scratch<CR>
-
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
 noremap <leader>jh :YcmCompleter GoToInclude<CR>
@@ -179,10 +173,6 @@ nnoremap <localleader>n ]c
 nnoremap <localleader>p [c
 nnoremap <localleader>du :diffupdate<CR>
 
-" Pyclewn mappings
-"map <leader>p :exe "Cprint" . expand("<cword>")<CR>
-"map <leader>P :exe "Cprint" . expand("*<cword>")<CR>
-
 "Easy Align mappings
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -197,20 +187,12 @@ nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
 nnoremap <Leader>K :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
 
-"Geeknote mappings
-nmap <Leader>gn :Geeknote<CR>
-nmap <Leader>nc :GeeknoteCreateNote<space>
-
 "DoxygenToolkit mappings
 nmap <Leader>dx :Dox<CR>
 
 "Zoomwin
 nmap <Leader>Z <C-w>o
 vmap <Leader>Z <C-w>o
-
-"insert current buffer name
-"Look in to accomplishing this with a snippet
-"imap <Leader>fn <c-r>=expand('%:t:r')<CR>
 
 " paste mode
 nnoremap <Leader>tp :set paste!<CR>

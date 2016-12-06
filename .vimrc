@@ -30,8 +30,6 @@ Plug 'dfaught/my-vim-snippets'
 
 Plug 'rking/ag.vim'
 
-Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'Raimondi/delimitMate'
 
 Plug 'scrooloose/nerdcommenter'
@@ -96,6 +94,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
 Plug 'junegunn/fzf.vim'
 
 "Plug 'juneedahamed/vc.vim'
+
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
