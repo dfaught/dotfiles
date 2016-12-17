@@ -35,9 +35,9 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F5   -  Dispatch
 "    F6   -  Mark word/selection as interesting
 "    F7   -  Trim trailing whites
-"    F8   -  CtlrP fuzzy file search
-"    F9   -  CtlrP fuzzy buffer search
-"    F10  -  Rainbows!
+"    F8   -  FZF fuzzy file search
+"    F9   -  FZF fuzzy buffer search
+"    F10  -  FZF Marks
 "    F11  -  Unused
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
@@ -59,17 +59,9 @@ inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-"nnoremap  <silent><F8>       :CtrlPMixed<CR>
-"inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
-"vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
-
 nnoremap  <silent><F8>       :Files<CR>
 inoremap  <silent><F8>       <Esc>:Files<CR>
 vnoremap  <silent><F8>       <Esc>:Files<CR>
-
-"nnoremap  <silent><F9>       :CtrlPBuffer<CR>
-"inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
-"vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 
 nnoremap  <silent><F9>       :Buffers<CR>
 inoremap  <silent><F9>       <Esc>:Buffers<CR>
@@ -154,8 +146,8 @@ vmap <C-M><C-C> <Esc>:make clean<CR>
 map       ::       <Esc><Esc>:TagbarToggle<CR>
 
 "NERDTree mappings
-nmap <silent> <leader>; :NERDTreeFind<CR>
-map       ;;                 :NERDTreeToggle<CR>
+"nmap <silent> <leader>; :NERDTreeFind<CR>
+"map       ;;                 :NERDTreeToggle<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>

@@ -15,8 +15,8 @@ let g:ycm_error_symbol                              = '✘'
 let g:ycm_warning_symbol                            = '⚠'
 "highlight YcmErrorLine                              cterm=underline ctermfg=red guifg=red
 "highlight YcmWarningLine                            cterm=underline ctermfg=yellow guifg=yellow
-highlight YcmErrorSection                           cterm=underline ctermfg=red guifg=red
-highlight YcmWarningSection                         cterm=underline ctermfg=yellow guifg=yellow
+highlight YcmErrorSection                           cterm=underline ctermfg=red guifg=#dc322f
+highlight YcmWarningSection                         cterm=underline ctermfg=yellow guifg=#268bd2
 
 let g:ycm_min_num_of_chars_for_completion           = 1
 let g:ycm_complete_in_comments                      = 1

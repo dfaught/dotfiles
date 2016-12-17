@@ -33,7 +33,7 @@ Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 
 Plug 'ervandew/supertab'
@@ -60,7 +60,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 Plug 'lfv89/vim-interestingwords'
 
@@ -96,6 +96,8 @@ Plug 'junegunn/fzf.vim'
 "Plug 'juneedahamed/vc.vim'
 
 Plug 'lifepillar/vim-solarized8'
+
+Plug 'ciaranm/googletest-syntax'
 
 call plug#end()
 
