@@ -45,6 +45,8 @@ nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
 inoremap  <silent><F2>        :set spell!<CR>
 
+nnoremap <silent><F3>         :UndotreeToggle<CR>
+
 nnoremap  <F5>                :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
@@ -142,12 +144,8 @@ vmap <C-E> <Esc>:Copen<CR>
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
-"Tagbar mapping
-map       ::       <Esc><Esc>:TagbarToggle<CR>
-
-"NERDTree mappings
-"nmap <silent> <leader>; :NERDTreeFind<CR>
-"map       ;;                 :NERDTreeToggle<CR>
+"fzf buffer tags mapping
+map  <silent> ::  :call FzfBTags()<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -161,8 +159,8 @@ noremap <leader>fi  :YcmCompleter FixIt<CR>
 nnoremap <leader>gl :diffg MINE<CR>:diffupdate<CR>
 nnoremap <leader>gr :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <leader>gb :diffg BASE<CR>:diffupdate<CR>
-nnoremap <localleader>n ]c
-nnoremap <localleader>p [c
+nnoremap <silent><Down> ]c
+nnoremap <silent><Up> [c
 nnoremap <localleader>du :diffupdate<CR>
 
 "Easy Align mappings
@@ -194,11 +192,6 @@ vnoremap <Leader>tp :set paste!<CR>
 "spelling stuff
 noremap <leader>w :call FixLastSpellingError()<cr>
 noremap <leader>W z=
-
-nnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>move +1<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
-nnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
-xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv
-xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
 " Experimental stuff or stuff to try below this line
 nnoremap <S-K> i<CR><ESC>k$

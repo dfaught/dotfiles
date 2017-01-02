@@ -10,4 +10,4 @@ let g:signify_sign_changedelete      = g:signify_sign_change
 
 highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119 guifg=#00ff00
 highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167 guifg=#ff0000
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227 guifg=#2aa198
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227 guifg=#a2982a

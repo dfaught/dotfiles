@@ -38,7 +38,7 @@ Plug 'scrooloose/syntastic'
 
 Plug 'ervandew/supertab'
 
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 
 Plug 'edkolev/tmuxline.vim'
 
@@ -93,11 +93,13 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-"Plug 'juneedahamed/vc.vim'
-
 Plug 'lifepillar/vim-solarized8'
 
 Plug 'ciaranm/googletest-syntax'
+
+Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'mbbill/undotree'
 
 call plug#end()
 
