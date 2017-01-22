@@ -89,3 +89,11 @@ function! RunUnitTests(cmd)
 
   let g:VimuxOrientation = vmx_setting
 endfunction
+
+function! FzfBTags()
+  let a:fzf_layout = g:fzf_layout
+  let g:fzf_layout = {'right': '~25%'}
+  BTags
+  let g:fzf_layout = a:fzf_layout
+
+endfunction

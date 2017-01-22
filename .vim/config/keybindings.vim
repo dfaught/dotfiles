@@ -35,15 +35,17 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F5   -  Dispatch
 "    F6   -  Mark word/selection as interesting
 "    F7   -  Trim trailing whites
-"    F8   -  CtlrP fuzzy file search
-"    F9   -  CtlrP fuzzy buffer search
-"    F10  -  Rainbows!
+"    F8   -  FZF fuzzy file search
+"    F9   -  FZF fuzzy buffer search
+"    F10  -  FZF Marks
 "    F11  -  Unused
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :set spell!<CR>
 vnoremap  <silent><F2>        :set spell!<CR>
 inoremap  <silent><F2>        :set spell!<CR>
+
+nnoremap <silent><F3>         :UndotreeToggle<CR>
 
 nnoremap  <F5>                :wa!<cr>:Make<Space>
 
@@ -59,17 +61,9 @@ inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-"nnoremap  <silent><F8>       :CtrlPMixed<CR>
-"inoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
-"vnoremap  <silent><F8>       <Esc>:CtrlPMixed<CR>
-
 nnoremap  <silent><F8>       :Files<CR>
 inoremap  <silent><F8>       <Esc>:Files<CR>
 vnoremap  <silent><F8>       <Esc>:Files<CR>
-
-"nnoremap  <silent><F9>       :CtrlPBuffer<CR>
-"inoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
-"vnoremap  <silent><F9>       <Esc>:CtrlPBuffer<CR>
 
 nnoremap  <silent><F9>       :Buffers<CR>
 inoremap  <silent><F9>       <Esc>:Buffers<CR>
@@ -150,12 +144,8 @@ vmap <C-E> <Esc>:Copen<CR>
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
-"Tagbar mapping
-map       ::       <Esc><Esc>:TagbarToggle<CR>
-
-"NERDTree mappings
-nmap <silent> <leader>; :NERDTreeFind<CR>
-map       ;;                 :NERDTreeToggle<CR>
+"fzf buffer tags mapping
+map  <silent> ::  :call FzfBTags()<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>
@@ -169,8 +159,8 @@ noremap <leader>fi  :YcmCompleter FixIt<CR>
 nnoremap <leader>gl :diffg MINE<CR>:diffupdate<CR>
 nnoremap <leader>gr :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <leader>gb :diffg BASE<CR>:diffupdate<CR>
-nnoremap <localleader>n ]c
-nnoremap <localleader>p [c
+nnoremap <silent><Down> ]c
+nnoremap <silent><Up> [c
 nnoremap <localleader>du :diffupdate<CR>
 
 "Easy Align mappings
@@ -202,11 +192,6 @@ vnoremap <Leader>tp :set paste!<CR>
 "spelling stuff
 noremap <leader>w :call FixLastSpellingError()<cr>
 noremap <leader>W z=
-
-nnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>move +1<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
-nnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>move -2<CR>==:<C-u>call SetUndojoinFlag('n')<CR>
-xnoremap <silent> <Down> :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '>+1<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv
-xnoremap <silent> <Up>   :<C-u>call Undojoin()<CR>:<C-u>'<,'>move '<-2<CR>gv=:<C-u>call SetUndojoinFlag('v')<CR>gv>'
 
 " Experimental stuff or stuff to try below this line
 nnoremap <S-K> i<CR><ESC>k$

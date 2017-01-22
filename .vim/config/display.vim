@@ -52,6 +52,7 @@ let g:solarized_visibility="normal"
 "let g:solarized_visibility="high"
 "colorscheme solarized
 
+let g:solarized_diffmode="high"
 let g:solarized_term_italics=1
 
 colorscheme solarized8_dark_high
@@ -64,25 +65,18 @@ set cursorcolumn
 set colorcolumn=120
 
 " Override Solarized color column colors
-if has('gui_running')
-  highlight ColorColumn guibg=orange
-  highlight CursorLine cterm=underline ctermbg=8
-else
-  highlight ColorColumn ctermbg=52
+"if has('gui_running')
+  "highlight ColorColumn guibg=orange
   "highlight CursorLine cterm=underline ctermbg=8
-  highlight CursorLine ctermbg=0
-endif
+"else
+  "highlight ColorColumn ctermbg=52
+  "highlight CursorLine cterm=underline ctermbg=8
+  "highlight CursorLine ctermbg=0
+"endif
 
 "Code Folding - I'm tired of unfolding everything
 set foldmethod=syntax
 set foldlevelstart=99
-"au FileType cs set foldmethod=syntax
-"au FileType cs set foldlevelstart=99
-"au FileType cpp set foldmethod=syntax
-"au FileType cpp set foldlevelstart=99
-"au FileType py set foldmethod=syntax
-"au FileType py set foldlevelstart=99
-
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 set ttyfast
