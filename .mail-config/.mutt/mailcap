@@ -3,6 +3,7 @@ text/html; w3m -I %{charset} -T text/html -dump %s; nametemplate=%s.html; copiou
 
 text/calendar; cat %s | ical2rem-cli >> ~/.reminders;
 text/calendar; cat %s | ical2rem-cli; copiousoutput;
+application/ics; cat %s | ical2rem-cli >> ~.reminders;
 
 text/x-diff; mutt_bgrun gvim %s
 text/x-diff; cat %s | sed 's/$//'; copiousoutput;
