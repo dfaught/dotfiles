@@ -29,6 +29,10 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
   {
     to $MAILBOX/Finance/
   }
+  elsif (/^Reply-To: .*countrycreekvets.*/)
+  {
+    to $MAILBOX/Family
+  }
   elsif (/^From: .*abhelo-subscriber.com/ || \
       /^From: .*staples.com/ || \
       /^From: .*Target.com/ || \
@@ -56,7 +60,8 @@ if (/^To:.*dixonfaught.*/ || /^To:.dixon-faught.*/ || /^To:.*allenisd.*/)
       /^From: .*elcocobeach.com/ || \
       /^From: .*demandforced3.com/ || \
       /^From: .*frontgate-email.com/ || \
-      /^From: .*appliance-alerts.com/)
+      /^From: .*appliance-alerts.com/ || \
+      /^From: .*johnandkiras.com/)
   {
     to $MAILBOX/Spam/
   }
