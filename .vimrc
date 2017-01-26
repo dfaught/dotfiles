@@ -51,18 +51,13 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'panozzaj/vim-autocorrect'
 
-Plug 'craigemery/vim-autotag'
-
-Plug 'altercation/vim-colors-solarized'
-
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-dispatch'
-"Plug 'tpope/vim-fugitive'
 
-Plug 'lfv89/vim-interestingwords'
+Plug 'dfaught/vim-interestingwords'
 
 Plug 'dzeban/vim-log-syntax'
 
@@ -93,7 +88,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-Plug 'lifepillar/vim-solarized8'
+Plug 'dfaught/vim-solarized8'
 
 Plug 'ciaranm/googletest-syntax'
 

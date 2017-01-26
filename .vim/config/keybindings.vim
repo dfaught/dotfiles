@@ -47,7 +47,9 @@ inoremap  <silent><F2>        :set spell!<CR>
 
 nnoremap <silent><F3>         :UndotreeToggle<CR>
 
-nnoremap  <F5>                :wa!<cr>:Make<Space>
+autocmd FileType cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
+autocmd FileType c nnoremap  <F5>  :wa!<cr>:Make<Space>
+autocmd FileType cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
 inoremap  <silent><F6>         :call InterestingWords('n')<CR>
@@ -145,7 +147,8 @@ nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
 "fzf buffer tags mapping
-map  <silent> ::  :call FzfBTags()<CR>
+
+nnoremap  <silent> ::  :call FzfBTags()<CR>
 
 " YouCompleteMe mappings
 noremap <leader>jd :YcmCompleter GoTo<CR>

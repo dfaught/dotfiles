@@ -56,23 +56,6 @@ function! FixLastSpellingError()
  call cursor(position)
 endfunction
 
-function! SetUndojoinFlag(mode)
-    augroup undojoin_flag
-        autocmd!
-        if a:mode ==# 'v'
-            autocmd CursorMoved * autocmd undojoin_flag CursorMoved * autocmd! undojoin_flag
-        else
-            autocmd CursorMoved * autocmd! undojoin_flag
-        endif
-    augroup END
-endfunction
-
-function! Undojoin()
-    if exists('#undojoin_flag#CursorMoved')
-        silent! undojoin
-    endif
-endfunction
-
 function! LcdToProjectRoot()
   if exists("$WORKSPACE_ROOT")
     lcd $WORKSPACE_ROOT
@@ -82,12 +65,13 @@ endfunction
 autocmd BufEnter *.cpp exe 'call LcdToProjectRoot()'
 
 function! RunUnitTests(cmd)
-  let vmx_setting = g:VimuxOrientation
+  let s:vmx_setting = g:VimuxOrientation
   let g:VimuxOrientation = "h"
 
   call VimuxRunCommand(a:cmd)
+  normal! <C-W>=
 
-  let g:VimuxOrientation = vmx_setting
+  let g:VimuxOrientation = s:vmx_setting
 endfunction
 
 function! FzfBTags()

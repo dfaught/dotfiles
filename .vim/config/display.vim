@@ -40,18 +40,8 @@ filetype indent on
 
 "Color & theme
 set background=dark
-"set background=light
-"let g:solarized_contrast="low"
-"let g:solarized_contrast="normal"
-"let g:solarized_contrast="high"
-"let g:solarized_termcolors=256
-"let g:solarized_termcolors=16
-"let g:solarized_termtrans=1
-"let g:solarized_visibility="low"
 let g:solarized_visibility="normal"
 "let g:solarized_visibility="high"
-"colorscheme solarized
-
 let g:solarized_diffmode="high"
 let g:solarized_term_italics=1
 
@@ -63,16 +53,6 @@ set cursorline
 set cursorcolumn
 "long lines support"
 set colorcolumn=120
-
-" Override Solarized color column colors
-"if has('gui_running')
-  "highlight ColorColumn guibg=orange
-  "highlight CursorLine cterm=underline ctermbg=8
-"else
-  "highlight ColorColumn ctermbg=52
-  "highlight CursorLine cterm=underline ctermbg=8
-  "highlight CursorLine ctermbg=0
-"endif
 
 "Code Folding - I'm tired of unfolding everything
 set foldmethod=syntax
