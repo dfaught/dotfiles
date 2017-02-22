@@ -30,7 +30,7 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 "    F1   -  System use - do not map
 "    F2   -  Toggle spelling
-"    F3   -  Unused
+"    F3   -  Undo Tree toggle
 "    F4   -  System use - do not map
 "    F5   -  Dispatch
 "    F6   -  Mark word/selection as interesting
@@ -38,7 +38,7 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F8   -  FZF fuzzy file search
 "    F9   -  FZF fuzzy buffer search
 "    F10  -  FZF Marks
-"    F11  -  Unused
+"    F11  -  System intercepted
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>        :set spell!<CR>
@@ -178,7 +178,7 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
 nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
-nnoremap <Leader>K :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
+nnoremap <silent><leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
 
 "DoxygenToolkit mappings
 nmap <Leader>dx :Dox<CR>

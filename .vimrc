@@ -46,8 +46,8 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'git://repo.or.cz/vcscommand/'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'dfaught/vim-airline'
+Plug 'dfaught/vim-airline-themes'
 
 Plug 'panozzaj/vim-autocorrect'
 
@@ -89,6 +89,7 @@ Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
 Plug 'dfaught/vim-solarized8'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'ciaranm/googletest-syntax'
 
