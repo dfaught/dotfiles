@@ -28,10 +28,10 @@
 ##################################################
 
 [general]
-accounts = Work, Personal
+accounts = Work, Personal, family-mail
 pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap.py
 
-maxsyncaccounts = 2
+maxsyncaccounts = 3
 
 # You can specify one or more user interface modules for OfflineIMAP
 # to use.  OfflineIMAP will try the first in the list, and if it
@@ -78,12 +78,13 @@ footer = "\n"
 localrepository = work-local
 remoterepository = work-remote
 status-backend = sqlite
-autorefresh = 2
-quick = 10
+#autorefresh = 2
+#quick = 10
 
 [Repository work-local]
 type = Maildir
 localfolders = ~/home-ext/Maildir/Work
+nametrans = lambda folder: re.sub('Work.Inbox', 'INBOX', folder)
 
 [Repository work-remote]
 type = IMAP
@@ -93,8 +94,9 @@ remoteport = 1143
 remoteuser = CORPORATE\derek.faught
 remotepasseval = get_password("system", "work")
 realdelete=yes
-maxconnections = 1
-folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views', foldername)
+createfolders=False
+maxconnections = 4
+folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
 nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
 
 [Account Personal]
@@ -113,10 +115,44 @@ type = IMAP
 remotehost = mail.privateemail.com
 remoteport = 993
 ssl = yes
-#sslcacertfile = /etc/ssl/certs/privateemail.pem
+maxconnections = 4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = derek@derekfaught.com
 remotepasseval = get_password("system", "derek@derekfaught.com")
 realdelete=yes
-#folderfilter = lambda foldername: not re.search('(Camel|Jobs|Junk|Trash|Sent|Copy|Drafts|Del)', foldername)
+createfolders=False
+folderfilter = lambda foldername: not re.search('confirmed-ham|confirmed-spam|Archive|Queue|Unwanted', foldername)
+nametrans = lambda folder: re.sub('INBOX', 'Personal-Inbox',
+ re.sub('Drafts', 'Personal-Drafts',
+ re.sub('Sent', 'Personal-Sent',
+ re.sub('Spam', 'Personal-Spam',
+ re.sub('Trash', 'Personal-Trash', folder)))))
 
+[Account family-mail]
+localrepository = fm-local
+remoterepository = fm-remote
+status-backend = sqlite
+autorefresh = 5
+quick = 10
+
+[Repository fm-local]
+type = Maildir
+localfolders = ~/home-ext/Maildir/family-mail
+
+[Repository fm-remote]
+type = IMAP
+remotehost = imappro.zoho.com
+remoteport = 993
+ssl = yes
+maxconnections = 1
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = "dfaught@family-mail.us"
+remotepasseval = get_password("system", "dfaught@family-mail.us")
+realdelete=yes
+createfolders=False
+folderfilter = lambda foldername: not re.search('ZMGroup|ZMNotification|ZMNewsLetter|Templates', foldername)
+nametrans = lambda folder: re.sub('INBOX', 'Family-Inbox',
+ re.sub('Drafts', 'Family-Drafts',
+ re.sub('Sent', 'Family-Sent',
+ re.sub('Spam', 'Family-Spam',
+ re.sub('Trash', 'Family-Trash', folder)))))
