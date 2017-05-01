@@ -3,7 +3,7 @@
 set realname = "Derek Faught"
 set use_from = yes
 set envelope_from = yes
-set attribution = "+++ %n [%d]:"
+set attribution = "+++ %n [%D]:"
 set include=yes
 set indent_string = ""
 #set text_flowed=yes
@@ -12,9 +12,7 @@ set copy=yes
 set delete=yes
 set confirmappend=no
 set fast_reply=yes
-#set mime_forward=yes
-#set mime_forward_rest=yes
-
+set mime_forward=yes
 
 # Use msmtp rather than sendmail. Check that
 # the path is correct for your system:
@@ -36,8 +34,6 @@ set mask="!^\\.[^.]"
 
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
-mailboxes "+Family/Family" "+Family/Ethan" "+Family/Meghann" "+Family/Tyler" "+Family/Save" "+Family/Expenses" "+Family/School" "+Family/Finance" "+Family/Spam" "+Family/Keep" "+Family/house-2120" "+Family/almeta-3104"
-mailboxes "+dfaught/dfaught"
 mailboxes "+trash"
 mailboxes "+drafts"
 
@@ -101,11 +97,15 @@ auto_view application/x-zip-compressed
 alternative_order text/html text/calendar text/enriched text/plain
 
 folder-hook =Personal set from = "derek@derekfaught.com"
-folder-hook =Personal set postponed="+Personal/Drafts/"   # Where to store draft messages
+folder-hook =Personal set postponed="+Personal/Personal-Drafts/"   # Where to store draft messages
+folder-hook =Personal set record="+Personal/Personal-Sent/"   # Where to store sent messages
 folder-hook =Work set from = "derek.faught@rocketgaming.com"
 folder-hook =Work set postponed="+Work/Drafts/"   # Where to store draft messages
 folder-hook =Family set from = "dixonfaught@tx.rr.com"
 folder-hook =Family set postponed="+drafts/"   # Where to store draft messages
+folder-hook =family-mail set from = "dfaught@family-mail.us"
+folder-hook =family-mail set postponed="+drafts/"   # Where to store draft messages
+folder-hook =family-mail set record="+family-mail/Family-Sent/"   # Where to store sent messages
 folder-hook =dfaught set from = "dfaught@tx.rr.com"
 folder-hook =dfaught set postponed="+drafts/"   # Where to store draft messages
 
@@ -119,7 +119,6 @@ set sidebar_visible = yes
 set sidebar_width   = 60
 color sidebar_new color45 default
 color sidebar_flagged color9 default
-#set sidebar_format = "%B%* [%F] %N/%S"
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_short_path = yes
 set sidebar_folder_indent = yes
@@ -132,6 +131,7 @@ bind index,pager R      group-reply
 bind index,pager K sidebar-prev
 bind index,pager J sidebar-next
 bind index,pager O sidebar-open
+bind index,pager \CO next-unread-mailbox
 bind index,pager s save-message
 bind index,pager \e<Left> sidebar-toggle-visible
 bind index,pager <F5> edit-label
@@ -141,6 +141,7 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
+bind index,pager S vfolder-from-query
 
 #Search Stuff
 #set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
@@ -155,6 +156,9 @@ set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 set mark_old=no
+set keywords_legacy=yes
+set keywords_standard=yes
+set narrow_tree = yes
 
 set date_format = "%F %R %z"
 set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? "
@@ -164,6 +168,7 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 # View attachments properly.
 bind attach <return> view-mailcap
 
+set nm_default_uri = "notmuch:///home/derek/home-ext/Maildir"
 
 #======================================================#
 # Colours: defaults are a little bleak so experiment!
@@ -185,6 +190,7 @@ source ~/.mutt/macros
 macro index,pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
 folder-hook =Personal macro index d "<save-message>+trash<enter>" "move message to the trash"
 folder-hook =Family macro index d "<save-message>+trash<enter>" "move message to the trash"
+folder-hook =family-mail macro index d "<save-message>+trash<enter>" "move message to the trash"
 folder-hook =dfaught macro index d "<save-message>+trash<enter>" "move message to the trash"
 folder-hook =Work macro index D "<save-message>+trash<enter>" "move message to the trash"
 

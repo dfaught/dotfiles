@@ -100,6 +100,8 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 "Plug 'romainl/vim-qf'
 
 "Plug 'maralla/completor.vim'
+"
+Plug 'suan/vim-instant-markdown'
 
 call plug#end()
 

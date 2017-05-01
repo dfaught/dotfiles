@@ -19,6 +19,9 @@
 
 set -o nounset                              # Treat unset variables as an error
 
+echo "Starting run."
+date
+
 while [ 1 ]
 do
 PID=`pgrep offlineimap`
@@ -29,15 +32,20 @@ PID=`pgrep offlineimap`
 ###
 [ -n "$PID" ] && kill $PID     # kill it and resync now
 
-imapfilter ~/.imapfilter/config.lua
-offlineimap -o -u Basic
+imapfilter -c ~/.imapfilter/config.lua
+imapfilter -c ~/.imapfilter/fm-config.lua &
 
-#Ok, this isn't imap, but I didn't feel like writing another script...
-getmail --rcfile=getmailrc --rcfile=getmailrc-dfaught
+offlineimap -o -u Basic
 
 notmuch new
 
+echo "Ending run."
+date
+
 sleep 180
+
+echo "Starting run."
+date
 
 done
 exit 0
