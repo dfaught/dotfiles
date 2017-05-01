@@ -59,6 +59,34 @@ send-keys -t 2 'wd r3pr' C-m
 neww -n Remote
 send-keys -t "Remote" 'wd r3pf' C-m
 
+neww -n "FLGen CRC"
+send-keys -t "FLGen CRC" 'wd rrcrc' C-m
+send-keys -t "FLGen CRC" '. ./set-env.sh' C-m
+
+neww -n "Ithaca CRC"
+send-keys -t "Ithaca CRC" 'wd rrcrc' C-m
+send-keys -t "Ithaca CRC" '. ./set-env.sh' C-m
+
+neww -n "CRC Build"
+send-keys -t "Remote" 'wd rrcrc' C-m
+send-keys -t "CRC Build" '. ./set-env.sh' C-m
+
+neww -n "CRC Debug"
+send-keys -t "CRC Debug" 'wd rrcrc' C-m
+splitw -h -p 40
+select-pane -t 2
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+splitw -h -p 50
+send-keys -t 0 'wd rrcrc' C-m
+send-keys -t 1 'wd rrcrc' C-m
+send-keys -t 1 'tty' C-m
+send-keys -t 2 'wd rrcrc' C-m
+send-keys -t 3 'wd rrcrc' C-m
+send-keys -t 4 'wd rrcrc' C-m
+
 selectw -t 1
 renamew "Modules"
 send-keys -t "Modules" 'wd r3pf' C-m

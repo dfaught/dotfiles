@@ -43,5 +43,7 @@ let g:syntastic_cs_checkers=['dmcs']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore="E111,E121,E201,E202,E203,E211,E251,E5"'
 
+let g:syntastic_asm_checkers=['arm-linux-as']
+
 " For some reason this has to be here.
 set showcmd

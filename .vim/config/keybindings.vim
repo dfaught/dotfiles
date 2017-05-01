@@ -179,6 +179,7 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>
 nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
 nnoremap <silent><leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
+vnoremap <silent><leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
 
 "DoxygenToolkit mappings
 nmap <Leader>dx :Dox<CR>

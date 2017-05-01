@@ -4,9 +4,10 @@
 if &diff
   set diffopt+=iwhite
   set cursorcolumn!
-  set cursorline!
+  "set cursorline!
   set nospell
   let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+  highlight CursorLine   cterm=NONE guibg=#ffffff
 endif
 
 " Diff colors - standard vimdiff colors aren't very helpful, especially not with solarized.

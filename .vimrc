@@ -32,13 +32,10 @@ Plug 'rking/ag.vim'
 
 Plug 'Raimondi/delimitMate'
 
-Plug 'scrooloose/nerdcommenter'
-"Plug 'scrooloose/nerdtree', { 'on':'NERDTreeToggle' }
+"Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 
 Plug 'ervandew/supertab'
-
-"Plug 'majutsushi/tagbar'
 
 Plug 'edkolev/tmuxline.vim'
 
@@ -56,6 +53,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
 
@@ -93,9 +91,15 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'ciaranm/googletest-syntax'
 
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'mbbill/undotree'
+
+Plug 'dfaught/algorithm-mnemonics.vim'
+
+"Plug 'romainl/vim-qf'
+
+"Plug 'maralla/completor.vim'
 
 call plug#end()
 
