@@ -97,6 +97,8 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'mbbill/undotree'
 
+Plug 'suan/vim-instant-markdown'
+
 call plug#end()
 
 runtime! config/**/*

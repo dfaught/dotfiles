@@ -33,12 +33,9 @@ PID=`pgrep offlineimap`
 [ -n "$PID" ] && kill $PID     # kill it and resync now
 
 imapfilter -c ~/.imapfilter/config.lua
-imapfilter -c ~/.imapfilter/fm-config.lua
+imapfilter -c ~/.imapfilter/fm-config.lua &
 
 offlineimap -o -u Basic
-
-#Ok, this isn't imap, but I didn't feel like writing another script...
-getmail --rcfile=getmailrc --rcfile=getmailrc-dfaught
 
 notmuch new
 

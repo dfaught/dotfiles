@@ -1,21 +1,20 @@
 #mail session
 
-#new -s "mail" -n Mail
 renamew -t 1 "Mail"
 splitw -h -l 100
 neww -n Mail
-#neww -n RSS
 neww -n Music
 #neww -n IRC
-neww -n EverNote
-neww -n Misc
+neww -n "Vim Config"
+neww -n "Mail Config"
+neww -n "Tmux Config"
 selectw -t 1
 send-keys -t 0 "~/.mail-config/imap-mail.sh &> mail.log &" C-m
 send-keys -t 0 "mutt" C-m
 send-keys -t 1 "remind -z -k'reminder.sh %s' ~/.reminders &" C-m
 send-keys -t 1 "wyrd" C-m
 send-keys -t 2 "mutt" C-m
-#send-keys -t 3 "newsbeuter" C-m
 send-keys -t 3 'cmus' C-m
-#send-keys -t 5 "weechat" C-m
 send-keys -t 4 "vim" C-m
+send-keys -t 5 "vim" C-m
+send-keys -t 6 "vim" C-m

@@ -1,53 +1,14 @@
 macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
-macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o && getmail && getmail -ln --rcfile=getmailrc-dfaught<enter>" "sync IMAP"
-macro index <F3>   "<shell-escape>getmail && getmail -ln --rcfile=getmailrc-dfaught<enter>" "sync POP"
+macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o" "sync IMAP"
+macro index <F3>   "<shell-escape>getmail<enter>" "sync POP"
 
 folder-hook . 'push "<collapse-all>"'
-#folder-hook . 'push ":set collapse\_unread=no<enter>"'
 
 macro index \cr '<read-thread><collapse-thread><next-unread>' 'Mark the current thread as read'
 macro index '{' ':set my_oldcollapse_unread=$collapse_unread<enter>:set collapse_unread=yes<enter><collapse-thread>:set collapse_unread=$my_oldcollapse_unread<enter>' 'Collapse thread.'
 macro index '}' '{' '(Un)collapse thread.''}'
 
-# labels
-#macro index <F5> "<enter-command>set editor=\"~/bin/editlabel.sh append\"\n\
-#<edit><sync-mailbox><next-undeleted>\
-#<enter-command>set editor=vim\n" "Append label"
-#
-#macro pager <F5> "<enter-command>set editor=\"~/bin/editlabel.sh append\"\n\
-#<edit><sync-mailbox><next-undeleted>\
-#<enter-command>set editor=vim\n" "Append label"
-#
-#macro index <F6> "<enter-command>set editor=\"~/bin/editlabel.sh menu\"\n\
-#<edit><sync-mailbox><next-undeleted>\
-#<enter-command>set editor=vim\n" "Edit labels"
-#
-#macro pager <F6> "<enter-command>set editor=\"~/bin/editlabel.sh menu\"\n\
-#<edit><sync-mailbox><next-undeleted>\
-#<enter-command>set editor=vim\n" "Edit labels"
-
 macro index <F7> "<limit>~y " "Limit view to label"
 
 macro index ",c" "<pipe-message>~/.mutt/addcall.sh<enter>"
-
-#macro index "S" \
-#"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-#<shell-escape>notmuch-mutt -r --prompt search<enter>\
-#<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-#<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-#     "notmuch: search mail"
-#
-#macro index "jt" \
-#"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-#<pipe-message>notmuch-mutt -r thread<enter>\
-#<change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>\
-#<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-#     "notmuch: reconstruct thread"
-#
-#macro index "rr" \
-#"<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-#<pipe-message>notmuch-mutt tag -- -inbox<enter>\
-#<enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-#     "notmuch: remove message from inbox"
-
 
