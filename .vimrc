@@ -52,7 +52,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-dispatch'
+Plug 'dfaught/vim-dispatch'
 Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
