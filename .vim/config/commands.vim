@@ -81,3 +81,7 @@ function! FzfBTags()
   let g:fzf_layout = a:fzf_layout
 
 endfunction
+
+function! MiddleLine()
+  silent exe 'normal '.(virtcol('$')/2).'|'
+endfunction

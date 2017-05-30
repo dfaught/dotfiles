@@ -197,8 +197,11 @@ vnoremap <Leader>tp :set paste!<CR>
 noremap <leader>w :call FixLastSpellingError()<cr>
 noremap <leader>W z=
 
-" Experimental stuff or stuff to try below this line
-nnoremap <S-K> i<CR><ESC>k$
-
 " Used primarly from Mutt
 au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>
+
+" Experimental stuff or stuff to try below this line
+nnoremap <S-K> i<CR><ESC>k$
+nnoremap <silent><leader>M :call MiddleLine()<CR>
+vnoremap <silent><leader>M :call MiddleLine()<CR>
+
