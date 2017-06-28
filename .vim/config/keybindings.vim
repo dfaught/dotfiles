@@ -8,7 +8,7 @@ nnoremap <Esc><Esc> :noh<cr>
 
 "tab to move through brackets"
 nnoremap <tab> %
-vnoremap <tab> %
+xnoremap <tab> %
 
 "actions w %
 nnoremap c<tab> c%
@@ -79,10 +79,10 @@ nnoremap <silent><F10> :Marks<CR>
 "noremap   <C-L> <C-W>l
 
 "resize windows
-map <C-w><Up>    <C-W>+<C-W>+
-map <C-w><Down>  <C-W>-<C-W>-
-map <C-w><Left> <C-W>><C-W>>
-map <C-w><Right>  <C-W><<C-W><
+nmap <C-w><Up>    <C-W>+<C-W>+
+nmap <C-w><Down>  <C-W>-<C-W>-
+nmap <C-w><Left> <C-W>><C-W>>
+nmap <C-w><Right>  <C-W><<C-W><
 
 "window shortcuts
 map <Leader>v <C-w>v
@@ -92,16 +92,16 @@ map <Leader>r <C-W>=
 
 " Toggle to last buffer
 "map <Leader>b <C-^>
-map <BS> <C-^>
+nnoremap <BS> <C-^>
 
 " Kill the current buffer
-map <Leader>xb :bd<CR>
+nnoremap <Leader>xb :bd<CR>
 
-nnoremap <Leader>sa :saveas
+nnoremap <Leader>sa :saveas<Space>
 nnoremap <Leader><Space> :w<CR>
 
 " Yank the line
-map Y y$
+nnoremap Y y$
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 nnoremap <Leader>p "+p
@@ -133,8 +133,10 @@ nmap <silent> <leader>zz zr
 vnoremap < <gv
 vnoremap > >gv
 
-" ag bindings
-nnoremap <Leader>s :Ag<Space>
+" search bindings
+nnoremap <Leader>s :Grepper<CR>
+nmap <Leader>gs <plug>(GrepperOperator)
+xmap <Leader>gs <plug>(GrepperOperator)
 
 "make mappings for Dispatch
 nmap <C-CR> :Make!<Space>
@@ -190,7 +192,6 @@ vmap <Leader>Z <C-w>o
 
 " paste mode
 nnoremap <Leader>tp :set paste!<CR>
-"inoremap <C-t><C-p> <Esc>:set paste!<CR>a
 vnoremap <Leader>tp :set paste!<CR>
 
 "spelling stuff
@@ -204,4 +205,7 @@ au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>
 nnoremap <S-K> i<CR><ESC>k$
 nnoremap <silent><leader>M :call MiddleLine()<CR>
 vnoremap <silent><leader>M :call MiddleLine()<CR>
+
+nmap <silent><leader>an <Plug>(ale_next_wrap)
+nmap <silent><leader>ap <Plug>(ale_previous_wrap)
 

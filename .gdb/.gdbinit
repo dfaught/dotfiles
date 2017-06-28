@@ -45,3 +45,7 @@ dashboard -layout breakpoints threads history expressions memory registers assem
 define do
 dashboard -output $arg0
 end
+
+skip -gfi /usr/include/c++/*/*/*
+skip -gfi /usr/include/c++/*/*
+skip -gfi /usr/include/c++/*

@@ -28,16 +28,11 @@ let $GIT_SSL_NO_VERIFY = 'true'
 
 Plug 'dfaught/my-vim-snippets'
 
-Plug 'rking/ag.vim'
-
 Plug 'Raimondi/delimitMate'
 
-"Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 Plug 'ervandew/supertab'
-
-Plug 'edkolev/tmuxline.vim'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -66,6 +61,7 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-grepper'
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -91,16 +87,10 @@ Plug 'altercation/vim-colors-solarized'
 
 Plug 'ciaranm/googletest-syntax'
 
-"Plug 'ludovicchabant/vim-gutentags'
-
 Plug 'mbbill/undotree'
 
 Plug 'dfaught/algorithm-mnemonics.vim'
 
-"Plug 'romainl/vim-qf'
-
-"Plug 'maralla/completor.vim'
-"
 Plug 'suan/vim-instant-markdown'
 
 call plug#end()

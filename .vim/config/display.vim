@@ -3,7 +3,7 @@
 set ruler
 set showcmd
 set showmatch
-set ignorecase
+set infercase
 set smartcase
 set laststatus=2
 
@@ -61,3 +61,5 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 set ttyfast
 set lazyredraw
+
+autocmd VimResized * wincmd =
