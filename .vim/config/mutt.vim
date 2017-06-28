@@ -1,9 +1,12 @@
 "Mutt.vim
 "
 
+
 au BufRead /tmp/mutt-* set tw=120
 au BufRead /tmp/mutt-* setlocal fo+=awnq
 au BufRead /tmp/mutt-* call AutoCorrect()
+au BufRead /tmp/mutt-* set spell
+
 "au Bufread /tmp/mutt-* setlocal flp+=^\\s*[\\[({]\\\?\\([0-9]\\+\\\|[iIvVxXlLcCdDmM]\\+\\\|[a-zA-Z]\\)[\\]:.)}]\\s\\+\\\|^\\s*[-+o*]\\s\\+)]]
 
 " Set up formatlistpat to handle various denotions of indention/ hierarchy
@@ -55,5 +58,3 @@ hi def link mailQuoteExp4         mailQuoted4
 hi def link mailQuoteExp5         mailQuoted5
 hi def link mailQuoteExp6         mailQuoted6
 
-hi clear SpellBad
-hi SpellBad ctermfg=15 ctermbg=1

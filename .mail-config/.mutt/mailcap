@@ -54,7 +54,9 @@ application/x-lzma; mutt_bgrun xarchiver %s;
 application/x-lzma-compressed-tar; mutt_bgrun xarchiver %s;
 application/x-xz; mutt_bgrun xarchiver %s;
 application/x-7z; mutt_bgrun xarchiver %s;
-application/x-7z; 7z -l %s; copiousoutput
+application/x-7z; 7z l %s; copiousoutput
+application/x-7z-compressed; mutt_bgrun xarchiver %s;
+application/x-7z-compressed; 7z l %s; copiousoutput
 application/x-xz-compressed-tar; mutt_bgrun xarchiver %s;
 
 application/log; mutt_bgrun gvim %s;
