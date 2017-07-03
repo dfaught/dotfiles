@@ -41,15 +41,15 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F11  -  System intercepted
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
-nnoremap  <silent><F2>        :set spell!<CR>
-vnoremap  <silent><F2>        :set spell!<CR>
-inoremap  <silent><F2>        :set spell!<CR>
+nnoremap  <silent><F2>         :set spell!<CR>
+vnoremap  <silent><F2>         :set spell!<CR>
+inoremap  <silent><F2>         :set spell!<CR>
 
-nnoremap <silent><F3>         :UndotreeToggle<CR>
+nnoremap <silent><F3>          :UndotreeToggle<CR>
 
-autocmd FileType cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
-autocmd FileType c nnoremap  <F5>  :wa!<cr>:Make<Space>
-autocmd FileType cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
+autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
+autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
+autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
 inoremap  <silent><F6>         :call InterestingWords('n')<CR>
@@ -63,15 +63,15 @@ inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-nnoremap  <silent><F8>       :Files<CR>
-inoremap  <silent><F8>       <Esc>:Files<CR>
-vnoremap  <silent><F8>       <Esc>:Files<CR>
+nnoremap  <silent><F8>         :Files<CR>
+inoremap  <silent><F8>         <Esc>:Files<CR>
+vnoremap  <silent><F8>         <Esc>:Files<CR>
 
-nnoremap  <silent><F9>       :Buffers<CR>
-inoremap  <silent><F9>       <Esc>:Buffers<CR>
-vnoremap  <silent><F9>       <Esc>:Buffers<CR>
+nnoremap  <silent><F9>         :Buffers<CR>
+inoremap  <silent><F9>         <Esc>:Buffers<CR>
+vnoremap  <silent><F9>         <Esc>:Buffers<CR>
 
-nnoremap <silent><F10> :Marks<CR>
+nnoremap <silent><F10>         :Marks<CR>
 
 "noremap   <C-J> <C-W>j
 "noremap   <C-K> <C-W>k
@@ -81,8 +81,8 @@ nnoremap <silent><F10> :Marks<CR>
 "resize windows
 nmap <C-w><Up>    <C-W>+<C-W>+
 nmap <C-w><Down>  <C-W>-<C-W>-
-nmap <C-w><Left> <C-W>><C-W>>
-nmap <C-w><Right>  <C-W><<C-W><
+nmap <C-w><Left>  <C-W>><C-W>>
+nmap <C-w><Right> <C-W><<C-W><
 
 "window shortcuts
 map <Leader>v <C-w>v
@@ -97,7 +97,7 @@ nnoremap <BS> <C-^>
 " Kill the current buffer
 nnoremap <Leader>xb :bd<CR>
 
-nnoremap <Leader>sa :saveas<Space>
+nnoremap <Leader>sa      :saveas<Space>
 nnoremap <Leader><Space> :w<CR>
 
 " Yank the line
@@ -158,14 +158,14 @@ noremap <leader>jh :YcmCompleter GoToInclude<CR>
 noremap <leader>gp :YcmCompleter GetParent<CR>
 noremap <leader>gt :YcmCompleter GetType<CR>
 noremap <leader>gd :YcmCompleter GetDoc<CR>
-noremap <leader>fi  :YcmCompleter FixIt<CR>
+noremap <leader>fi :YcmCompleter FixIt<CR>
 
 " Diff mappings
-nnoremap <leader>gl :diffg MINE<CR>:diffupdate<CR>
-nnoremap <leader>gr :diffg THEIRS<CR>:diffupdate<CR>
-nnoremap <leader>gb :diffg BASE<CR>:diffupdate<CR>
-nnoremap <silent><Down> ]c
-nnoremap <silent><Up> [c
+nnoremap <leader>gl      :diffg MINE<CR>:diffupdate<CR>
+nnoremap <leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
+nnoremap <leader>gb      :diffg BASE<CR>:diffupdate<CR>
+nnoremap <silent><Down>  ]c
+nnoremap <silent><Up>    [c
 nnoremap <localleader>du :diffupdate<CR>
 
 "Easy Align mappings

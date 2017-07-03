@@ -25,9 +25,9 @@ if has('gui_running')
   "set guifont=Source\ Code\ Pro\ for\ Powerline\ 9.5
 endif
 
-if $TERM == "xterm" || $TERM == "xterm-256color-italic" || $TERM == "screen-256color-italic" || $TERM=="tmux-256color-italic" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-endif
+" if $TERM == "xterm" || $TERM == "xterm-256color-italic" || $TERM == "screen-256color-italic" || $TERM=="tmux-256color-italic" || $COLORTERM == "gnome-terminal"
+"   set t_Co=256
+" endif
 
 set termguicolors
 
@@ -40,9 +40,7 @@ filetype indent on
 
 "Color & theme
 set background=dark
-let g:solarized_visibility="normal"
-"let g:solarized_visibility="high"
-let g:solarized_diffmode="high"
+let g:solarized_visibility="high"
 let g:solarized_term_italics=1
 
 colorscheme solarized8_dark_high

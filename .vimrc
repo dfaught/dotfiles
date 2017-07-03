@@ -52,7 +52,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
 
-Plug 'dzeban/vim-log-syntax'
+Plug 'dfaught/vim-log-syntax'
 
 Plug 'chrisbra/vim-show-whitespace'
 Plug 'chrisbra/vim-diff-enhanced'
