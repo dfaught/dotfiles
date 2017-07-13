@@ -37,7 +37,7 @@ image/*; mutt_bgrun ristretto %s;
 application/x-zip-compressed; mutt_bgrun xarchiver %s;
 application/x-zip-compressed; unzip -l %s; copiousoutput
 application/rar; mutt_bgrun xarchiver %s;
-application/rar; unrar -l %s; copiousoutput
+application/rar; unrar l %s; copiousoutput
 application/tar; mutt_bgrun xarchiver %s;
 application/tar; tar -t %s; copiousoutput
 application/tgz; mutt_bgrun xarchiver %s;

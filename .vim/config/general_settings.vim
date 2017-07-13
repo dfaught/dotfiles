@@ -2,7 +2,6 @@
 
 set hls!
 set cin!
-set nocompatible
 set autoread
 set nobackup
 set nowb
