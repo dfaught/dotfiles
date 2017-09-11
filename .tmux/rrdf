@@ -2,22 +2,22 @@
 #
 
 neww -n "Libraries"
-send-keys -t "Libraries" 'wd rno' C-m
+send-keys -t "Libraries" 'wd rdf' C-m
 send-keys -t "Libraries" '. ./set-env.sh' C-m
 
 neww -n "Project"
-send-keys -t "Project" 'wd rno' C-m
+send-keys -t "Project" 'wd rdf' C-m
 splitw -h -p 25 -t 0
-send-keys -t 1 'wd rno' C-m
+send-keys -t 1 'wd rdf' C-m
 
 neww -n Thirdparty
-send-keys -t "Thirdparty" 'wd rno' C-m
+send-keys -t "Thirdparty" 'wd rdf' C-m
 send-keys -t "Thirdparty" '. ./set-env.sh' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
-send-keys -t 0 'wd rno' C-m
-send-keys -t 1 'wd rno' C-m
+send-keys -t 0 'wd rdf' C-m
+send-keys -t 1 'wd rdf' C-m
 send-keys -t 1 '. ./set-env.sh' C-m
 
 neww -n Debug
@@ -28,66 +28,38 @@ select-pane -t 1
 splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
-send-keys -t 0 'wd rno' C-m
-send-keys -t 1 'wd rno' C-m
+send-keys -t 0 'wd rdf' C-m
+send-keys -t 1 'wd rdf' C-m
 send-keys -t 1 'tty' C-m
-send-keys -t 2 'wd rno' C-m
-send-keys -t 3 'wd rno' C-m
-send-keys -t 4 'wd rno' C-m
+send-keys -t 2 'wd rdf' C-m
+send-keys -t 3 'wd rdf' C-m
+send-keys -t 4 'wd rdf' C-m
 
 neww -n Tools
-send-keys -t "Tools" 'wd rno' C-m
+send-keys -t "Tools" 'wd rdf' C-m
 
 neww -n Dev
-splitw -h -p 40 -t 0
+splitw -h -p 30 -t 0
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0
-send-keys -t 0 'wd r117d' C-m
-send-keys -t 1 'wd rno' C-m
-send-keys -t 2 'wd r117d' C-m
+send-keys -t 0 'wd rxrd' C-m
+send-keys -t 1 'wd rdf' C-m
+send-keys -t 2 'wd rxrd' C-m
 
 neww -n Release
 splitw -h -p 40 -t 0
 select-pane -t 1
 splitw -v -p 50
 select-pane -t 0
-send-keys -t 0 'wd r117r' C-m
-send-keys -t 1 'wd r117d' C-m
-send-keys -t 2 'wd r117r' C-m
+send-keys -t 0 'wd rxrr' C-m
+send-keys -t 1 'wd rxrd' C-m
+send-keys -t 2 'wd rxrr' C-m
 
 neww -n Remote
-send-keys -t "Remote" 'wd rno' C-m
-
-# neww -n "FLGen CRC"
-# send-keys -t "FLGen CRC" 'wd rrcrc' C-m
-# send-keys -t "FLGen CRC" '. ./set-env.sh' C-m
-
-# neww -n "Ithaca CRC"
-# send-keys -t "Ithaca CRC" 'wd rrcrc' C-m
-# send-keys -t "Ithaca CRC" '. ./set-env.sh' C-m
-
-# neww -n "CRC Build"
-# send-keys -t "Remote" 'wd rrcrc' C-m
-# send-keys -t "CRC Build" '. ./set-env.sh' C-m
-
-# neww -n "CRC Debug"
-# send-keys -t "CRC Debug" 'wd rrcrc' C-m
-# splitw -h -p 40
-# select-pane -t 2
-# splitw -v -p 50
-# select-pane -t 1
-# splitw -h -p 50
-# select-pane -t 0
-# splitw -h -p 50
-# send-keys -t 0 'wd rrcrc' C-m
-# send-keys -t 1 'wd rrcrc' C-m
-# send-keys -t 1 'tty' C-m
-# send-keys -t 2 'wd rrcrc' C-m
-# send-keys -t 3 'wd rrcrc' C-m
-# send-keys -t 4 'wd rrcrc' C-m
+send-keys -t "Remote" 'wd rdf' C-m
 
 selectw -t 1
 renamew "Modules"
-send-keys -t "Modules" 'wd rno' C-m
+send-keys -t "Modules" 'wd rdf' C-m
 send-keys -t "Modules" '. ./set-env.sh' C-m
