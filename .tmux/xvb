@@ -1,0 +1,55 @@
+# dev session
+#
+
+neww -n "RGS Firmware"
+send-keys -t "RGS Firmware" 'wd xvbp' C-m
+send-keys -t "RGS Firmware" '. ./set-env.sh' C-m
+send-keys -t "RGS Firmware" 'wd xvfwp' C-m
+
+neww -n "Project"
+send-keys -t "Project" 'wd xvbp' C-m
+splitw -h -p 25 -t 0
+send-keys -t 1 'wd xvbp' C-m
+
+neww -n "Build"
+splitw -h -p 50 -t 0
+send-keys -t 0 'wd xvbp' C-m
+send-keys -t 1 'wd xvbp' C-m
+send-keys -t 0 '. ./set-env.sh' C-m
+send-keys -t 1 '. ./set-env.sh' C-m
+send-keys -t 0 'wd xkp' C-m
+send-keys -t 1 'wd xvfwp' C-m
+
+neww -n Debug
+splitw -h -p 40
+select-pane -t 2
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+splitw -h -p 50
+send-keys -t 0 'wd xvfwp' C-m
+send-keys -t 1 'wd xvfwp' C-m
+send-keys -t 1 'tty' C-m
+send-keys -t 2 'wd xvfwp' C-m
+send-keys -t 3 'wd xvfwp' C-m
+send-keys -t 4 'wd xvfwp' C-m
+
+neww -n Dev
+splitw -h -p 30 -t 0
+select-pane -t 1
+splitw -v -p 50
+select-pane -t 0
+send-keys -t 0 'wd xvbd' C-m
+send-keys -t 1 'wd xvbp' C-m
+send-keys -t 2 'wd xvbd' C-m
+send-keys -t 2 '. ./set-env.sh' C-m
+
+neww -n Remote
+send-keys -t "Remote" 'wd rdf' C-m
+
+selectw -t 1
+renamew "Kernel"
+send-keys -t "Kernel" 'wd xvbp' C-m
+send-keys -t "Kernel" '. ./set-env.sh' C-m
+send-keys -t "Kernel" 'wd xkp' C-m

@@ -22,8 +22,6 @@ nnoremap y<tab> y%
 "-------------------------------------------------------------------------------
 noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
      \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-"inoremap  <silent> <s-tab>  <C-C>:if &modifiable && !&readonly &&
-     "\                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
 "  some additional hot keys
@@ -52,7 +50,6 @@ autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
 autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
-inoremap  <silent><F6>         :call InterestingWords('n')<CR>
 vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
@@ -149,7 +146,6 @@ nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
 "fzf buffer tags mapping
-
 nnoremap  <silent> ::  :call FzfBTags()<CR>
 
 " YouCompleteMe mappings
@@ -164,8 +160,8 @@ noremap <leader>fi :YcmCompleter FixIt<CR>
 nnoremap <leader>gl      :diffg MINE<CR>:diffupdate<CR>
 nnoremap <leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <leader>gb      :diffg BASE<CR>:diffupdate<CR>
-nnoremap <silent><Down>  ]c
-nnoremap <silent><Up>    [c
+nmap <silent><Down>  ]c
+nmap <silent><Up>    [c
 nnoremap <localleader>du :diffupdate<CR>
 
 "Easy Align mappings
