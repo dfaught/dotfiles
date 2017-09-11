@@ -124,7 +124,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "Toggle current fold"
-nnoremap <silent> <leader>t za
+nnoremap <silent> <leader>f za
 "Close/Open all folds"
 nmap <silent> <leader>cz zm
 nmap <silent> <leader>zz zr
