@@ -22,7 +22,7 @@ use vars qw { $ldapserver $domain $username $password $basedn };
 $ldapserver = "localhost:1389";
 $domain = "CORPORATE";
 $username = "derek.faught";
-$password = `echo "\$(~/.mail-config/.mutt/offlineimap.py system work)"`;
+$password = `echo "\$(~/.mail-config/.mutt/offlineimap-2.py system work)"`;
 $basedn = "ou=people";
 # --- end configuration ---
 $password =~ s/^\s+//;

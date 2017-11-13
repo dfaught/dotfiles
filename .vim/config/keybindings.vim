@@ -45,9 +45,15 @@ inoremap  <silent><F2>         :set spell!<CR>
 
 nnoremap <silent><F3>          :UndotreeToggle<CR>
 
-autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
-autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
-autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
+augroup KEYBINDS
+  autocmd!
+  autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
+  autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
+  autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
+
+  " Used primarly from Mutt
+  au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
+augroup END
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
 vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
@@ -88,7 +94,6 @@ map <Leader>x :close<CR>
 map <Leader>r <C-W>=
 
 " Toggle to last buffer
-"map <Leader>b <C-^>
 nnoremap <BS> <C-^>
 
 " Kill the current buffer
@@ -117,14 +122,14 @@ nmap t o<Esc>k
 nmap T O<Esc>j
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 
 "Toggle current fold"
-nnoremap <silent> <leader>f za
+nnoremap <silent> <Leader>f za
 "Close/Open all folds"
-nmap <silent> <leader>cz zm
-nmap <silent> <leader>zz zr
+nmap <silent> <Leader>cz zm
+nmap <silent> <Leader>zz zr
 
 "V mode mappings
 vnoremap < <gv
@@ -138,10 +143,6 @@ xmap <Leader>gs <plug>(GrepperOperator)
 "make mappings for Dispatch
 nmap <C-CR> :Make!<Space>
 vmap <C-CR> <Esc>:Make!<Space>
-
-nmap <C-E> :Copen<CR>
-vmap <C-E> <Esc>:Copen<CR>
-
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
@@ -149,20 +150,20 @@ vmap <C-M><C-C> <Esc>:make clean<CR>
 nnoremap  <silent> ::  :call FzfBTags()<CR>
 
 " YouCompleteMe mappings
-noremap <leader>jd :YcmCompleter GoTo<CR>
-noremap <leader>jh :YcmCompleter GoToInclude<CR>
-noremap <leader>gp :YcmCompleter GetParent<CR>
-noremap <leader>gt :YcmCompleter GetType<CR>
-noremap <leader>gd :YcmCompleter GetDoc<CR>
-noremap <leader>fi :YcmCompleter FixIt<CR>
+noremap <Leader>jd :YcmCompleter GoTo<CR>
+noremap <Leader>jh :YcmCompleter GoToInclude<CR>
+noremap <Leader>gp :YcmCompleter GetParent<CR>
+noremap <Leader>gt :YcmCompleter GetType<CR>
+noremap <Leader>gd :YcmCompleter GetDoc<CR>
+noremap <Leader>fi :YcmCompleter FixIt<CR>
 
 " Diff mappings
-nnoremap <leader>gl      :diffg MINE<CR>:diffupdate<CR>
-nnoremap <leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
-nnoremap <leader>gb      :diffg BASE<CR>:diffupdate<CR>
+nnoremap <Leader>gl      :diffg MINE<CR>:diffupdate<CR>
+nnoremap <Leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
+nnoremap <Leader>gb      :diffg BASE<CR>:diffupdate<CR>
 nmap <silent><Down>  ]c
 nmap <silent><Up>    [c
-nnoremap <localleader>du :diffupdate<CR>
+nnoremap <localLeader>du :diffupdate<CR>
 
 "Easy Align mappings
 xmap ga <Plug>(EasyAlign)
@@ -176,8 +177,8 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
 nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
-nnoremap <silent><leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
-vnoremap <silent><leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
+nnoremap <silent><Leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
+vnoremap <silent><Leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
 
 "DoxygenToolkit mappings
 nmap <Leader>dx :Dox<CR>
@@ -191,17 +192,15 @@ nnoremap <Leader>tp :set paste!<CR>
 vnoremap <Leader>tp :set paste!<CR>
 
 "spelling stuff
-noremap <leader>w :call FixLastSpellingError()<cr>
-noremap <leader>W z=
+noremap <Leader>w :call FixLastSpellingError()<cr>
+noremap <Leader>W z=
 
-" Used primarly from Mutt
-au BufRead /tmp/mutt-* nnoremap Q  :wq<CR>
 
 " Experimental stuff or stuff to try below this line
 nnoremap <S-K> i<CR><ESC>k$
-nnoremap <silent><leader>M :call MiddleLine()<CR>
-vnoremap <silent><leader>M :call MiddleLine()<CR>
+nnoremap <silent><Leader>M :call MiddleLine()<CR>
+vnoremap <silent><Leader>M :call MiddleLine()<CR>
 
-nmap <silent><leader>an <Plug>(ale_next_wrap)
-nmap <silent><leader>ap <Plug>(ale_previous_wrap)
+nmap <silent><Leader>an <Plug>(ale_next_wrap)
+nmap <silent><Leader>ap <Plug>(ale_previous_wrap)
 

@@ -1,11 +1,14 @@
 "Mutt.vim
 "
 
-
-au BufRead /tmp/mutt-* set tw=120
-au BufRead /tmp/mutt-* setlocal fo+=awnq
-au BufRead /tmp/mutt-* call AutoCorrect()
-au BufRead /tmp/mutt-* set spell
+augroup MUTT
+  autocmd!
+  au BufRead /tmp/neomutt-* set tw=120
+  au BufRead /tmp/neomutt-* setlocal fo+=awnq
+  au BufRead /tmp/neomutt-* call AutoCorrect()
+  au BufRead /tmp/neomutt-* set spell
+  au BufRead /tmp/neomutt-* set ft=mail
+augroup END
 
 " Set up formatlistpat to handle various denotions of indention/ hierarchy
 set formatlistpat=

@@ -29,7 +29,7 @@
 
 [general]
 accounts = Work, Personal, family-mail
-pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap.py
+pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
 
@@ -93,6 +93,7 @@ remotehost = localhost
 remoteport = 1143
 remoteuser = CORPORATE\derek.faught
 remotepasseval = get_password("system", "work")
+# remotepasseval = '5cubapr0!5'
 realdelete=yes
 createfolders=False
 maxconnections = 4
@@ -119,6 +120,7 @@ maxconnections = 4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = derek@derekfaught.com
 remotepasseval = get_password("system", "derek@derekfaught.com")
+# remotepasseval = '5cubapr0!'
 realdelete=yes
 createfolders=False
 folderfilter = lambda foldername: not re.search('confirmed-ham|confirmed-spam|Archive|Queue|Unwanted', foldername)
@@ -148,6 +150,7 @@ maxconnections = 1
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = "dfaught@family-mail.us"
 remotepasseval = get_password("system", "dfaught@family-mail.us")
+# remotepasseval = 'Land0fn0d!'
 realdelete=yes
 createfolders=False
 folderfilter = lambda foldername: not re.search('ZMGroup|ZMNotification|ZMNewsLetter|Templates', foldername)

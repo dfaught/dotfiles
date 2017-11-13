@@ -59,6 +59,7 @@ set sort_aux=reverse-last-date-received
 
 #unset collapse_unread  # never collapse unread messages
 set uncollapse_jump    # jumps to first unread msg of thread on uncollapse
+set collapse_all
 
 #======================================================#
 # which editor do you want to use?
@@ -99,15 +100,14 @@ alternative_order text/html text/calendar text/enriched text/plain
 folder-hook =Personal set from = "derek@derekfaught.com"
 folder-hook =Personal set postponed="+Personal/Personal-Drafts/"   # Where to store draft messages
 folder-hook =Personal set record="+Personal/Personal-Sent/"   # Where to store sent messages
-folder-hook =Work set from = "derek.faught@rocketgaming.com"
-folder-hook =Work set postponed="+Work/Drafts/"   # Where to store draft messages
-folder-hook =Family set from = "dixonfaught@tx.rr.com"
-folder-hook =Family set postponed="+drafts/"   # Where to store draft messages
-folder-hook =family-mail set from = "dfaught@family-mail.us"
+folder-hook =Personal set query_command= "goobook query '%s'"
+folder-hook =family-mail set from = "faught@family-mail.us"
 folder-hook =family-mail set postponed="+drafts/"   # Where to store draft messages
 folder-hook =family-mail set record="+family-mail/Family-Sent/"   # Where to store sent messages
-folder-hook =dfaught set from = "dfaught@tx.rr.com"
-folder-hook =dfaught set postponed="+drafts/"   # Where to store draft messages
+folder-hook =family-mail set query_command= "goobook query '%s'"
+folder-hook =Work set from = "derek.faught@rocketgaming.com"
+folder-hook =Work set postponed="+Work/Drafts/"   # Where to store draft messages
+folder-hook =Work set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
 
 set mail_check_stats = yes
 #
@@ -123,29 +123,50 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_short_path = yes
 set sidebar_folder_indent = yes
 
-bind index gg      first-entry
-bind index G      last-entry
-bind index re     recall-message
-bind index,pager r      reply
-bind index,pager R      group-reply
-bind index,pager K sidebar-prev
-bind index,pager J sidebar-next
-bind index,pager O sidebar-open
-bind index,pager \CO next-unread-mailbox
-bind index,pager s save-message
-bind index,pager \e<Left> sidebar-toggle-visible
-bind index,pager <F5> edit-label
-bind pager \ek  previous-undeleted
-bind pager \ej  next-undeleted
-bind pager k  previous-line
-bind pager j  next-line
-bind pager gg top
-bind pager G  bottom
-bind index,pager S vfolder-from-query
+bind index,pager                a noop
+bind index,attach,browser       g noop
+bind attach,browser,index       gg first-entry
+bind attach,browser,index       G  last-entry
+bind index,pager                r noop
+bind index,pager                ro reply
+bind index,pager                rr group-reply
+bind index,pager                rs compose-to-sender
+bind index,pager                K sidebar-prev
+bind index,pager                J sidebar-next
+bind index,pager                O sidebar-open
+bind index,pager                \CO next-unread-mailbox
+bind index,pager                s save-message
+bind index,pager                \e<Left> sidebar-toggle-visible
+bind index,pager                <F5> edit-label
+bind attach,browser,pager,index \CF next-page
+bind attach,browser,pager,index \CB previous-page
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
+bind browser,pager              \Ce next-line
+bind browser,pager              \Cy previous-line
+bind index                      \Ce next-line
+bind index                      \Cy previous-line
+bind pager                      \ek previous-undeleted
+bind pager                      \ej next-undeleted
+bind pager                      k previous-line
+bind pager                      j next-line
+bind pager                      g noop
+bind pager                      gg top
+bind pager                      G bottom
+bind index,pager                S vfolder-from-query
+bind index,pager                d noop
+bind index,pager                dd delete-message
+bind index,pager                dT delete-thread
+bind index,pager                dt delete-subthread
+bind pager,index                gt next-thread
+bind pager,index                gT previous-thread
+bind index                      za collapse-thread
+bind index                      zA collapse-all # Missing :folddisable/foldenable
+
+# View attachments properly.
+bind attach <return> view-mailcap
 
 #Search Stuff
-#set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
-set query_command= "python2 ~/.mail-config/.mutt/mutt_ldap.py '%s'"
 bind editor <Tab> complete-query
 
 # Pager View Options ---------------------------------
@@ -156,29 +177,14 @@ set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 set mark_old=no
-set keywords_legacy=yes
-set keywords_standard=yes
 set narrow_tree = yes
-
 set date_format = "%F %R %z"
 set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? "
-
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-
-# View attachments properly.
-bind attach <return> view-mailcap
 
 set nm_default_uri = "notmuch:///home/derek/home-ext/Maildir"
 
-#======================================================#
-# Colours: defaults are a little bleak so experiment!
-
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc            # In their own file
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc            # In their own file
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
-#source ~/.mutt/colors
-
 set allow_ansi=yes
 
 ################################################

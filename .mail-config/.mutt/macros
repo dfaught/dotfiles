@@ -1,8 +1,11 @@
-macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
-macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o" "sync IMAP"
-macro index <F3>   "<shell-escape>getmail<enter>" "sync POP"
+# vi: set ft=muttrc
 
-folder-hook . 'push "<collapse-all>"'
+macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+<enter-command> unset pipe_decode<enter>\
+<pipe-message>~/.mutt/extract_url.pl<enter>\
+<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
+
+macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o" "sync IMAP"
 
 macro index \cr '<read-thread><collapse-thread><next-unread>' 'Mark the current thread as read'
 macro index '{' ':set my_oldcollapse_unread=$collapse_unread<enter>:set collapse_unread=yes<enter><collapse-thread>:set collapse_unread=$my_oldcollapse_unread<enter>' 'Collapse thread.'
@@ -12,3 +15,4 @@ macro index <F7> "<limit>~y " "Limit view to label"
 
 macro index ",c" "<pipe-message>~/.mutt/addcall.sh<enter>"
 
+macro index,pager a "<pipe-message>goobook add<return>"
