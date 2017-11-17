@@ -204,3 +204,13 @@ vnoremap <silent><Leader>M :call MiddleLine()<CR>
 nmap <silent><Leader>an <Plug>(ale_next_wrap)
 nmap <silent><Leader>ap <Plug>(ale_previous_wrap)
 
+" pinched from /u/romainl vimrc...  If you're going to steal, steal from the best.
+"""""""""""""""""""""""""""""""""
+" JUGGLING WITH WORDS AND LINES "
+"""""""""""""""""""""""""""""""""
+nnoremap <Leader><Left>  "_yiw?\v\w+\_W+%#<CR>:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o><C-l>
+nnoremap <Leader><Right> "_yiw:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o>/\v\w+\_W+<CR><C-l>
+nnoremap <silent> <Leader><Up>   :<C-u>move-2<CR>==
+nnoremap <silent> <Leader><Down> :<C-u>move+<CR>==
+xnoremap <silent> <Leader><Up>   :move-2<CR>gv=gv
+xnoremap <silent> <Leader><Down> :move'>+<CR>gv=gv

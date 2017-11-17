@@ -51,4 +51,5 @@ set secure
 augroup GEERAL
   autocmd!
   autocmd BufEnter *.cpp exe 'call LcdToProjectRoot()'
+  autocmd BufWrite * exe 'call TrimWhiteSpace()'
 augroup END

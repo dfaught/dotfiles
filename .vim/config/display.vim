@@ -1,11 +1,12 @@
 "Display.vim
 " Themes, colors, syntax etc.
-set ruler
 set showcmd
 set showmatch
+set noshowmode
 set laststatus=2
 
 "linenumbers
+set number
 set relativenumber
 
 let g:bufferline_echo = 0
@@ -46,3 +47,13 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 set ttyfast
 
 autocmd VimResized * wincmd =
+
+hi User1 guibg=#073642 guifg=#859900 cterm=NONE,bold gui=NONE,bold
+hi User2 guibg=#073642 guifg=#d33682 cterm=NONE,bold gui=NONE,bold
+hi User3 guibg=#073642 guifg=#2aa198 cterm=NONE,bold gui=NONE,bold
+hi User4 guibg=#073642 guifg=#cb4b16 cterm=NONE,bold gui=NONE,bold
+hi User5 guibg=#073642 guifg=#d33682 cterm=NONE,bold gui=NONE,bold
+hi User6 guibg=#073642 guifg=#6c71c4 cterm=NONE,bold gui=NONE,bold
+hi User9 guibg=#073642 guifg=#b58900 cterm=NONE gui=NONE
+
+set statusline=%!statusline#StatusLine()

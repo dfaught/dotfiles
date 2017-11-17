@@ -32,18 +32,13 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'w0rp/ale'
 
-" Plug 'ervandew/supertab'
-
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 Plug 'git://repo.or.cz/vcscommand/'
 
-Plug 'dfaught/vim-airline'
-Plug 'dfaught/vim-airline-themes'
-
 Plug 'panozzaj/vim-autocorrect'
 
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'ryanoasis/vim-devicons'
 
@@ -51,8 +46,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
-
-" Plug 'dfaught/vim-log-syntax'
 
 Plug 'chrisbra/vim-show-whitespace'
 Plug 'chrisbra/vim-diff-enhanced'
@@ -86,8 +79,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'dfaught/vim-solarized8'
 
 Plug 'ciaranm/googletest-syntax'
-
-Plug 'mbbill/undotree'
 
 Plug 'dfaught/algorithm-mnemonics.vim'
 
