@@ -111,17 +111,19 @@ function! statusline#ALEGetWarning()
   endif
 endfunction
 
+function! statusline#GetBranch()
+endfunction
+
 function! statusline#StatusLine() abort
   "left side
   let l:sl = g:modecolor[mode()]
   let l:sl .= '%{g:currentmode[mode()]}%*'
 
-  if &modified
-    let l:sl .= '%#WarningMsg# %f %m %r '
-  else
-
+  " if &modified
+  "   let l:sl .= '%#WarningMsg# %f %m %r '
+  " else
     let l:sl .= '%f %m %r '
-  endif
+  " endif
 
   let l:sl .= '%y '
 
@@ -130,13 +132,13 @@ function! statusline#StatusLine() abort
   let l:sl .= '%c| '
   let l:sl .= '%{&enc}:%{&ff} '
 
-  if statusline#YCMGetWarning() > 0
-    let l:warn = statusline#YCMGetWarning() + statuslne#ALEGetWarning()
+  if ( statusline#YCMGetWarning() > 0 || statusline#ALEGetWarning() > 0 )
+    let l:warn = statusline#YCMGetWarning() + statusline#ALEGetWarning()
     let l:sl .= ' %#WarningMsg# W:%{l:warn}'
   endif
 
-  if statusline#YCMGetError() > 0
-    let l:error = statusline#YCMGetError() + statuslne#ALEGetError()
+  if ( statusline#YCMGetError() > 0 || statusline#ALEGetError() > 0 )
+    let l:error = statusline#YCMGetError() + statusline#ALEGetError()
     let l:sl .= '%#ErrorMsg# E:%{l:error}'
   endif
 

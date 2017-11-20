@@ -1,6 +1,5 @@
 "general_settings.vim
 
-set hls!
 set cin!
 set autoread
 set nobackup
@@ -34,6 +33,7 @@ set smartindent
 
 " Search & replace stuff.
 set gdefault
+set hls
 set incsearch
 
 set backspace=indent,eol,start
