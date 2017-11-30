@@ -2,11 +2,10 @@ nnoremap <Space> <Nop>
 let mapleader=" "
 let maplocalleader='\'
 
-if has("autocmd")
-    "autocmd BufEnter * :lchdir %:p:h
-    autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
-    autocmd FileType mail set spell
-endif
+"if has("autocmd")
+"    "autocmd BufEnter * :lchdir %:p:h
+"    autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+"endif
 
 "-------------------------------------------------------------------------------
 " When editing a file, always jump to the last known cursor position.
@@ -38,8 +37,6 @@ Plug 'git://repo.or.cz/vcscommand/'
 
 Plug 'panozzaj/vim-autocorrect'
 
-" Plug 'octol/vim-cpp-enhanced-highlight'
-
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'tpope/vim-dispatch'
@@ -54,10 +51,8 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
-Plug 'mhinz/vim-grepper'
 
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tmux-plugins/vim-tmux-focus-events'
+" Plug 'tmux-plugins/vim-tmux-focus-events'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -73,8 +68,6 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'mtth/scratch.vim'
 
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
 
 Plug 'dfaught/vim-solarized8'
 
@@ -85,8 +78,6 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 Plug 'suan/vim-instant-markdown'
 
 Plug 'sheerun/vim-polyglot'
-
-" Plug 'ervandew/supertab'
 
 call plug#end()
 

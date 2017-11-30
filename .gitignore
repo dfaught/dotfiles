@@ -9,7 +9,10 @@
 *.com
 *session*
 *plugins*
+*plugged*
 doc/tags
 *.lock
 .vim-flavor
 **/.tmux/plugins/
+tags
+

@@ -1,49 +1,5 @@
 scriptencoding utf-8
 
-let g:currentmode={
-    \ 'n'  : 'N ',
-    \ 'no' : 'NOP',
-    \ 'v'  : 'V ',
-    \ 'V'  : 'VL ',
-    \ '' : 'VB',
-    \ 's'  : 'S',
-    \ 'S'  : 'SL',
-    \ '' : 'SB',
-    \ 'i'  : 'I ',
-    \ 'R'  : 'R ',
-    \ 'Rv' : 'VR',
-    \ 'c'  : 'C',
-    \ 'cv' : 'VEx ',
-    \ 'ce' : 'Ex ',
-    \ 'r'  : 'Prompt ',
-    \ 'rm' : 'More ',
-    \ 'r?' : 'Confirm ',
-    \ '!'  : 'Shell ',
-    \ 't'  : 'Terminal '
-    \}
-
-let g:modecolor={
-    \ 'n'  : '%1* ',
-    \ 'no'  : '%1* ',
-    \ 'v'  : '%2* ',
-    \ 'V'  : '%2* ',
-    \ '' : '%2* ',
-    \ 's'  : '%5* ',
-    \ 'S'  : '%5* ',
-    \ '' : '%5* ',
-    \ 'i'  : '%3* ',
-    \ 'R'  : '%4* ',
-    \ 'Rv' : '%4* ',
-    \ 'c'  : '%6* ',
-    \ 'cv' : '%6* ',
-    \ 'ce' : '%6* ',
-    \ 'r'  : '',
-    \ 'rm' : '',
-    \ 'r?' : '',
-    \ '!'  : '',
-    \ 't'  : ''
-    \}
-
 " YCM error functions taken directly frm Airline plugin...
 function! statusline#YCMGetError()
   if exists(':YcmDiag') && exists("*youcompleteme#GetWarningCount")
@@ -111,26 +67,22 @@ function! statusline#ALEGetWarning()
   endif
 endfunction
 
-function! statusline#GetBranch()
-endfunction
+function! statusline#StatusLine(curwin) abort
+  let a:isActive = (a:curwin == winnr())
 
-function! statusline#StatusLine() abort
   "left side
-  let l:sl = g:modecolor[mode()]
-  let l:sl .= '%{g:currentmode[mode()]}%*'
+  let l:sl = '%9*%f%*'
+  let l:sl .= '%7*%m%*'
+  let l:sl .= '%8*%r%* '
+  let l:sl .= '%w%h%q'
 
-  " if &modified
-  "   let l:sl .= '%#WarningMsg# %f %m %r '
-  " else
-    let l:sl .= '%f %m %r '
-  " endif
-
-  let l:sl .= '%y '
+  if &spell == 1 && a:isActive
+    let l:sl .= '%1*[SP]%*'
+  endif
 
   "right side
-  let l:sl .= '%= '
-  let l:sl .= '%c| '
-  let l:sl .= '%{&enc}:%{&ff} '
+  let l:sl .= '%='
+  let l:sl .= '%c| %6*%y %{&enc}:%{&ff}%*'
 
   if ( statusline#YCMGetWarning() > 0 || statusline#ALEGetWarning() > 0 )
     let l:warn = statusline#YCMGetWarning() + statusline#ALEGetWarning()

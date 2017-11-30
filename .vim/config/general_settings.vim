@@ -16,10 +16,14 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+set path=**
+
 set wildmenu
-set wildmode=full
+set wildmode=list:longest
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=*.so,*.pyc,*.o,*.a,*.la,*.dll,*.class
+set wildignore+=tags
+set wildcharm=<Tab>
 
 set scrolljump=5
 set scrolloff=3
@@ -52,4 +56,12 @@ augroup GEERAL
   autocmd!
   autocmd BufEnter *.cpp exe 'call LcdToProjectRoot()'
   autocmd BufWrite * exe 'call TrimWhiteSpace()'
+  autocmd FileType cpp set keywordprg=cppman
 augroup END
+
+if executable("rg")
+  set grepprg=rg\ --nocolor\ --nogroup\ --ignorecase\ --vimgrep
+elseif executable("ag")
+  set grepprg=ag\ --nocolor\ --nogroup\ --ignorecase\ --vimgrep
+endif
+set grepformat^=%f-%l:%c:%m

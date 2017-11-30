@@ -43,8 +43,6 @@ nnoremap  <silent><F2>         :set spell!<CR>
 vnoremap  <silent><F2>         :set spell!<CR>
 inoremap  <silent><F2>         :set spell!<CR>
 
-nnoremap <silent><F3>          :UndotreeToggle<CR>
-
 augroup KEYBINDS
   autocmd!
   autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
@@ -66,20 +64,14 @@ inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-nnoremap  <silent><F8>         :Files<CR>
-inoremap  <silent><F8>         <Esc>:Files<CR>
-vnoremap  <silent><F8>         <Esc>:Files<CR>
+nnoremap  <F8>         :find *<Tab>
 
-nnoremap  <silent><F9>         :Buffers<CR>
-inoremap  <silent><F9>         <Esc>:Buffers<CR>
-vnoremap  <silent><F9>         <Esc>:Buffers<CR>
+nnoremap  <F9>         :buf *<Tab>
 
-nnoremap <silent><F10>         :Marks<CR>
-
-"noremap   <C-J> <C-W>j
-"noremap   <C-K> <C-W>k
-"noremap   <C-H> <C-W>h
-"noremap   <C-L> <C-W>l
+" noremap   <C-J> <C-W>j
+" noremap   <C-K> <C-W>k
+" noremap   <C-H> <C-W>h
+" noremap   <C-L> <C-W>l
 
 "resize windows
 nmap <C-w><Up>    <C-W>+<C-W>+
@@ -136,9 +128,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " search bindings
-nnoremap <Leader>s :Grepper<CR>
-nmap <Leader>gs <plug>(GrepperOperator)
-xmap <Leader>gs <plug>(GrepperOperator)
+nnoremap <Leader>s :grep<Space>
 
 "make mappings for Dispatch
 nmap <C-CR> :Make!<Space>
@@ -147,7 +137,7 @@ nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
 "fzf buffer tags mapping
-nnoremap  <silent> ::  :call FzfBTags()<CR>
+nnoremap  ::  :tag *<Tab>
 
 " YouCompleteMe mappings
 noremap <Leader>jd :YcmCompleter GoTo<CR>
@@ -175,6 +165,7 @@ nnoremap <Leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vo :VimuxOpenPane<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
+" Move this to a project specific vimrc someday, since it only works for a specific project setup
 nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
 nnoremap <silent><Leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
@@ -188,13 +179,12 @@ nmap <Leader>Z <C-w>o
 vmap <Leader>Z <C-w>o
 
 " paste mode
-nnoremap <Leader>tp :set paste!<CR>
-vnoremap <Leader>tp :set paste!<CR>
+nnoremap <silent><Leader>tp :set paste!<CR>
+vnoremap <silent><Leader>tp :set paste!<CR>
 
 "spelling stuff
 noremap <Leader>w :call FixLastSpellingError()<cr>
 noremap <Leader>W z=
-
 
 " Experimental stuff or stuff to try below this line
 nnoremap <S-K> i<CR><ESC>k$
@@ -209,7 +199,7 @@ nmap <silent><Leader>ap <Plug>(ale_previous_wrap)
 " JUGGLING WITH WORDS AND LINES "
 """""""""""""""""""""""""""""""""
 nnoremap <Leader><Left>  "_yiw?\v\w+\_W+%#<CR>:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o><C-l>
-nnoremap <Leader><Right> "_yiw:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o>/\v\w+\_W+<CR><C-l>
+nnoremap <Leader><Right> "_yiw:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o>/\v\w+\_W+<CR><C-l>:noh<CR>
 nnoremap <silent> <Leader><Up>   :<C-u>move-2<CR>==
 nnoremap <silent> <Leader><Down> :<C-u>move+<CR>==
 xnoremap <silent> <Leader><Up>   :move-2<CR>gv=gv
