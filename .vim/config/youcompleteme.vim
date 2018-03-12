@@ -35,8 +35,8 @@ let g:ycm_key_list_previous_completion                  = ['<S-Tab>', '<Up>']
 
 let g:ycm_goto_buffer_command                           = 'horizontal-split'
 
-"let g:ycm_server_keep_logfiles=1
-"let g:ycm_server_log_level=debug
+" let g:ycm_server_keep_logfiles=1
+" let g:ycm_log_level = 'info'
 
 "I use <C-Space> for tmux now.
-let g:ycm_key_invoke_completion                         = '<A-Enter>'
+let g:ycm_key_invoke_completion                         = '<M-Enter>'

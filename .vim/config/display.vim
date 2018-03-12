@@ -27,7 +27,6 @@ syntax on
 filetype indent on
 
 "Color & theme
-set background=dark
 let g:solarized_visibility="high"
 let g:solarized_term_italics=1
 

@@ -28,19 +28,19 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 "    F1   -  System use - do not map
 "    F2   -  Toggle spelling
-"    F3   -  Undo Tree toggle
+"    F3   -
 "    F4   -  System use - do not map
 "    F5   -  Dispatch
 "    F6   -  Mark word/selection as interesting
 "    F7   -  Trim trailing whites
-"    F8   -  FZF fuzzy file search
-"    F9   -  FZF fuzzy buffer search
-"    F10  -  FZF Marks
+"    F8   -  :find files
+"    F9   -  :buf, switching to buf
+"    F10  -
 "    F11  -  System intercepted
 "    F12  -  System use - do not map
 "-------------------------------------------------------------------------------
 nnoremap  <silent><F2>         :set spell!<CR>
-vnoremap  <silent><F2>         :set spell!<CR>
+xnoremap  <silent><F2>         :set spell!<CR>
 inoremap  <silent><F2>         :set spell!<CR>
 
 augroup KEYBINDS
@@ -54,19 +54,19 @@ augroup KEYBINDS
 augroup END
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
-vnoremap  <silent><F6>         :call InterestingWords('v')<CR>
+xnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
-vnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
+xnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 
 nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
-vnoremap  <silent><F7>         :ShowWhiteToggle<CR>
+xnoremap  <silent><F7>         :ShowWhiteToggle<CR>
 inoremap  <silent><F7>         :ShowWhiteToggle<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
-vnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
+xnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
-nnoremap  <F8>         :find *<Tab>
+nnoremap  <F8>         :find *
 
-nnoremap  <F9>         :buf *<Tab>
+nnoremap  <F9>         :ls<CR>:buffer<Space>
 
 " noremap   <C-J> <C-W>j
 " noremap   <C-K> <C-W>k
@@ -83,7 +83,7 @@ nmap <C-w><Right> <C-W><<C-W><
 map <Leader>v <C-w>v
 map <Leader>h <C-w>s
 map <Leader>x :close<CR>
-map <Leader>r <C-W>=
+map <Leader>R <C-W>=
 
 " Toggle to last buffer
 nnoremap <BS> <C-^>
@@ -96,12 +96,12 @@ nnoremap <Leader><Space> :w<CR>
 
 " Yank the line
 nnoremap Y y$
-vnoremap <Leader>y "+y
-vnoremap <Leader>d "+d
+xnoremap <Leader>y "+y
+xnoremap <Leader>d "+d
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
-vnoremap <Leader>p "+p
-vnoremap <Leader>P "+P
+xnoremap <Leader>p "+p
+xnoremap <Leader>P "+P
 
 "yank all to clipboard
 nnoremap <Leader>A :%y+<CR>
@@ -124,15 +124,17 @@ nmap <silent> <Leader>cz zm
 nmap <silent> <Leader>zz zr
 
 "V mode mappings
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
 " search bindings
-nnoremap <Leader>s :grep<Space>
+command! -nargs=+ -complete=file_in_path -bar MyGrep silent! grep! <args> | redraw! | copen 40
+nnoremap <silent><Leader>s :MyGrep <C-r><C-w><CR>
+nnoremap <Leader>S :MyGrep<Space>
 
 "make mappings for Dispatch
-nmap <C-CR> :Make!<Space>
-vmap <C-CR> <Esc>:Make!<Space>
+nmap <Leader><CR> :Dispatch!<Space>
+vmap <Leader><CR> <Esc>:Make!<Space>
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
@@ -140,11 +142,6 @@ vmap <C-M><C-C> <Esc>:make clean<CR>
 nnoremap  ::  :tag *<Tab>
 
 " YouCompleteMe mappings
-noremap <Leader>jd :YcmCompleter GoTo<CR>
-noremap <Leader>jh :YcmCompleter GoToInclude<CR>
-noremap <Leader>gp :YcmCompleter GetParent<CR>
-noremap <Leader>gt :YcmCompleter GetType<CR>
-noremap <Leader>gd :YcmCompleter GetDoc<CR>
 noremap <Leader>fi :YcmCompleter FixIt<CR>
 
 " Diff mappings
@@ -168,11 +165,9 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>
 " Move this to a project specific vimrc someday, since it only works for a specific project setup
 nnoremap <Leader>ut :call RunUnitTests("./tests.sh")<CR>
 
-nnoremap <silent><Leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
-vnoremap <silent><Leader>m :call VimuxRunCommand("cppman ".expand("<cword>"))<CR>
-
 "DoxygenToolkit mappings
-nmap <Leader>dx :Dox<CR>
+nnoremap <Leader>dx :Dox<CR>
+nnoremap <Leader>da :DoxAuthor<CR>
 
 "Zoomwin
 nmap <Leader>Z <C-w>o
@@ -180,16 +175,16 @@ vmap <Leader>Z <C-w>o
 
 " paste mode
 nnoremap <silent><Leader>tp :set paste!<CR>
-vnoremap <silent><Leader>tp :set paste!<CR>
+xnoremap <silent><Leader>tp :set paste!<CR>
 
 "spelling stuff
 noremap <Leader>w :call FixLastSpellingError()<cr>
 noremap <Leader>W z=
 
 " Experimental stuff or stuff to try below this line
-nnoremap <S-K> i<CR><ESC>k$
+" nnoremap <S-K> i<CR><ESC>k$
 nnoremap <silent><Leader>M :call MiddleLine()<CR>
-vnoremap <silent><Leader>M :call MiddleLine()<CR>
+xnoremap <silent><Leader>M :call MiddleLine()<CR>
 
 nmap <silent><Leader>an <Plug>(ale_next_wrap)
 nmap <silent><Leader>ap <Plug>(ale_previous_wrap)
@@ -204,3 +199,28 @@ nnoremap <silent> <Leader><Up>   :<C-u>move-2<CR>==
 nnoremap <silent> <Leader><Down> :<C-u>move+<CR>==
 xnoremap <silent> <Leader><Up>   :move-2<CR>gv=gv
 xnoremap <silent> <Leader><Down> :move'>+<CR>gv=gv
+
+nnoremap <silent><Leader>qo :copen<CR>
+nnoremap <silent><Leader>qc :cclose<CR>
+nnoremap <silent><Leader>lo :lopen<CR>
+nnoremap <silent><Leader>lc :lclose<CR>
+
+nnoremap <Leader>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
+nnoremap <Leader>%  :%s/<C-r>=expand('<cword>')<CR>/
+
+" Auto expansions
+inoremap (<Space> (<Space><Space>)<ESC>hi
+inoremap (; (<Space><Space>);<ESC>2hi
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {; {<CR>};<Esc>O
+inoremap {, {<CR>},<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [; [];<Esc>2hi
+
+nnoremap <Leader>i :ilist /
+
+command! -nargs=+ MyTagList silent! :ilist! <args> | redraw! | copen 40
+" nnoremap [I :MyTagList <C-r><C-w><CR>
+
+" nnoremap [I [I:ijump  <C-r><C-w><S-Left><Left><Left>
+" nnoremap ]I ]I:ijump  <C-r><C-w><S-Left><Left><Left>

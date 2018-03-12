@@ -27,7 +27,7 @@ let $GIT_SSL_NO_VERIFY = 'true'
 
 Plug 'dfaught/my-vim-snippets'
 
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 Plug 'w0rp/ale'
 
@@ -52,7 +52,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 
-" Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -78,6 +78,8 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 Plug 'suan/vim-instant-markdown'
 
 Plug 'sheerun/vim-polyglot'
+
+Plug 'lyuts/vim-rtags'
 
 call plug#end()
 

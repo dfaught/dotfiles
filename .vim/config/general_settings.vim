@@ -33,11 +33,10 @@ set smartcase
 
 "indent
 set autoindent
-set smartindent
 
 " Search & replace stuff.
 set gdefault
-set hls
+set hlsearch
 set incsearch
 
 set backspace=indent,eol,start
@@ -52,16 +51,9 @@ set nospell
 set exrc
 set secure
 
-augroup GEERAL
-  autocmd!
-  autocmd BufEnter *.cpp exe 'call LcdToProjectRoot()'
-  autocmd BufWrite * exe 'call TrimWhiteSpace()'
-  autocmd FileType cpp set keywordprg=cppman
-augroup END
-
 if executable("rg")
-  set grepprg=rg\ --nocolor\ --nogroup\ --ignorecase\ --vimgrep
+  set grepprg=rg\ --vimgrep
 elseif executable("ag")
-  set grepprg=ag\ --nocolor\ --nogroup\ --ignorecase\ --vimgrep
+  set grepprg=ag\ --vimgrep
 endif
 set grepformat^=%f-%l:%c:%m

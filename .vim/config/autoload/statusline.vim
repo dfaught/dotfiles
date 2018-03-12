@@ -84,15 +84,15 @@ function! statusline#StatusLine(curwin) abort
   let l:sl .= '%='
   let l:sl .= '%c| %6*%y %{&enc}:%{&ff}%*'
 
-  if ( statusline#YCMGetWarning() > 0 || statusline#ALEGetWarning() > 0 )
-    let l:warn = statusline#YCMGetWarning() + statusline#ALEGetWarning()
-    let l:sl .= ' %#WarningMsg# W:%{l:warn}'
-  endif
+"   if ( statusline#YCMGetWarning() > 0 || statusline#ALEGetWarning() > 0 )
+"     let l:warn = statusline#YCMGetWarning() + statusline#ALEGetWarning()
+"     let l:sl .= ' %#WarningMsg# W:%{l:warn}'
+"   endif
 
-  if ( statusline#YCMGetError() > 0 || statusline#ALEGetError() > 0 )
-    let l:error = statusline#YCMGetError() + statusline#ALEGetError()
-    let l:sl .= '%#ErrorMsg# E:%{l:error}'
-  endif
+"   if ( statusline#YCMGetError() > 0 || statusline#ALEGetError() > 0 )
+"     let l:error = statusline#YCMGetError() + statusline#ALEGetError()
+"     let l:sl .= '%#ErrorMsg# E:%{l:error}'
+"   endif
 
   return l:sl
 endfunction

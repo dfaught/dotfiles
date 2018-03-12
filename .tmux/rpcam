@@ -1,0 +1,53 @@
+# dev session
+#
+
+neww -n "CamCloud"
+send-keys -t "CamCloud" 'wd rpw' C-m
+send-keys -t "CamCloud" '. ./set-env.sh' C-m
+
+neww -n "HikVision"
+send-keys -t "HikVision" 'wd rpw' C-m
+send-keys -t "HikVision" '. ./set-env.sh' C-m
+
+neww -n "RPCom"
+send-keys -t "RPCam" 'wd rpw' C-m
+send-keys -t "RPCam" '. ./set-env.sh' C-m
+
+neww -n "RPCam"
+send-keys -t "RPCam" 'wd rpw' C-m
+send-keys -t "RPCam" '. ./set-env.sh' C-m
+
+neww -n "Build"
+splitw -h -p 50 -t 0
+send-keys -t 0 'wd rpw' C-m
+send-keys -t 0 '. ./set-env.sh' C-m
+send-keys -t 1 'wd rpw' C-m
+send-keys -t 1 '. ./set-env.sh' C-m
+
+neww -n Debug
+splitw -h -p 40
+select-pane -t 2
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+splitw -h -p 50
+send-keys -t 0 'wd rpw' C-m
+send-keys -t 1 'wd rpw' C-m
+send-keys -t 1 'tty' C-m
+send-keys -t 2 'wd rpw' C-m
+send-keys -t 3 'wd rpw' C-m
+send-keys -t 4 'wd rpw' C-m
+
+neww -n Tools
+send-keys -t "Tools" 'wd rpw' C-m
+
+neww -n Remote
+send-keys -t "Remote" 'wd rpw' C-m
+
+selectw -t 1
+renamew "Project"
+send-keys -t "Project" 'wd rpw' C-m
+send-keys -t "Project" '. ./set-env.sh' C-m
+splitw -h -p 25 -t 0
+send-keys -t 1 'wd rpw' C-m
