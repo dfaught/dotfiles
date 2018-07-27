@@ -10,8 +10,8 @@ use warnings;
 
 use MIME::Parser;
 
-# my $CONVERT = 'ical2rem';
-my $CONVERT = 'ical2rem-cli';
+my $CONVERT = 'ical2rem';
+#my $CONVERT = 'ical2rem-cli';
 my $REMINDERS = '~/.reminders';
 
 ################################################################################

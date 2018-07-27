@@ -64,9 +64,10 @@ set collapse_all
 #======================================================#
 # which editor do you want to use?
 # vim of course!
-#set editor="vim \"+set spell\" +"
+set editor="vim +"
 folder-hook . source ./.mutt/bottom-repyly
 folder-hook =Work source ./.mutt/top-reply
+folder-hook =red-phoenix source ./.mutt/top-reply
 
 set edit_headers=yes      # See the headers when editing
 
@@ -100,14 +101,19 @@ alternative_order text/html text/calendar text/enriched text/plain
 folder-hook =Personal set from = "derek@derekfaught.com"
 folder-hook =Personal set postponed="+Personal/Personal-Drafts/"   # Where to store draft messages
 folder-hook =Personal set record="+Personal/Personal-Sent/"   # Where to store sent messages
-folder-hook =Personal set query_command= "goobook query '%s'"
+folder-hook =Personal set query_command = "~/.mail-config/.mutt/gbquery.sh '%s'"
 folder-hook =family-mail set from = "faught@family-mail.us"
 folder-hook =family-mail set postponed="+drafts/"   # Where to store draft messages
 folder-hook =family-mail set record="+family-mail/Family-Sent/"   # Where to store sent messages
-folder-hook =family-mail set query_command= "goobook query '%s'"
-folder-hook =Work set from = "derek.faught@rocketgaming.com"
+folder-hook =family-mail set query_command= "~/.mail-config/.mutt/gbquery.sh '%s'"
+folder-hook =Work set from = "derek.faught@ariesnow.com"
 folder-hook =Work set postponed="+Work/Drafts/"   # Where to store draft messages
 folder-hook =Work set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
+folder-hook =Work set record=""   # Where to store sent messages
+folder-hook =red-phoenix set from = "derek@red-phoenix.com"
+folder-hook =red-phoenix set postponed="+red-phoenix/RedPhoenix-Inbox.RedPhoenix-Drafts/"   # Where to store draft messages
+folder-hook =red-phoenix set record="+red-phoenix/RedPhoenix-Inbox.RedPhoenix-Sent/"   # Where to store sent messages
+folder-hook =red-phoenix set query_command = "~/.mail-config/.mutt/gbquery.sh '%s'"
 
 set mail_check_stats = yes
 #
@@ -194,9 +200,9 @@ set allow_ansi=yes
 source ~/.mutt/macros
 
 macro index,pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
-folder-hook =Personal macro index d "<save-message>+trash<enter>" "move message to the trash"
-folder-hook =Family macro index d "<save-message>+trash<enter>" "move message to the trash"
-folder-hook =family-mail macro index d "<save-message>+trash<enter>" "move message to the trash"
-folder-hook =dfaught macro index d "<save-message>+trash<enter>" "move message to the trash"
-folder-hook =Work macro index D "<save-message>+trash<enter>" "move message to the trash"
+# folder-hook =Personal macro index d "<save-message>+trash<enter>" "move message to the trash"
+# folder-hook =Family macro index d "<save-message>+trash<enter>" "move message to the trash"
+# folder-hook =family-mail macro index d "<save-message>+trash<enter>" "move message to the trash"
+# folder-hook =dfaught macro index d "<save-message>+trash<enter>" "move message to the trash"
+# folder-hook =Work macro index d "<save-message>+trash<enter>" "move message to the trash"
 

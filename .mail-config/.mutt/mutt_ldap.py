@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 #
 # Copyright (C) 2008-2013  W. Trevor King
 # Copyright (C) 2012-2013  Wade Berrier

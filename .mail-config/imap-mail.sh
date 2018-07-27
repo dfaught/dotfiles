@@ -26,10 +26,6 @@ while [ 1 ]
 do
 PID=`pgrep offlineimap`
 
-###
-# what to do if it's still running? uncomment
-# only one of the options below:
-###
 [ -n "$PID" ] && kill $PID     # kill it and resync now
 
 imapfilter -c ~/.imapfilter/config.lua

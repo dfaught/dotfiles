@@ -1,4 +1,4 @@
-# vi: set ft=muttrc :
+# vi: set ft=muttrc.conf :
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 <enter-command> unset pipe_decode<enter>\

@@ -1,21 +1,16 @@
 "youcompleteme.vim
 
 let g:ycm_confirm_extra_conf                            = 0
-"let g:ycm_global_ycm_extra_conf                     = '~/.ycm_extra_conf.py'
-
 let g:ycm_auto_start_csharp_server                      = 1
 let g:ycm_auto_stop_csharp_server                       = 1
 
 let g:ycm_autoclose_preview_window_after_completion     = 1
-"let g:ycm_autoclose_preview_window_after_insertion  = 0
 
 let g:ycm_show_diagnostics_ui                           = 1
 let g:ycm_always_populate_location_list                 = 1
 
 let g:ycm_error_symbol                                  = '✘'
 let g:ycm_warning_symbol                                = '☢'
-"highlight YcmErrorLine                              cterm=underline ctermfg=red guifg=red
-"highlight YcmWarningLine                            cterm=underline ctermfg=yellow guifg=yellow
 highlight YcmErrorSign                                  ctermfg=red guifg=#dc322f
 highlight YcmWarningSign                                cterm=bold gui=bold ctermfg=yellow guifg=#cdc13c
 highlight YcmErrorSection                               cterm=underline gui=undercurl ctermfg=red guifg=#dc322f

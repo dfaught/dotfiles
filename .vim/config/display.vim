@@ -14,7 +14,7 @@ let g:bufferline_echo = 0
 if has('gui_running')
   set guioptions-=T          	" remove the toolbar
   set guioptions-=m
-  set guifont=Hack\ 9
+  set guifont=Iosevka\ 9
 endif
 
 set termguicolors

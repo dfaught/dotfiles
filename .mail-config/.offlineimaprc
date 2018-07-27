@@ -28,7 +28,7 @@
 ##################################################
 
 [general]
-accounts = Work, Personal, family-mail
+accounts = Work, Personal, family-mail, red-phoenix
 pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
@@ -119,7 +119,6 @@ maxconnections = 4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = derek@derekfaught.com
 remotepasseval = get_password("system", "derek@derekfaught.com")
-# remotepasseval = '5cubapr0!'
 realdelete=yes
 createfolders=False
 folderfilter = lambda foldername: not re.search('confirmed-ham|confirmed-spam|Archive|Queue|Unwanted', foldername)
@@ -182,8 +181,9 @@ realdelete=yes
 createfolders=False
 nametrans = lambda folder: re.sub('INBOX', 'RedPhoenix-Inbox',
  re.sub('Drafts', 'RedPhoenix-Drafts',
- re.sub('Sent', 'Red-Phoenix-Sent',
- re.sub('Spam', 'Red-Phoenix-Spam',
- re.sub('Trash', 'Red-Phoenix-Trash', folder)))))
- re.sub('Archive', 'Red-Phoenix-Archive', folder)))))
+ re.sub('Sent', 'RedPhoenix-Sent',
+ re.sub('spam', 'RedPhoenix-spam',
+ re.sub('Archive', 'RedPhoenix-Archive',
+ re.sub('Junk', 'RedPhoenix-Junk',
+ re.sub('Trash', 'RedPhoenix-Trash', folder)))))))
 

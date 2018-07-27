@@ -68,22 +68,17 @@ nnoremap  <F8>         :find *
 
 nnoremap  <F9>         :ls<CR>:buffer<Space>
 
-" noremap   <C-J> <C-W>j
-" noremap   <C-K> <C-W>k
-" noremap   <C-H> <C-W>h
-" noremap   <C-L> <C-W>l
-
 "resize windows
-nmap <C-w><Up>    <C-W>+<C-W>+
-nmap <C-w><Down>  <C-W>-<C-W>-
-nmap <C-w><Left>  <C-W>><C-W>>
-nmap <C-w><Right> <C-W><<C-W><
+nnoremap <C-w><Up>    <C-W>+<C-W>+
+nnoremap <C-w><Down>  <C-W>-<C-W>-
+nnoremap <C-w><Left>  <C-W>><C-W>>
+nnoremap <C-w><Right> <C-W><<C-W><
 
 "window shortcuts
-map <Leader>v <C-w>v
-map <Leader>h <C-w>s
-map <Leader>x :close<CR>
-map <Leader>R <C-W>=
+nnoremap <Leader>v <C-w>v
+nnoremap <Leader>h <C-w>s
+nnoremap <Leader>x :close<CR>
+nnoremap <Leader>R <C-W>=
 
 " Toggle to last buffer
 nnoremap <BS> <C-^>
@@ -110,18 +105,18 @@ nnoremap <Leader>A :%y+<CR>
 nnoremap <Leader>a ggVG
 
 " Insert line below/above and return to normal
-nmap t o<Esc>k
-nmap T O<Esc>j
+nnoremap t o<Esc>k
+nnoremap T O<Esc>j
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
-nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <Leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <Leader>sv :so $MYVIMRC<CR>
 
 "Toggle current fold"
 nnoremap <silent> <Leader>f za
 "Close/Open all folds"
-nmap <silent> <Leader>cz zm
-nmap <silent> <Leader>zz zr
+nnoremap <silent> <Leader>cz zm
+nnoremap <silent> <Leader>zz zr
 
 "V mode mappings
 xnoremap < <gv
@@ -138,7 +133,6 @@ vmap <Leader><CR> <Esc>:Make!<Space>
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
-"fzf buffer tags mapping
 nnoremap  ::  :tag *<Tab>
 
 " YouCompleteMe mappings
@@ -148,13 +142,13 @@ noremap <Leader>fi :YcmCompleter FixIt<CR>
 nnoremap <Leader>gl      :diffg MINE<CR>:diffupdate<CR>
 nnoremap <Leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <Leader>gb      :diffg BASE<CR>:diffupdate<CR>
-nmap <silent><Down>  ]c
-nmap <silent><Up>    [c
+nnoremap <silent><Down>  ]c
+nnoremap <silent><Up>    [c
 nnoremap <localLeader>du :diffupdate<CR>
 
 "Easy Align mappings
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xnoremap ga <Plug>(EasyAlign)
+nnoremap ga <Plug>(EasyAlign)
 
 "ViMux mappings
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
@@ -170,8 +164,8 @@ nnoremap <Leader>dx :Dox<CR>
 nnoremap <Leader>da :DoxAuthor<CR>
 
 "Zoomwin
-nmap <Leader>Z <C-w>o
-vmap <Leader>Z <C-w>o
+nnoremap <Leader>Z <C-w>o
+vnoremap <Leader>Z <C-w>o
 
 " paste mode
 nnoremap <silent><Leader>tp :set paste!<CR>
@@ -181,13 +175,11 @@ xnoremap <silent><Leader>tp :set paste!<CR>
 noremap <Leader>w :call FixLastSpellingError()<cr>
 noremap <Leader>W z=
 
-" Experimental stuff or stuff to try below this line
-" nnoremap <S-K> i<CR><ESC>k$
 nnoremap <silent><Leader>M :call MiddleLine()<CR>
 xnoremap <silent><Leader>M :call MiddleLine()<CR>
 
-nmap <silent><Leader>an <Plug>(ale_next_wrap)
-nmap <silent><Leader>ap <Plug>(ale_previous_wrap)
+nnoremap <silent><Leader>an <Plug>(ale_next_wrap)
+nnoremap <silent><Leader>ap <Plug>(ale_previous_wrap)
 
 " pinched from /u/romainl vimrc...  If you're going to steal, steal from the best.
 """""""""""""""""""""""""""""""""
@@ -209,18 +201,11 @@ nnoremap <Leader>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Leader>%  :%s/<C-r>=expand('<cword>')<CR>/
 
 " Auto expansions
-inoremap (<Space> (<Space><Space>)<ESC>hi
-inoremap (; (<Space><Space>);<ESC>2hi
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {; {<CR>};<Esc>O
 inoremap {, {<CR>},<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 inoremap [; [];<Esc>2hi
 
-nnoremap <Leader>i :ilist /
+nnoremap <Leader>i :Ilist /
 
-command! -nargs=+ MyTagList silent! :ilist! <args> | redraw! | copen 40
-" nnoremap [I :MyTagList <C-r><C-w><CR>
-
-" nnoremap [I [I:ijump  <C-r><C-w><S-Left><Left><Left>
-" nnoremap ]I ]I:ijump  <C-r><C-w><S-Left><Left><Left>

@@ -1,4 +1,4 @@
+# vi: set ft=muttrc.conf :
+
 set indent_string = ">"
 set text_flowed=yes
-
-set editor="vim \"+set spell\" +"

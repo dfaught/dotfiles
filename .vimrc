@@ -27,7 +27,7 @@ let $GIT_SSL_NO_VERIFY = 'true'
 
 Plug 'dfaught/my-vim-snippets'
 
-" Plug 'Raimondi/delimitMate'
+Plug 'dfaught/vim-log-syntax'
 
 Plug 'w0rp/ale'
 
@@ -58,8 +58,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benmills/vimux'
 
-" Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --cs-completer'}
-Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --cs-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer'}
 
 Plug 'regedarek/Zoomwin'
 
@@ -80,6 +80,8 @@ Plug 'suan/vim-instant-markdown'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'lyuts/vim-rtags'
+
+Plug 'romainl/vim-qlist'
 
 call plug#end()
 
