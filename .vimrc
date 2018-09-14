@@ -29,7 +29,7 @@ Plug 'dfaught/my-vim-snippets'
 
 Plug 'dfaught/vim-log-syntax'
 
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -44,7 +44,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
 
-Plug 'chrisbra/vim-show-whitespace'
+" Plug 'chrisbra/vim-show-whitespace'
 Plug 'chrisbra/vim-diff-enhanced'
 
 Plug 'kshenoy/vim-signature'
@@ -58,8 +58,18 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benmills/vimux'
 
-Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --cs-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --cs-completer'}
 " Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer'}
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'Shougo/neco-vim'
+Plug 'prabirshrestha/asyncomplete-necovim.vim'
+" Plug 'keremc/asyncomplete-clang.vim'
 
 Plug 'regedarek/Zoomwin'
 
@@ -79,7 +89,7 @@ Plug 'suan/vim-instant-markdown'
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'lyuts/vim-rtags'
+" Plug 'lyuts/vim-rtags'
 
 Plug 'romainl/vim-qlist'
 

@@ -2,26 +2,26 @@
 #
 
 neww -n "CamCloud"
-send-keys -t "CamCloud" 'wd rpd' C-m
+send-keys -t "CamCloud" 'wd rpa' C-m
 send-keys -t "CamCloud" '. ./set-env.sh' C-m
 
 neww -n "HikVision"
-send-keys -t "HikVision" 'wd rpd' C-m
+send-keys -t "HikVision" 'wd rpa' C-m
 send-keys -t "HikVision" '. ./set-env.sh' C-m
 
 neww -n "RPCom"
-send-keys -t "RPCam" 'wd rpd' C-m
+send-keys -t "RPCam" 'wd rpa' C-m
 send-keys -t "RPCam" '. ./set-env.sh' C-m
 
 neww -n "RPCam"
-send-keys -t "RPCam" 'wd rpd' C-m
+send-keys -t "RPCam" 'wd rpa' C-m
 send-keys -t "RPCam" '. ./set-env.sh' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
-send-keys -t 0 'wd rpd' C-m
+send-keys -t 0 'wd rpa' C-m
 send-keys -t 0 '. ./set-env.sh' C-m
-send-keys -t 1 'wd rpd' C-m
+send-keys -t 1 'wd rpa' C-m
 send-keys -t 1 '. ./set-env.sh' C-m
 
 neww -n Debug
@@ -32,22 +32,22 @@ select-pane -t 1
 splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
-send-keys -t 0 'wd rpd' C-m
-send-keys -t 1 'wd rpd' C-m
+send-keys -t 0 'wd rpa' C-m
+send-keys -t 1 'wd rpa' C-m
 send-keys -t 1 'tty' C-m
-send-keys -t 2 'wd rpd' C-m
-send-keys -t 3 'wd rpd' C-m
-send-keys -t 4 'wd rpd' C-m
+send-keys -t 2 'wd rpa' C-m
+send-keys -t 3 'wd rpa' C-m
+send-keys -t 4 'wd rpa' C-m
 
 neww -n Tools
-send-keys -t "Tools" 'wd rpd' C-m
+send-keys -t "Tools" 'wd rpa' C-m
 
 neww -n Remote
-send-keys -t "Remote" 'wd rpd' C-m
+send-keys -t "Remote" 'wd rpa' C-m
 
 selectw -t 1
 renamew "Project"
-send-keys -t "Project" 'wd rpd' C-m
+send-keys -t "Project" 'wd rpa' C-m
 send-keys -t "Project" '. ./set-env.sh' C-m
 splitw -h -p 25 -t 0
-send-keys -t 1 'wd rpd' C-m
+send-keys -t 1 'wd rpa' C-m

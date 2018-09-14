@@ -1,98 +1,54 @@
 scriptencoding utf-8
 
-" YCM error functions taken directly frm Airline plugin...
-function! statusline#YCMGetError()
-  if exists(':YcmDiag') && exists("*youcompleteme#GetWarningCount")
-   return youcompleteme#GetWarningCount()
-  endif
+function! s:branchname() abort
+	let l:isGit = 0
+	let l:isSVN = 0
+	let l:branch = ''
+	let l:cwd = expand("%:p:h")
+	let l:dirlist = strlen(l:cwd) > 0 ? split(l:cwd, "/") : [""]
 
-  return ''
-endfunction
+	while len(l:dirlist) > 0
+		let l:test = "/".join(l:dirlist, "/")."/".".git"
+		if isdirectory(l:test)
+			let l:isGit = 1
+			break
+		endif
 
-function! statusline#YCMGetWarning()
-  if exists(':YcmDiag') && exists("*youcompleteme#GetErrorCount")
-    return youcompleteme#GetErrorCount()
-  endif
+		call remove(l:dirlist, -1)
+	endwhile
 
-  return ''
-endfunction
+	if l:isGit
+		let l:headfile = readfile(l:test."/HEAD", '', 1)[0]  
+		let l:branch = substitute(l:headfile, "^.*refs\/heads\/", "", "")
+	endif
 
-"Acquired from https://github.com/ahmedelgabri/dotfiles/blob/master/vim/.vim/autoload/statusline.vim#L39-L76
-" For a more fancy ale statusline
-function! statusline#ALEGetOk()
-  let l:res = ale#statusline#Status()
-  if l:res ==# 'OK'
-    return '•'
-  else
-    return ''
-  endif
-endfunction
-
-function! statusline#ALEGetError()
-  if !exists(':ALELint')
-    return ''
-  endif
-
-  let l:res = ale#statusline#Status()
-  if l:res ==# 'OK'
-    return ''
-  else
-    let l:e_w = split(l:res)
-    if len(l:e_w) == 2 || match(l:e_w, 'E') > -1
-      return '•' . matchstr(l:e_w[0], '\d\+')
-    else
-      return ''
-    endif
-  endif
-endfunction
-
-function! statusline#ALEGetWarning()
-  if !exists(':ALELint')
-    return ''
-  endif
-
-  let l:res = ale#statusline#Status()
-  let l:res = ale#statusline#Status()
-  if l:res ==# 'OK'
-    return ''
-  else
-    let l:e_w = split(l:res)
-    if len(l:e_w) == 2
-      return '•' . matchstr(l:e_w[1], '\d\+')
-    elseif match(l:e_w, 'W') > -1
-      return '•' . matchstr(l:e_w[0], '\d\+')
-    else
-      return ''
-    endif
-  endif
+	return l:branch
 endfunction
 
 function! statusline#StatusLine(curwin) abort
-  let a:isActive = (a:curwin == winnr())
+	let a:isActive = (a:curwin == winnr())
 
-  "left side
-  let l:sl = '%9*%f%*'
-  let l:sl .= '%7*%m%*'
-  let l:sl .= '%8*%r%* '
-  let l:sl .= '%w%h%q'
+	"left side
+	let l:branch = s:branchname()
 
-  if &spell == 1 && a:isActive
-    let l:sl .= '%1*[SP]%*'
-  endif
+	if !empty(l:branch)
+		let l:sl = "%1*  ".s:branchname()."  "
+		let l:sl .= '%9*%f%*'
+	else
+		let l:sl = '%9*%f%*'
+	endif
 
-  "right side
-  let l:sl .= '%='
-  let l:sl .= '%c| %6*%y %{&enc}:%{&ff}%*'
+	let l:sl .= '%7*%m%*'
+	let l:sl .= '%8*%r%* '
+	let l:sl .= '%w%h%q'
 
-"   if ( statusline#YCMGetWarning() > 0 || statusline#ALEGetWarning() > 0 )
-"     let l:warn = statusline#YCMGetWarning() + statusline#ALEGetWarning()
-"     let l:sl .= ' %#WarningMsg# W:%{l:warn}'
-"   endif
+	if &spell == 1 && a:isActive
+		let l:sl .= '%1*[SP]%*'
+	endif
 
-"   if ( statusline#YCMGetError() > 0 || statusline#ALEGetError() > 0 )
-"     let l:error = statusline#YCMGetError() + statusline#ALEGetError()
-"     let l:sl .= '%#ErrorMsg# E:%{l:error}'
-"   endif
+	"right side
+	let l:sl .= '%='
+	let l:sl .= '%c| %6*%y %{&enc}:%{&ff}%*'
 
-  return l:sl
+	return l:sl
 endfunction

@@ -21,7 +21,7 @@ nnoremap y<tab> y%
 " Choose :bprevious or :bnext
 "-------------------------------------------------------------------------------
 noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
-     \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+			\                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
 "  some additional hot keys
@@ -32,7 +32,8 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "    F4   -  System use - do not map
 "    F5   -  Dispatch
 "    F6   -  Mark word/selection as interesting
-"    F7   -  Trim trailing whites
+"    F7   -  Toggle listchars
+"    <Leader>F7   -  Trim trailing whites
 "    F8   -  :find files
 "    F9   -  :buf, switching to buf
 "    F10  -
@@ -44,13 +45,13 @@ xnoremap  <silent><F2>         :set spell!<CR>
 inoremap  <silent><F2>         :set spell!<CR>
 
 augroup KEYBINDS
-  autocmd!
-  autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
-  autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
-  autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
+	autocmd!
+	autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
+	autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
+	autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
 
-  " Used primarly from Mutt
-  au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
+	" Used primarly from Mutt
+	au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
 augroup END
 
 nnoremap  <silent><F6>         :call InterestingWords('n')<CR>
@@ -58,14 +59,13 @@ xnoremap  <silent><F6>         :call InterestingWords('v')<CR>
 nnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 xnoremap  <silent><Leader><F6> :call UncolorAllWords()<CR>
 
-nnoremap  <silent><F7>         :ShowWhiteToggle<CR>
-xnoremap  <silent><F7>         :ShowWhiteToggle<CR>
-inoremap  <silent><F7>         :ShowWhiteToggle<CR>
+nnoremap  <silent><F7>         :call ToggleList()<CR>
+xnoremap  <silent><F7>         :call ToggleList()<CR>
+inoremap  <silent><F7>         :call ToggleList()<CR>
 nnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 xnoremap  <silent><Leader><F7> :call TrimWhiteSpace()<CR>
 
 nnoremap  <F8>         :find *
-
 nnoremap  <F9>         :ls<CR>:buffer<Space>
 
 "resize windows
@@ -135,9 +135,6 @@ vmap <C-M><C-C> <Esc>:make clean<CR>
 
 nnoremap  ::  :tag *<Tab>
 
-" YouCompleteMe mappings
-noremap <Leader>fi :YcmCompleter FixIt<CR>
-
 " Diff mappings
 nnoremap <Leader>gl      :diffg MINE<CR>:diffupdate<CR>
 nnoremap <Leader>gr      :diffg THEIRS<CR>:diffupdate<CR>
@@ -147,8 +144,8 @@ nnoremap <silent><Up>    [c
 nnoremap <localLeader>du :diffupdate<CR>
 
 "Easy Align mappings
-xnoremap ga <Plug>(EasyAlign)
-nnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "ViMux mappings
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
@@ -178,9 +175,6 @@ noremap <Leader>W z=
 nnoremap <silent><Leader>M :call MiddleLine()<CR>
 xnoremap <silent><Leader>M :call MiddleLine()<CR>
 
-nnoremap <silent><Leader>an <Plug>(ale_next_wrap)
-nnoremap <silent><Leader>ap <Plug>(ale_previous_wrap)
-
 " pinched from /u/romainl vimrc...  If you're going to steal, steal from the best.
 """""""""""""""""""""""""""""""""
 " JUGGLING WITH WORDS AND LINES "
@@ -196,6 +190,7 @@ nnoremap <silent><Leader>qo :copen<CR>
 nnoremap <silent><Leader>qc :cclose<CR>
 nnoremap <silent><Leader>lo :lopen<CR>
 nnoremap <silent><Leader>lc :lclose<CR>
+nnoremap <silent><Leader>pc <C-w><C-z>
 
 nnoremap <Leader>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Leader>%  :%s/<C-r>=expand('<cword>')<CR>/
@@ -208,4 +203,13 @@ inoremap [<CR> [<CR>]<Esc>O
 inoremap [; [];<Esc>2hi
 
 nnoremap <Leader>i :Ilist /
+nnoremap ' `
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+nnoremap <silent> <Leader>H :LspHover<CR>
+nnoremap <C-]> :LspDefinition<CR>
+nnoremap <C-]><C-]> :LspTypeDefinition<CR>
+nnoremap <silent><Leader>r :LspReferences<CR>

@@ -12,9 +12,9 @@ set relativenumber
 let g:bufferline_echo = 0
 
 if has('gui_running')
-  set guioptions-=T          	" remove the toolbar
-  set guioptions-=m
-  set guifont=Iosevka\ 9
+	set guioptions-=T          	" remove the toolbar
+	set guioptions-=m
+	set guifont=Iosevka\ 9
 endif
 
 set termguicolors
@@ -43,6 +43,8 @@ set foldmethod=syntax
 set foldlevelstart=99
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
+set listchars=tab:┊\ 
+
 set ttyfast
 
 hi User1 guibg=#073642 guifg=#859900 cterm=NONE,bold gui=NONE,bold
@@ -56,15 +58,15 @@ hi User8 guibg=#073642 guifg=#dc322f cterm=NONE,bold gui=NONE,bold
 hi User9 guibg=#073642 guifg=#b58900 cterm=NONE gui=NONE
 
 function! s:UpdateStatus()
-  for win in range(1, winnr('$'))
-    call setwinvar(win, '&statusline', '%!statusline#StatusLine(' . win . ')')
-  endfor
+	for win in range(1, winnr('$'))
+		call setwinvar(win, '&statusline', '%!statusline#StatusLine(' . win . ')')
+	endfor
 endfunction
 
 augroup DISPLAY
-  autocmd!
-  autocmd VimResized * wincmd =
-  autocmd VimEnter,WinEnter,BufWinEnter,BufEnter,BufLeave * call <SID>UpdateStatus()
+	autocmd!
+	autocmd VimResized * wincmd =
+	autocmd VimEnter,WinEnter,BufWinEnter,BufEnter,BufLeave * call <SID>UpdateStatus()
 augroup END
 
 " netrw stuff

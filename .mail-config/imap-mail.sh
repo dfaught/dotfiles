@@ -28,8 +28,8 @@ PID=`pgrep offlineimap`
 
 [ -n "$PID" ] && kill $PID     # kill it and resync now
 
-imapfilter -c ~/.imapfilter/config.lua
-imapfilter -c ~/.imapfilter/fm-config.lua &
+imapfilter -c ~/.imapfilter/config.lua -d ~/pers-filter.log
+imapfilter -c ~/.imapfilter/fm-config.lua -d ~/fam-filter.log
 
 offlineimap -o -u Basic
 
