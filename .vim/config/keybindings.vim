@@ -26,29 +26,35 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 "-------------------------------------------------------------------------------
 "  some additional hot keys
 "-------------------------------------------------------------------------------
-"    F1   -  System use - do not map
-"    F2   -  Toggle spelling
-"    F3   -
-"    F4   -  System use - do not map
-"    F5   -  Dispatch
-"    F6   -  Mark word/selection as interesting
-"    F7   -  Toggle listchars
-"    <Leader>F7   -  Trim trailing whites
-"    F8   -  :find files
-"    F9   -  :buf, switching to buf
-"    F10  -
-"    F11  -  System intercepted
-"    F12  -  System use - do not map
+"	F1         - System use - do not map
+" 	F2         - Toggle spelling
+" 	F3         - Add current line to .gdb - breaks
+" 	<Leader>F3 - Remove current line from .gdb - breaks
+" 	F4         - System use - do not map
+" 	F5         - Dispatch
+" 	F6         - Mark word/selection as interesting
+" 	F7         - Toggle listchars
+" 	<Leader>F7 - Trim trailing whites
+" 	F8         - :find files
+" 	F9         - :buf, switching to buf
+" 	F10        -
+" 	F11        - System intercepted
+" 	F12        - System use - do not map
 "-------------------------------------------------------------------------------
+
 nnoremap  <silent><F2>         :set spell!<CR>
 xnoremap  <silent><F2>         :set spell!<CR>
 inoremap  <silent><F2>         :set spell!<CR>
 
-augroup KEYBINDS
+augroup     KEYBINDS
 	autocmd!
-	autocmd FileType               cs nnoremap  <F5>  :wa!<cr>:Dispatch<Space>
-	autocmd FileType               c nnoremap  <F5>  :wa!<cr>:Make<Space>
-	autocmd FileType               cpp nnoremap  <F5>  :wa!<cr>:Make<Space>
+	autocmd FileType cpp,c nmap <F3>         <Plug>VgbAddBreak
+	autocmd FileType cpp,c xmap <F3>         <Plug>VgbAddBreak
+	autocmd FileType cpp,c nmap <Leader><F3> <Plug>VgbRemBreak
+	autocmd FileType cpp,c xmap <Leader><F3> <Plug>VgbRemBreak
+	autocmd FileType cs    nnoremap <F5>                 :wa!<cr>:Dispatch<Space>
+	autocmd FileType c     nnoremap <F5>                 :wa!<cr>:Make<Space>
+	autocmd FileType cpp   nnoremap <F5>                 :wa!<cr>:Make<Space>
 
 	" Used primarly from Mutt
 	au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
@@ -144,7 +150,7 @@ nnoremap <silent><Up>    [c
 nnoremap <localLeader>du :diffupdate<CR>
 
 "Easy Align mappings
-xmap ga <Plug>(EasyAlign)
+xmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "ViMux mappings
@@ -209,7 +215,12 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-nnoremap <silent> <Leader>H :LspHover<CR>
-nnoremap <C-]> :LspDefinition<CR>
-nnoremap <C-]><C-]> :LspTypeDefinition<CR>
-nnoremap <silent><Leader>r :LspReferences<CR>
+" nmap <silent> <Leader>H 
+nmap <C-]><C-]> <Plug>(coc-definition)
+nmap <C-I><C-I> <Plug>(coc-implementation)
+nmap <Leader><C-]> <Plug>(coc-type-definition)
+nmap <silent><Leader>r <Plug>(coc-references)
+
+nnoremap <silent><Leader>yaf :?^{?-1,/^}/y<CR>
+
+nnoremap == =%

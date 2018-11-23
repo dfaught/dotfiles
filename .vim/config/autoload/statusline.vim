@@ -48,7 +48,7 @@ function! statusline#StatusLine(curwin) abort
 
 	"right side
 	let l:sl .= '%='
-	let l:sl .= '%c| %6*%y %{&enc}:%{&ff}%*'
+	let l:sl .= '%l- %c| %6*%y %{&enc}:%{&ff}%*'
 
 	return l:sl
 endfunction

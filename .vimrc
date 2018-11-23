@@ -61,15 +61,19 @@ Plug 'benmills/vimux'
 " Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer --cs-completer'}
 " Plug 'Valloric/YouCompleteMe', {'do': 'python2 ./install.py --clang-completer'}
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-Plug 'Shougo/neco-vim'
-Plug 'prabirshrestha/asyncomplete-necovim.vim'
-" Plug 'keremc/asyncomplete-clang.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+" Plug 'prabirshrestha/asyncomplete-file.vim'
+" Plug 'prabirshrestha/asyncomplete-buffer.vim'
+" Plug 'Shougo/neco-vim'
+" Plug 'prabirshrestha/asyncomplete-necovim.vim'
+
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/jsonc.vim'
+Plug 'neoclide/coc-json'
 
 Plug 'regedarek/Zoomwin'
 
@@ -92,6 +96,8 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'lyuts/vim-rtags'
 
 Plug 'romainl/vim-qlist'
+
+Plug 'dfaught/vim-gdb-break'
 
 call plug#end()
 

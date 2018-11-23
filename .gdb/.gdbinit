@@ -48,6 +48,10 @@ define do
 dashboard -output /dev/pts/$arg0
 end
 
+define doh
+dashboard history -output /dev/pts/$arg0
+end
+
 skip -gfi /usr/include/c++/*/*/*
 skip -gfi /usr/include/c++/*/*
 skip -gfi /usr/include/c++/*

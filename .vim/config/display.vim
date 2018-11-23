@@ -6,8 +6,8 @@ set showmode
 set laststatus=2
 
 "linenumbers
-set number
-set relativenumber
+" set number
+" set relativenumber
 
 let g:bufferline_echo = 0
 
