@@ -167,8 +167,7 @@ nnoremap <Leader>dx :Dox<CR>
 nnoremap <Leader>da :DoxAuthor<CR>
 
 "Zoomwin
-nnoremap <Leader>Z <C-w>o
-vnoremap <Leader>Z <C-w>o
+nnoremap <Leader>Z :ZoomWin<CR>
 
 " paste mode
 nnoremap <silent><Leader>tp :set paste!<CR>
@@ -218,8 +217,10 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 " nmap <silent> <Leader>H 
 nmap <C-]><C-]> <Plug>(coc-definition)
 nmap <C-I><C-I> <Plug>(coc-implementation)
-nmap <Leader><C-]> <Plug>(coc-type-definition)
+nmap <C-]>t <Plug>(coc-type-definition)
 nmap <silent><Leader>r <Plug>(coc-references)
+nnoremap <Leader>cl :call CocAction("codeLens","")<CR>
+nnoremap <Leader>ho :call CocAction("doHover","")<CR>
 
 nnoremap <silent><Leader>yaf :?^{?-1,/^}/y<CR>
 
