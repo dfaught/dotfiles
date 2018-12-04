@@ -1,12 +1,11 @@
 " Settings for vimdiff
-" This file has a "z" in front to ensure it is processed after solarized.vim is processed by Plug
 
 if &diff
   set diffopt+=iwhite
   set cursorcolumn!
   set cursorline!
   set nospell
-  let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+  set diffopt+=algorithm:patience
   " highlight CursorLine   cterm=NONE guibg=#073642
 endif
 
