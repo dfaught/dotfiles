@@ -42,8 +42,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'dfaught/vim-interestingwords'
 
-" Plug 'chrisbra/vim-diff-enhanced'
-
 Plug 'kshenoy/vim-signature'
 
 Plug 'mhinz/vim-signify'
