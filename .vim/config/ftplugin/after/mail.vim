@@ -26,7 +26,7 @@ hi def link mailQuoteExp6         mailQuoted6
 augroup MUTT
   autocmd!
   autocmd BufRead /tmp/neomutt-* set tw=120
-  autocmd BufRead /tmp/neomutt-* setlocal fo+=awnq
+  autocmd BufRead /tmp/neomutt-* setlocal fo+=awnq2j
   autocmd BufRead /tmp/neomutt-* call AutoCorrect()
   autocmd BufRead /tmp/neomutt-* setlocal spell
   autocmd BufRead /tmp/neomutt-* set ft=mail
