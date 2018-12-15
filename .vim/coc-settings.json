@@ -1,6 +1,6 @@
 {
 	// could be 'always' 'trigger' => for specified trigger characters only 'none'
-	"coc.preferences.autoTrigger": "always",
+	"coc.preferences.autoTrigger": "trigger",
 	// only used when autoTrigger is always
 	"coc.preferences.triggerAfterInsertEnter": false,
 	// timeout for completion
@@ -27,7 +27,12 @@
 			"args" : [],
 			"filetypes" : ["c", "cpp"],
 			"initializationOptions" : {"cacheDirectory" : "/tmp/ccls/cache"}
+		},
+		"bash": {
+			"command": "bash-language-server",
+			"filetypes": ["sh"],
+			"args": ["start"]
 		}
 	}
-// vim:ft=jsonc
 }
+// vim:ft=jsonc

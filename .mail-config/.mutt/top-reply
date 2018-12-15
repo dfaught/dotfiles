@@ -2,6 +2,6 @@
 
 set indent_string = ">"
 folder-hook =Work set indent_string = ' '
-# set text_flowed=nO
+# set text_flowed=no
 
 set editor="vim +/\+\+\+"

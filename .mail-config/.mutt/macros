@@ -2,7 +2,7 @@
 
 macro index,pager \cb "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 <enter-command> unset pipe_decode<enter>\
-<pipe-message>~/.mutt/extract_url.pl<enter>\
+<pipe-message>extract_url<enter>\
 <enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 
 macro index <F2>   "<shell-escape>/usr/bin/offlineimap -u TTYUI -q -o" "sync IMAP"

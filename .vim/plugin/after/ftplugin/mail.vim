@@ -1,6 +1,3 @@
-"Mutt.vim
-"
-
 " Define the default highlighting.
 hi def link mailVerbatim          Special
 hi def link mailHeader            Statement
@@ -23,15 +20,9 @@ hi def link mailQuoteExp4         mailQuoted4
 hi def link mailQuoteExp5         mailQuoted5
 hi def link mailQuoteExp6         mailQuoted6
 
-augroup MUTT
-  autocmd!
-  autocmd BufRead /tmp/neomutt-* set tw=120
-  autocmd BufRead /tmp/neomutt-* setlocal fo+=awnq2j
-  autocmd BufRead /tmp/neomutt-* call AutoCorrect()
-  autocmd BufRead /tmp/neomutt-* setlocal spell
-  autocmd BufRead /tmp/neomutt-* set ft=mail
-  " autocmd BufRead,BufWrite /tmp/neomutt-* :normal gqG
-augroup END
+setlocal tw=76
+setlocal fo+=anj
+setlocal spell
 
 " Set up formatlistpat to handle various denotions of indention/ hierarchy
 set formatlistpat=
@@ -60,4 +51,7 @@ set formatlistpat+=\\s\\+
 " Or ASCII style bullet points
 set formatlistpat+=\\\|^\\s*[-+o*]\\s\\+
 
-
+augroup MAIL
+  autocmd BufRead /tmp/neomutt-* call AutoCorrect()
+  autocmd BufRead /tmp/neomutt-* %s/\[.\{-}m//
+augroup END

@@ -53,11 +53,10 @@ sub VERSION_MESSAGE {
 }
 
 my $term_cols = 80;
-my ($term_rows, $term_wpix, $term_hpix);
-if (eval "use Term::Readkey") {
+my ($term_rows, $term_wpix, $term_hpix, $list_width);
+if (eval "use Term::ReadKey qw(GetTerminalSize); 1") {
     ($term_cols, $term_rows, $term_wpix, $term_hpix) = GetTerminalSize();
-} else {
-    require 'sys/ioctl.ph';
+} elsif (eval "use 'sys/ioctl.ph'; 1") {
     if (defined &TIOCGWINSZ and open(TTY, "+</dev/tty")) {
         my $winsize = '';
         unless (ioctl(TTY, &TIOCGWINSZ, $winsize)) {
@@ -65,8 +64,10 @@ if (eval "use Term::Readkey") {
         }
         ($term_rows, $term_cols, $term_wpix, $term_hpix) = unpack('S4', $winsize);
     }
+} elsif (defined $ENV{COLUMNS}) {
+    $term_cols = $ENV{COLUMNS};
 }
-my $list_width = $term_cols - 4; # 4 is for the border width on either side
+$list_width = $term_cols - 4; # 4 is for the border width on either side
 
 my %options;
 if (eval "use Getopt::Long; 1") {
@@ -129,7 +130,7 @@ my $noreview = 0; # means don't display overly-long URLs to be checked before op
 my $persist  = 0; # means don't exit after viewing a URL (ignored if $shortcut == 0)
 my $ignore_empty = 0; # means to throw out URLs that don't have text in HTML
 my $default_view = "url"; # means what shows up in the list by default: urls or contexts
-my $alt_select_key = 'k';
+my $alt_select_key = 'a';
 my $sanitize_reserved = 1;
 sub read_extracturl_prefs
 {
@@ -296,7 +297,7 @@ my %closedurls;
 sub context_char_count
 {
     # 4 is for the border width on either side
-    return ($list_width - length(" =>URL<= "))/2;
+    return ($list_width - length(" <|URL|> "))/2;
 }
 
 sub process_sincelast
@@ -466,7 +467,7 @@ sub find_urls_rec
 					$last10words = &sublastwords($last10words, 50);
 					if ($seenstart == 1) {
 						if (! exists($closedurls{$seenurl})) {
-							my $mtext = "=>$skipped_text<=";
+							my $mtext = "<|$skipped_text|>";
 							if (length($beforetext)) {
 								my $space = " ";
 								$space = "" if ($beforetext =~ /[(-]$/);
@@ -623,8 +624,6 @@ if (&isOutputScreen) {
 }
 
 if ($fancymenu == 1) {
-	#use strict;
-
 	# This is the shortcut...
 	if ($shortcut == 1 && 1 == scalar keys %link_hash) {
 		my ($url) = each %link_hash;
@@ -648,7 +647,7 @@ if ($fancymenu == 1) {
 		-color_support => 1,
 		-clear_on_exit => 1
 	);
-	my $wrapwidth = $cui->width() - 2;
+	my $wrapwidth = $cui->width - 2;
 	my %listhash_url;
 	my %listhash_context;
 	my @listvals;
@@ -888,9 +887,9 @@ come with Perl.
 
 Optional dependencies are B<URI::Find> (recognizes more exotic URL
 variations in plain text (without HTML tags)), B<Curses::UI> (allows it
-to fully replace I<urlview>), B<MIME::Quoted> (does a more standardized decode
-of quoted-printable characters in plain text), and B<Getopt::Long> (if present,
-B<extract_url.pl> recognizes long options --version and --list).
+to fully replace I<urlview>), B<MIME::QuotedPrint> (does a more standardized
+decode of quoted-printable characters in plain text), and B<Getopt::Long> (if
+present, B<extract_url.pl> recognizes long options --version and --list).
 
 =head1 EXAMPLES
 
@@ -1010,7 +1009,7 @@ launched for the selected URL. This key will then make B<extract_url.pl>
 launch the URL viewer but will not quit. However, if I<PERSISTENT> is
 specified in the config file, the opposite is true: normal selection of
 a URL will launch the URL viewer and will not cause B<extract_url.pl> to
-exit, but this key will. This setting defaults to I<k>.
+exit, but this key will. This setting defaults to I<a>.
 
 =item DEFAULT_VIEW {url|context}
 

@@ -225,3 +225,5 @@ nnoremap <Leader>ho :call CocAction("doHover","")<CR>
 nnoremap <silent><Leader>yaf :?^{?-1,/^}/y<CR>
 
 nnoremap == =%
+nnoremap / /\v
+nnoremap ? ?\v

@@ -5,6 +5,7 @@ set use_from = yes
 set envelope_from = yes
 set attribution = "+++ %n [%D]:"
 set include=yes
+set include_onlyfirst=yes
 set indent_string = ""
 set text_flowed=yes
 set forward_quote=yes
@@ -85,18 +86,9 @@ set duplicate_threads = yes
 set mailcap_path 	= ~/.mutt/mailcap
 set implicit_autoview=yes
 auto_view text/html
-# auto_view text/calendar
 auto_view text/plain
 auto_view text/enriched
-# auto_view application/zip
-# auto_view application/7z
-# auto_view application/rar
-# auto_view application/tar
-# auto_view application/tgz
-# auto_view application/tarz
-# auto_view application/zip
-# auto_view application/x-zip-compressed
-alternative_order text/html text/calendar text/enriched text/plain
+alternative_order text/html text/plain text/enriched
 
 folder-hook =Personal set from = "derek@derekfaught.com"
 folder-hook =Personal set postponed="+Personal/Personal-Drafts/"   # Where to store draft messages
@@ -191,7 +183,6 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set nm_default_uri = "notmuch:///home/derek/home-ext/Maildir"
 
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
-set allow_ansi=yes
 
 ################################################
 # Macrosss
