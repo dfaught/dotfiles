@@ -78,5 +78,3 @@ Plug 'romainl/vim-qlist'
 Plug 'dfaught/vim-gdb-break'
 
 call plug#end()
-
-runtime! config/**/*
