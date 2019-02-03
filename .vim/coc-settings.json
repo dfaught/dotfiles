@@ -1,6 +1,6 @@
 {
 	// could be 'always' 'trigger' => for specified trigger characters only 'none'
-	"coc.preferences.autoTrigger": "trigger",
+	"coc.preferences.autoTrigger": "none",
 	// only used when autoTrigger is always
 	"coc.preferences.triggerAfterInsertEnter": false,
 	// timeout for completion
@@ -26,7 +26,8 @@
 			"command" : "ccls",
 			"args" : [],
 			"filetypes" : ["c", "cpp"],
-			"initializationOptions" : {"cacheDirectory" : "/tmp/ccls/cache"}
+                        "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+			"initializationOptions" : {"cacheDirectory" : "/tmp/ccls"}
 		},
 		"bash": {
 			"command": "bash-language-server",

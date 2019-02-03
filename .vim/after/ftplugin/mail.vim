@@ -1,4 +1,4 @@
-" Define the default highlighting.
+Define the default highlighting.
 hi def link mailVerbatim          Special
 hi def link mailHeader            Statement
 hi def link mailHeaderKey         Type
@@ -20,38 +20,34 @@ hi def link mailQuoteExp4         mailQuoted4
 hi def link mailQuoteExp5         mailQuoted5
 hi def link mailQuoteExp6         mailQuoted6
 
-setlocal tw=76
-setlocal fo+=anj
+setlocal tw=120
+setlocal fo+=njwa
 setlocal spell
 
 " Set up formatlistpat to handle various denotions of indention/ hierarchy
-set formatlistpat=
+setlocal formatlistpat=
 " Leading whitespace
-set formatlistpat+=^\\s*
+setlocal formatlistpat+=^\\s*
 " Start class
-set formatlistpat+=[
+setlocal formatlistpat+=[
 " Optionially match opening punctuation
-set formatlistpat+=\\[({]\\?
+setlocal formatlistpat+=\\[({]\\?
 " Start group
-set formatlistpat+=\\(
+setlocal formatlistpat+=\\(
 " A number
-set formatlistpat+=[0-9]\\+
+setlocal formatlistpat+=[0-9]\\+
 " Roman numerals
-set formatlistpat+=\\\|[iIvVxXlLcCdDmM]\\+
+setlocal formatlistpat+=\\\|[iIvVxXlLcCdDmM]\\+
 " A single letter
-set formatlistpat+=\\\|[a-zA-Z]
+setlocal formatlistpat+=\\\|[a-zA-Z]
 " End group
-set formatlistpat+=\\)
+setlocal formatlistpat+=\\)
 " Closing punctuation
-set formatlistpat+=[\\]:.)}
+setlocal formatlistpat+=[\\]:.)}
 " End class
-set formatlistpat+=]
+setlocal formatlistpat+=]
 " One or more spaces
-set formatlistpat+=\\s\\+
+setlocal formatlistpat+=\\s\\+
 " Or ASCII style bullet points
-set formatlistpat+=\\\|^\\s*[-+o*]\\s\\+
+setlocal formatlistpat+=\\\|^\\s*[-+o*]\\s\\+
 
-augroup MAIL
-  autocmd BufRead /tmp/neomutt-* call AutoCorrect()
-  autocmd BufRead /tmp/neomutt-* %s/\[.\{-}m//
-augroup END

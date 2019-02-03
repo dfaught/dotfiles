@@ -31,8 +31,6 @@ Plug 'dfaught/vim-log-syntax'
 
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-Plug 'git://repo.or.cz/vcscommand/'
-
 Plug 'panozzaj/vim-autocorrect'
 
 Plug 'ryanoasis/vim-devicons'
@@ -56,8 +54,6 @@ Plug 'benmills/vimux'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/jsonc.vim'
 Plug 'neoclide/coc-json'
-
-Plug 'regedarek/Zoomwin'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
 

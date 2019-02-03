@@ -11,12 +11,12 @@ set modeline
 set nowrap
 set smarttab
 set textwidth=120
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-" set expandtab
+set expandtab
 
-set path=**
+" set path+=**
 
 set wildmenu
 set wildmode=list:longest
@@ -33,6 +33,7 @@ set smartcase
 
 "indent
 set autoindent
+filetype plugin indent on
 
 " Search & replace stuff.
 set gdefault
@@ -42,7 +43,7 @@ set incsearch
 set backspace=indent,eol,start
 set mousehide
 
-set vb t_vb=
+set novisualbell
 
 " Spelling is annoying in code, I find it so even in comments, turn off by default.  Vim config for mutt will turn this back on.
 set nospell
