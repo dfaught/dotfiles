@@ -26,7 +26,7 @@ function! s:branchname() abort
 endfunction
 
 function! statusline#StatusLine(curwin) abort
-    let a:isActive = (a:curwin == winnr())
+    let l:isActive = (a:curwin == winnr())
 
     "left side
     let l:branch = s:branchname()
@@ -42,7 +42,7 @@ function! statusline#StatusLine(curwin) abort
     let l:sl .= '%8*%r%* '
     let l:sl .= '%w%h%q'
 
-    if &spell == 1 && a:isActive
+    if &spell == 1 && l:isActive
         let l:sl .= '%1*[SP]%*'
     endif
 

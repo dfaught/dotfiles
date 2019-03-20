@@ -21,7 +21,7 @@ nnoremap y<tab> y%
 " Choose :bprevious or :bnext
 "-------------------------------------------------------------------------------
 noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
-			\                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+            \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
 "  some additional hot keys
@@ -35,8 +35,8 @@ noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 " 	F6         - Mark word/selection as interesting
 " 	F7         - Toggle listchars
 " 	<Space>F7 - Trim trailing whites
-" 	F8         - :find files
-" 	F9         - :buf, switching to buf
+" 	F8         - 
+" 	F9         - 
 " 	F10        -
 " 	F11        - System intercepted
 " 	F12        - System use - do not map
@@ -47,32 +47,35 @@ xnoremap  <silent><F2>         :set spell!<CR>
 inoremap  <silent><F2>         :set spell!<CR>
 
 augroup     KEYBINDS
-	autocmd!
-	autocmd FileType cpp,c nmap <F3>        <Plug>VgbAddBreak
-	autocmd FileType cpp,c xmap <F3>        <Plug>VgbAddBreak
-	autocmd FileType cpp,c nmap <Space><F3> <Plug>VgbRemBreak
-	autocmd FileType cpp,c xmap <Space><F3> <Plug>VgbRemBreak
-	autocmd FileType cs    nnoremap <F5>    :wa!<cr>:Dispatch<Space>
-	autocmd FileType c     nnoremap <F5>    :wa!<cr>:Make<Space>
-	autocmd FileType cpp   nnoremap <F5>    :wa!<cr>:Make<Space>
+    autocmd!
+    autocmd FileType cpp,c nmap <F3>        <Plug>VgbAddBreak
+    autocmd FileType cpp,c xmap <F3>        <Plug>VgbAddBreak
+    autocmd FileType cpp,c nmap <Space><F3> <Plug>VgbRemBreak
+    autocmd FileType cpp,c xmap <Space><F3> <Plug>VgbRemBreak
+    autocmd FileType cs    nnoremap <F5>    :wa!<cr>:Dispatch<Space>
+    autocmd FileType c     nnoremap <F5>    :wa!<cr>:Make<Space>
+    autocmd FileType cpp   nnoremap <F5>    :wa!<cr>:Make<Space>
 
-	" Used primarly from Mutt
-	au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
+    " Used primarly from Mutt
+    au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
 augroup END
 
-nnoremap  <silent><F6>        :call InterestingWords('n')<CR>
-xnoremap  <silent><F6>        :call InterestingWords('v')<CR>
-nnoremap  <silent><Space><F6> :call UncolorAllWords()<CR>
-xnoremap  <silent><Space><F6> :call UncolorAllWords()<CR>
+nmap <silent><F6>        <Plug>MarkSet
+xmap <silent><F6>        <Plug>MarkSet
+nmap <silent><Space><F6> <Plug>MarkRegex
+xmap <silent><Space><F6> <Plug>MarkRegex
+nmap <silent><M-F6>      <Plug>MarkAllClear
 
-nnoremap  <silent><F7>        :call ToggleList()<CR>
-xnoremap  <silent><F7>        :call ToggleList()<CR>
-inoremap  <silent><F7>        :call ToggleList()<CR>
-nnoremap  <silent><Space><F7> :call TrimWhiteSpace()<CR>
-xnoremap  <silent><Space><F7> :call TrimWhiteSpace()<CR>
+nnoremap <silent><F7>        :call ToggleList()<CR>
+xnoremap <silent><F7>        :call ToggleList()<CR>
+inoremap <silent><F7>        :call ToggleList()<CR>
+nnoremap <silent><Space><F7> :call TrimWhiteSpace()<CR>
+xnoremap <silent><Space><F7> :call TrimWhiteSpace()<CR>
 
-nnoremap  <F8>         :find *
-nnoremap  <F9>         :ls<CR>:buffer<Space>
+nnoremap  ,f  :find *
+nnoremap  ,b  :ls<CR>:buffer<Space>
+nnoremap  ,t  :tag *<Tab>
+nnoremap  ,ct :tag *<C-r><C-w><Tab>
 
 "resize windows
 nnoremap <C-w><Up>    <C-W>+<C-W>+
@@ -139,7 +142,6 @@ vmap <Space><CR> <Esc>:Make!<Space>
 nmap <C-M><C-C> :make clean<CR>
 vmap <C-M><C-C> <Esc>:make clean<CR>
 
-nnoremap  ::  :tag *<Tab>
 
 " Diff mappings
 nnoremap <Space>gl      :diffg MINE<CR>:diffupdate<CR>
@@ -166,12 +168,8 @@ nnoremap <Space>ut :call RunUnitTests("./tests.sh")<CR>
 nnoremap <Space>dx :Dox<CR>
 nnoremap <Space>da :DoxAuthor<CR>
 
-"Zoomwin
-" nnoremap <Space>Z :ZoomWin<CR>
-
 " paste mode
 nnoremap <silent><Space>tp :set paste!<CR>
-xnoremap <silent><Space>tp :set paste!<CR>
 
 "spelling stuff
 noremap <Space>w :call FixLastSpellingError()<cr>
@@ -188,11 +186,12 @@ nnoremap <silent> <Space><Down> :<C-u>move+<CR>==
 xnoremap <silent> <Space><Up>   :move-2<CR>gv=gv
 xnoremap <silent> <Space><Down> :move'>+<CR>gv=gv
 
-nnoremap <silent><Space>qo :copen<CR>
-nnoremap <silent><Space>qc :cclose<CR>
-nnoremap <silent><Space>lo :lopen<CR>
-nnoremap <silent><Space>lc :lclose<CR>
-nnoremap <silent><Space>pc <C-w><C-z>
+nnoremap <silent>,qo :copen<CR>
+nnoremap <silent>,qc :cclose<CR>
+nnoremap <silent>,lo :lopen<CR>
+nnoremap <silent>,lc :lclose<CR>
+nnoremap <silent>,pc <C-w><C-z>
+nnoremap <silent>,hc :helpclose<CR>
 
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Space>%  :%s/<C-r>=expand('<cword>')<CR>/
@@ -223,3 +222,10 @@ nnoremap <silent><Space>yaf :?^{?-1,/^}/y<CR>
 
 nnoremap == =%
 inoremap `` <C-K>Sb
+
+vnoremap i][ :<C-U>silent! normal! ][j<CR>
+omap af :normal Vi][<CR>
+
+vnoremap i[[ :<C-U>silent! normal! [[k<CR>
+omap af :normal Vi[[<CR>
+

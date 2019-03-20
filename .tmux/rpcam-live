@@ -1,26 +1,26 @@
 # dev session
 
 neww -n "CamCloud"
-send-keys -t "CamCloud" 'wd rpwb' C-m
+send-keys -t "CamCloud" 'wd rpwd' C-m
 send-keys -t "CamCloud" '. ./set-env.sh' C-m
 
 neww -n "HikVision"
-send-keys -t "HikVision" 'wd rpwb' C-m
+send-keys -t "HikVision" 'wd rpwd' C-m
 send-keys -t "HikVision" '. ./set-env.sh' C-m
 
 neww -n "RPCom"
-send-keys -t "RPCom" 'wd rpwb' C-m
+send-keys -t "RPCom" 'wd rpwd' C-m
 send-keys -t "RPCom" '. ./set-env.sh' C-m
 
 neww -n "RPCam"
-send-keys -t "RPCam" 'wd rpwb' C-m
+send-keys -t "RPCam" 'wd rpwd' C-m
 send-keys -t "RPCam" '. ./set-env.sh' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
-send-keys -t 0 'wd rpwb' C-m
+send-keys -t 0 'wd rpwd' C-m
 send-keys -t 0 '. ./set-env.sh' C-m
-send-keys -t 1 'wd rpwb' C-m
+send-keys -t 1 'wd rpwd' C-m
 send-keys -t 1 '. ./set-env.sh' C-m
 
 neww -n "Debug-1"
@@ -31,12 +31,12 @@ select-pane -t 1
 splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
-send-keys -t 0 'wd rpwb' C-m
-send-keys -t 1 'wd rpwb' C-m
+send-keys -t 0 'wd rpwd' C-m
+send-keys -t 1 'wd rpwd' C-m
 send-keys -t 1 'tty' C-m
-send-keys -t 2 'wd rpwb' C-m
-send-keys -t 3 'wd rpwb' C-m
-send-keys -t 4 'wd rpwb' C-m
+send-keys -t 2 'wd rpwd' C-m
+send-keys -t 3 'wd rpwd' C-m
+send-keys -t 4 'wd rpwd' C-m
 
 neww -n "Debug-2"
 splitw -h -p 40
@@ -46,21 +46,21 @@ select-pane -t 1
 splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
-send-keys -t 0 'wd rpwb' C-m
-send-keys -t 1 'wd rpwb' C-m
+send-keys -t 0 'wd rpwd' C-m
+send-keys -t 1 'wd rpwd' C-m
 send-keys -t 1 'tty' C-m
-send-keys -t 2 'wd rpwb' C-m
-send-keys -t 3 'wd rpwb' C-m
-send-keys -t 4 'wd rpwb' C-m
+send-keys -t 2 'wd rpwd' C-m
+send-keys -t 3 'wd rpwd' C-m
+send-keys -t 4 'wd rpwd' C-m
 neww -n Tools
-send-keys -t "Tools" 'wd rpwb' C-m
+send-keys -t "Tools" 'wd rpwd' C-m
 
 neww -n Remote
-send-keys -t "Remote" 'wd rpwb' C-m
+send-keys -t "Remote" 'wd rpwd' C-m
 
 selectw -t 1
 renamew "Project"
-send-keys -t "Project" 'wd rpwb' C-m
+send-keys -t "Project" 'wd rpwd' C-m
 send-keys -t "Project" '. ./set-env.sh' C-m
 splitw -h -p 25 -t 0
-send-keys -t 1 'wd rpwb' C-m
+send-keys -t 1 'wd rpwd' C-m

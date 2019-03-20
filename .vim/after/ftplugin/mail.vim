@@ -1,4 +1,4 @@
-Define the default highlighting.
+"Define the default highlighting.
 hi def link mailVerbatim          Special
 hi def link mailHeader            Statement
 hi def link mailHeaderKey         Type

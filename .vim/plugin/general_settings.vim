@@ -1,6 +1,5 @@
 "general_settings.vim
 
-set cin!
 set autoread
 set nobackup
 set nowb
@@ -32,6 +31,7 @@ set infercase
 set smartcase
 
 "indent
+set cin!
 set autoindent
 filetype plugin indent on
 
@@ -42,10 +42,10 @@ set incsearch
 
 set backspace=indent,eol,start
 set mousehide
-
 set novisualbell
 
-" Spelling is annoying in code, I find it so even in comments, turn off by default.  Vim config for mutt will turn this back on.
+" Spelling is annoying in code, I find it so even in comments, turn off by default.
+" Vim config for mutt will turn this back on, becuzz wurdz hilp peepol unerstan me.
 set nospell
 
 "Allow dir local vimrc for project specific settings and mappings

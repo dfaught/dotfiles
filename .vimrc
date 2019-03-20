@@ -38,8 +38,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 
-Plug 'dfaught/vim-interestingwords'
-
 Plug 'kshenoy/vim-signature'
 
 Plug 'mhinz/vim-signify'
@@ -72,5 +70,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'romainl/vim-qlist'
 
 Plug 'dfaught/vim-gdb-break'
+
+Plug 'markonm/traces.vim'
+
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-mark'
 
 call plug#end()
