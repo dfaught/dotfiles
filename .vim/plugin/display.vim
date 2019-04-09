@@ -1,7 +1,6 @@
 " Themes, colors, syntax etc.
 set showcmd
 set showmatch
-" set noshowmode
 set showmode
 set laststatus=2
 

@@ -76,4 +76,6 @@ Plug 'markonm/traces.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 
+Plug 'OmniSharp/omnisharp-vim'
+
 call plug#end()
