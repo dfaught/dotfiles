@@ -49,9 +49,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benmills/vimux'
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'neoclide/jsonc.vim'
-Plug 'neoclide/coc-json'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'neoclide/jsonc.vim'
+" Plug 'neoclide/coc-json'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
@@ -76,6 +76,6 @@ Plug 'markonm/traces.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()

@@ -31,7 +31,6 @@ set infercase
 set smartcase
 
 "indent
-set cin!
 set autoindent
 filetype plugin indent on
 
@@ -58,3 +57,6 @@ elseif executable("ag")
   set grepprg=ag\ --vimgrep
 endif
 set grepformat^=%f-%l:%c:%m
+
+set showfulltag
+set completeopt=menuone,preview

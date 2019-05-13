@@ -172,10 +172,10 @@ nnoremap <Space>da :DoxAuthor<CR>
 nnoremap <silent><Space>tp :set paste!<CR>
 
 "spelling stuff
-noremap <Space>w :call FixLastSpellingError()<cr>
-noremap <Space>W z=
+nnoremap <Space>w :call FixLastSpellingError()<cr>
+nnoremap <Space>W z=
 
-" pinched from /u/romainl vimrc...  If you're going to steal, steal from the best.
+" obtained from /u/romainl vimrc excerpts and gists
 """""""""""""""""""""""""""""""""
 " JUGGLING WITH WORDS AND LINES "
 """""""""""""""""""""""""""""""""
@@ -186,12 +186,12 @@ nnoremap <silent> <Space><Down> :<C-u>move+<CR>==
 xnoremap <silent> <Space><Up>   :move-2<CR>gv=gv
 xnoremap <silent> <Space><Down> :move'>+<CR>gv=gv
 
-nnoremap <silent>,qo :copen<CR>
-nnoremap <silent>,qc :cclose<CR>
-nnoremap <silent>,lo :lopen<CR>
-nnoremap <silent>,lc :lclose<CR>
-nnoremap <silent>,pc <C-w><C-z>
-nnoremap <silent>,hc :helpclose<CR>
+nnoremap <silent>,oq :copen<CR>
+nnoremap <silent>,cq :cclose<CR>
+nnoremap <silent>,ol :lopen<CR>
+nnoremap <silent>,cl :lclose<CR>
+nnoremap <silent>,cp <C-w><C-z>
+nnoremap <silent>,ch :helpclose<CR>
 
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Space>%  :%s/<C-r>=expand('<cword>')<CR>/
@@ -209,23 +209,8 @@ nnoremap ' `
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-imap <silent><expr>,, coc#refresh()
-
-nmap <C-]><C-]> <Plug>(coc-definition)
-nmap <C-I><C-I> <Plug>(coc-implementation)
-nmap <C-]>t <Plug>(coc-type-definition)
-nmap <silent><Space>r <Plug>(coc-references)
-nnoremap <Space>cl :call CocAction("codeLens","")<CR>
-nnoremap <Space>ho :call CocAction("doHover","")<CR>
-
-nnoremap <silent><Space>yaf :?^{?-1,/^}/y<CR>
 
 nnoremap == =%
 inoremap `` <C-K>Sb
 
-vnoremap i][ :<C-U>silent! normal! ][j<CR>
-omap af :normal Vi][<CR>
-
-vnoremap i[[ :<C-U>silent! normal! [[k<CR>
-omap af :normal Vi[[<CR>
-
+onoremap <silent> af :<C-U>normal! [[kV][j<CR>
