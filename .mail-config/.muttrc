@@ -6,14 +6,15 @@ set envelope_from = yes
 set attribution = "+++ %n [%D]:"
 set include=yes
 set include_onlyfirst=yes
-set indent_string = ""
-set text_flowed=yes
+set text_flowed=no
 set forward_quote=yes
 set copy=yes
 set delete=yes
 set confirmappend=no
 set fast_reply=yes
 set mime_forward=yes
+
+set indent_string = "> "
 
 # Use msmtp rather than sendmail. Check that
 # the path is correct for your system:
@@ -65,12 +66,12 @@ set collapse_all
 #======================================================#
 # which editor do you want to use?
 # vim of course!
-set editor="vim +"
-folder-hook . source ./.mutt/bottom-repyly
-folder-hook =Work source ./.mutt/top-reply
-folder-hook =red-phoenix source ./.mutt/top-reply
+set editor="vim"
+# folder-hook . source ./.mutt/bottom-repyly
+# folder-hook =Work source ./.mutt/top-reply
+# folder-hook =red-phoenix source ./.mutt/top-reply
 
-set edit_headers=yes      # See the headers when editing
+#set edit_headers=yes      # See the headers when editing
 
 # Odds and ends
 
@@ -112,7 +113,7 @@ set mail_check_stats = yes
 # SIDEBAR STUFF
 
 # Sidebar Patch --------------------------------------
-#set sidebar_delim_c   = '❚'
+set sidebar_divider_char = '┃'
 set sidebar_visible = yes
 set sidebar_width   = 60
 color sidebar_new color45 default

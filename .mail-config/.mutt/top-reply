@@ -1,7 +1,7 @@
 # vi: set ft=muttrc.conf :
 
-set indent_string = ">"
-folder-hook =Work set indent_string = ' '
+# set indent_string = ">"
+# folder-hook =Work set indent_string = ' '
 # set text_flowed=no
 
-set editor="vim +/\+\+\+"
+# set editor="vim +/\+\+\+"
