@@ -11,3 +11,5 @@ let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_MayCompleteDot = 0
 let OmniCpp_MayCompleteArrow = 0
 let OmniCpp_MayCompleteScope = 0
+
+setlocal keywordprg=:DD

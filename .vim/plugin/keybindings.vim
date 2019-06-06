@@ -20,7 +20,7 @@ nnoremap y<tab> y%
 " The current buffer will be saved before switching to the next one.
 " Choose :bprevious or :bnext
 "-------------------------------------------------------------------------------
-noremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
+nnoremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
             \                      &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 "-------------------------------------------------------------------------------
@@ -139,17 +139,17 @@ nnoremap <Space>S :MyGrep<Space>
 "make mappings for Dispatch
 nmap <Space><CR> :Dispatch!<Space>
 vmap <Space><CR> <Esc>:Make!<Space>
-nmap <C-M><C-C> :make clean<CR>
-vmap <C-M><C-C> <Esc>:make clean<CR>
+nmap <C-M><C-C>  :make clean<CR>
+vmap <C-M><C-C>  <Esc>:make clean<CR>
 
 
 " Diff mappings
 nnoremap <Space>gl      :diffg MINE<CR>:diffupdate<CR>
 nnoremap <Space>gr      :diffg THEIRS<CR>:diffupdate<CR>
 nnoremap <Space>gb      :diffg BASE<CR>:diffupdate<CR>
-nnoremap <silent><Down>  ]c
-nnoremap <silent><Up>    [c
-nnoremap ,du :diffupdate<CR>
+nnoremap <silent><Down> ]c
+nnoremap <silent><Up>   [c
+nnoremap ,du            :diffupdate<CR>
 
 "Easy Align mappings
 xmap <Enter> <Plug>(EasyAlign)
@@ -214,3 +214,11 @@ nnoremap == =%
 inoremap `` <C-K>Sb
 
 onoremap <silent> af :<C-U>normal! [[kV][j<CR>
+
+for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+endfor
+

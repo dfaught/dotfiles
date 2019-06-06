@@ -49,10 +49,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benmills/vimux'
 
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Plug 'neoclide/jsonc.vim'
-" Plug 'neoclide/coc-json'
-
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'mtth/scratch.vim'
@@ -68,6 +64,7 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'romainl/vim-qlist'
+Plug 'romainl/vim-devdocs'
 
 Plug 'dfaught/vim-gdb-break'
 
@@ -75,7 +72,5 @@ Plug 'markonm/traces.vim'
 
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
-
-" Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
