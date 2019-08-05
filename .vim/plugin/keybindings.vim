@@ -176,9 +176,6 @@ nnoremap <Space>w :call FixLastSpellingError()<cr>
 nnoremap <Space>W z=
 
 " obtained from /u/romainl vimrc excerpts and gists
-"""""""""""""""""""""""""""""""""
-" JUGGLING WITH WORDS AND LINES "
-"""""""""""""""""""""""""""""""""
 nnoremap <Space><Left>  "_yiw?\v\w+\_W+%#<CR>:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o><C-l>
 nnoremap <Space><Right> "_yiw:s/\v(%#\w+)(\_W+)(\w+)/\3\2\1/<CR><C-o>/\v\w+\_W+<CR><C-l>:noh<CR>
 nnoremap <silent> <Space><Up>   :<C-u>move-2<CR>==
@@ -186,6 +183,7 @@ nnoremap <silent> <Space><Down> :<C-u>move+<CR>==
 xnoremap <silent> <Space><Up>   :move-2<CR>gv=gv
 xnoremap <silent> <Space><Down> :move'>+<CR>gv=gv
 
+" Open and close lists
 nnoremap <silent>,oq :copen<CR>
 nnoremap <silent>,cq :cclose<CR>
 nnoremap <silent>,ol :lopen<CR>
@@ -211,7 +209,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
 nnoremap == =%
-inoremap `` <C-K>Sb
+inoremap \. <C-K>Sb
+nnoremap `` `.
 
 onoremap <silent> af :<C-U>normal! [[kV][j<CR>
 
