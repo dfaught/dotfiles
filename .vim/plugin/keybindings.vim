@@ -77,6 +77,13 @@ nnoremap  ,b  :ls<CR>:buffer<Space>
 nnoremap  ,t  :tag *<Tab>
 nnoremap  ,ct :tag *<C-r><C-w><Tab>
 
+if has('win32')
+    nnoremap <C-j> <C-w>j
+    nnoremap <C-k> <C-w>k
+    nnoremap <C-h> <C-w>h
+    nnoremap <C-l> <C-w>l
+endif
+
 "resize windows
 nnoremap <C-w><Up>    <C-W>+<C-W>+
 nnoremap <C-w><Down>  <C-W>-<C-W>-
