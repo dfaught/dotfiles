@@ -1,18 +1,29 @@
 #mail session
 
 renamew -t 1 "Mail"
-splitw -h -l 100
+# splitw -h -l 100
 neww -n Mail
 neww -n Music
 #neww -n IRC
 neww -n "Vim Config"
 neww -n "Mail Config"
 neww -n "Tmux Config"
+
+neww -n "Proxy"
+splitw -h -p 60 -t 0
+splitw -h -p 50 -t 0
+select-pane -t 2
+splitw -v -p 50 -t 2
+select-pane -t 2
+splitw -h -p 50 -t 3
+
+neww -n "Misc"
+
 selectw -t 1
 send-keys -t 0 "~/.mail-config/imap-mail.sh &> mail.log &" C-m
 send-keys -t 0 "neomutt" C-m
-send-keys -t 1 "remind -z -k'reminder.sh %s' ~/.reminders &" C-m
-send-keys -t 1 "wyrd" C-m
+# send-keys -t 1 "remind -z -k'reminder.sh %s' ~/.reminders &" C-m
+# send-keys -t 1 "wyrd" C-m
 send-keys -t 2 "neomutt" C-m
 send-keys -t 3 'cmus' C-m
 send-keys -t 4 "vim" C-m
