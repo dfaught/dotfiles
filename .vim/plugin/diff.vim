@@ -1,11 +1,11 @@
 " Settings for vimdiff
 
 if &diff
-  set diffopt+=iwhite
+  set diffopt+=iwhite,filler
+  set diffopt+=algorithm:histogram,indent-heuristic
   set cursorcolumn!
   set cursorline!
   set nospell
-  set diffopt+=algorithm:patience
   " highlight CursorLine   cterm=NONE guibg=#073642
 endif
 

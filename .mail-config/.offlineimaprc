@@ -28,7 +28,8 @@
 ##################################################
 
 [general]
-accounts = Work, Personal, family-mail, red-phoenix
+accounts = Personal, family-mail
+# accounts = Personal, family-mail, red-phoenix
 pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
@@ -74,30 +75,30 @@ footer = "\n"
 # Accounts
 ##################################################
 
-[Account Work]
-localrepository = work-local
-remoterepository = work-remote
-status-backend = sqlite
-#autorefresh = 2
-#quick = 10
+#[Account Work]
+#localrepository = work-local
+#remoterepository = work-remote
+#status-backend = sqlite
+##autorefresh = 2
+##quick = 10
 
-[Repository work-local]
-type = Maildir
-localfolders = ~/home-ext/Maildir/Work
-nametrans = lambda folder: re.sub('Work.Inbox', 'INBOX', folder)
+#[Repository work-local]
+#type = Maildir
+#localfolders = ~/home-ext/Maildir/Work
+#nametrans = lambda folder: re.sub('Work.Inbox', 'INBOX', folder)
 
-[Repository work-remote]
-type = IMAP
-ssl = no
-remotehost = localhost
-remoteport = 1143
-remoteuser = CORPORATE\derek.faught
-remotepasseval = get_password("system", "work")
-realdelete=yes
-createfolders=False
-maxconnections = 4
-folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
-nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
+# [Repository work-remote]
+# type = IMAP
+# ssl = no
+# remotehost = localhost
+# remoteport = 1143
+# remoteuser = CORPORATE\derek.faught
+# remotepasseval = get_password("system", "work")
+# realdelete=yes
+# createfolders=False
+# maxconnections = 4
+# folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
+# nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
 
 [Account Personal]
 localrepository = personal-local
@@ -157,33 +158,33 @@ nametrans = lambda folder: re.sub('INBOX', 'Family-Inbox',
  re.sub('Spam', 'Family-Spam',
  re.sub('Trash', 'Family-Trash', folder)))))
 
-[Account red-phoenix]
-localrepository = rp-local
-remoterepository = rp-remote
-status-backend = sqlite
-autorefresh = 5
-quick = 10
+# [Account red-phoenix]
+# localrepository = rp-local
+# remoterepository = rp-remote
+# status-backend = sqlite
+# autorefresh = 5
+# quick = 10
 
-[Repository rp-local]
-type = Maildir
-localfolders = ~/home-ext/Maildir/red-phoenix
+# [Repository rp-local]
+# type = Maildir
+# localfolders = ~/home-ext/Maildir/red-phoenix
 
-[Repository rp-remote]
-type = IMAP
-remotehost = slmp-550-129.slc.westdc.net
-remoteport = 993
-ssl = yes
-maxconnections = 1
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-remoteuser = "derek@red-phoenix.com"
-remotepasseval = get_password("system", "derek@red-phoenix.com")
-realdelete=yes
-createfolders=False
-nametrans = lambda folder: re.sub('INBOX', 'RedPhoenix-Inbox',
- re.sub('Drafts', 'RedPhoenix-Drafts',
- re.sub('Sent', 'RedPhoenix-Sent',
- re.sub('spam', 'RedPhoenix-spam',
- re.sub('Archive', 'RedPhoenix-Archive',
- re.sub('Junk', 'RedPhoenix-Junk',
- re.sub('Trash', 'RedPhoenix-Trash', folder)))))))
+# [Repository rp-remote]
+# type = IMAP
+# remotehost = slmp-550-129.slc.westdc.net
+# remoteport = 993
+# ssl = yes
+# maxconnections = 1
+# sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# remoteuser = "derek@red-phoenix.com"
+# remotepasseval = get_password("system", "derek@red-phoenix.com")
+# realdelete=yes
+# createfolders=False
+# nametrans = lambda folder: re.sub('INBOX', 'RedPhoenix-Inbox',
+#  re.sub('Drafts', 'RedPhoenix-Drafts',
+#  re.sub('Sent', 'RedPhoenix-Sent',
+#  re.sub('spam', 'RedPhoenix-spam',
+#  re.sub('Archive', 'RedPhoenix-Archive',
+#  re.sub('Junk', 'RedPhoenix-Junk',
+#  re.sub('Trash', 'RedPhoenix-Trash', folder)))))))
 
