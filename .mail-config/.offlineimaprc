@@ -28,8 +28,7 @@
 ##################################################
 
 [general]
-accounts = Personal, family-mail
-# accounts = Personal, family-mail, red-phoenix
+accounts = Personal, family-mail, Work 
 pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
@@ -75,30 +74,30 @@ footer = "\n"
 # Accounts
 ##################################################
 
-#[Account Work]
-#localrepository = work-local
-#remoterepository = work-remote
-#status-backend = sqlite
-##autorefresh = 2
-##quick = 10
+[Account Work]
+localrepository = work-local
+remoterepository = work-remote
+status-backend = sqlite
+autorefresh = 2
+quick = 10
 
-#[Repository work-local]
-#type = Maildir
-#localfolders = ~/home-ext/Maildir/Work
-#nametrans = lambda folder: re.sub('Work.Inbox', 'INBOX', folder)
+[Repository work-local]
+type = Maildir
+localfolders = ~/home-ext/Maildir/Work
+nametrans = lambda folder: re.sub('Work.Inbox', 'INBOX', folder)
 
-# [Repository work-remote]
-# type = IMAP
-# ssl = no
-# remotehost = localhost
-# remoteport = 1143
-# remoteuser = CORPORATE\derek.faught
-# remotepasseval = get_password("system", "work")
-# realdelete=yes
-# createfolders=False
-# maxconnections = 4
-# folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
-# nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
+[Repository work-remote]
+type = IMAP
+ssl = no
+remotehost = localhost
+remoteport = 1143
+remoteuser = derek.faught
+remotepasseval = get_password("system", "work")
+realdelete=yes
+createfolders=False
+maxconnections = 4
+folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
+nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
 
 [Account Personal]
 localrepository = personal-local

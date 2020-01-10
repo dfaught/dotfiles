@@ -7,20 +7,6 @@ let maplocalleader='\'
 "    autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 "endif
 
-"-------------------------------------------------------------------------------
-" When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
-"-------------------------------------------------------------------------------
-if has("autocmd")
-  autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
-endif " has("autocmd")
-
-set noshowmode
-
 call plug#begin('~/.vim/plugged')
 
 let $GIT_SSL_NO_VERIFY = 'true'
@@ -64,7 +50,7 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'romainl/vim-qlist'
-Plug 'romainl/vim-devdocs'
+" Plug 'romainl/vim-devdocs' .. not sure I'm in love with this.
 
 Plug 'dfaught/vim-gdb-break'
 

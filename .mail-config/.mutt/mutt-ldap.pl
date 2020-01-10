@@ -20,7 +20,7 @@ use vars qw { $ldapserver $domain $username $password $basedn };
 
 # --- configuration ---
 $ldapserver = "localhost:1389";
-$domain = "CORPORATE";
+$domain = "";
 $username = "derek.faught";
 $password = `echo "\$(~/.mail-config/.mutt/offlineimap-2.py system work)"`;
 $basedn = "ou=people";
@@ -39,7 +39,8 @@ use Net::LDAP;
 
 my $ldap = Net::LDAP->new($ldapserver) or die "$@";
 
-$ldap->bind("$domain\\$username", password=>$password);
+# $ldap->bind("$domain\\$username", password=>$password);
+$ldap->bind("$username", password=>$password);
 
 my $mesg = $ldap->search (base => $basedn,
                           filter => "(|(cn=*$search*) (rdn=*$search*) (uid=*$search*) (mail=*$search*))",

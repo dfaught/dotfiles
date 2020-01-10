@@ -20,13 +20,13 @@ dashboard -style divider_label_style_off_primary '33'
 dashboard -style style_low '0;32'
 dashboard -style syntax_highlighting 'solarized'
 
-dashboard source -style context 15
+dashboard source -style height 40
 dashboard source -style
 
-dashboard assembly -style context 10
+dashboard assembly -style height 20
 dashboard stack -style limit 10
 dashboard stack -style local False
-dashboard stack -style arguments False
+dashboard stack -style arguments True
 
 dashboard -layout breakpoints threads history expressions memory registers assembly source stack
 

@@ -37,7 +37,7 @@ set foldmethod=syntax
 set foldlevelstart=99
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
-set listchars=tab:┊\ 
+set listchars=tab:┊\ ,eol:$,space:.,trail:-
 
 set ttyfast
 

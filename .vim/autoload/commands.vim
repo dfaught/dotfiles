@@ -1,5 +1,5 @@
 " Removes trailing spaces
-function! TrimWhiteSpace()
+function! commands#TrimWhiteSpace()
     let l = line(".")
     let c = col(".")
     %s/\s*$//
@@ -10,7 +10,7 @@ endfunction
 "should have sudo'd on open dummy
 command! W w !sudo tee % > /dev/null
 
-function! FixLastSpellingError()
+function! commands#FixLastSpellingError()
     let position = getpos('.')[1:3]
     let current_line_length = len(getline('.'))
     normal! [s1z=
@@ -19,13 +19,13 @@ function! FixLastSpellingError()
     call cursor(position)
 endfunction
 
-function! LcdToProjectRoot()
+function! commands#LcdToProjectRoot()
     if exists("$WORKSPACE_ROOT")
         lcd $WORKSPACE_ROOT
     endif
 endfunction
 
-function! RunUnitTests(cmd)
+function! commands#RunUnitTests(cmd)
     let s:vmx_setting = g:VimuxOrientation
     let g:VimuxOrientation = "h"
 
@@ -35,11 +35,11 @@ function! RunUnitTests(cmd)
     let g:VimuxOrientation = s:vmx_setting
 endfunction
 
-function! MiddleLine()
+function! commands#MiddleLine()
     silent exe 'normal '.(virtcol('$')/2).'|'
 endfunction
 
-function! ToggleList()
+function! commands#ToggleList()
 	if &list
 		set nolist
 	else

@@ -19,29 +19,29 @@
 
 set -o nounset                              # Treat unset variables as an error
 
-echo "Starting run."
-date
+echo "Starting run $(date)"
 
 while [ 1 ]
 do
-PID=`pgrep offlineimap`
+    PID=$(pgrep offlineimap)
 
-[ -n "$PID" ] && kill $PID     # kill it and resync now
+    [ -n "${PID}" ] && kill ${PID}     # kill it and resync now
 
-imapfilter -c ~/.imapfilter/config.lua -d ~/pers-filter.log
-imapfilter -c ~/.imapfilter/fm-config.lua -d ~/fam-filter.log
+echo "Filtering..."
+imapfilter -c ~/.imapfilter/config.lua
+imapfilter -c ~/.imapfilter/fm-config.lua
 
-offlineimap -o -u Basic
+echo "Fetching..."
+offlineimap -c /home/derek/.offlineimaprc -o -u syslog
 
 notmuch new
 
-echo "Ending run."
-date
+echo "Ending run. $(date)"
 
-sleep 180
+    echo "Sleeping..."
+    sleep 120
 
-echo "Starting run."
-date
-
+    echo "Starting run."
+    date
 done
 exit 0

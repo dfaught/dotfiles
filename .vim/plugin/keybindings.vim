@@ -66,11 +66,11 @@ nmap <silent><Space><F6> <Plug>MarkRegex
 xmap <silent><Space><F6> <Plug>MarkRegex
 nmap <silent><M-F6>      <Plug>MarkAllClear
 
-nnoremap <silent><F7>        :call ToggleList()<CR>
-xnoremap <silent><F7>        :call ToggleList()<CR>
-inoremap <silent><F7>        :call ToggleList()<CR>
-nnoremap <silent><Space><F7> :call TrimWhiteSpace()<CR>
-xnoremap <silent><Space><F7> :call TrimWhiteSpace()<CR>
+nnoremap <silent><F7>        :call commands#ToggleList()<CR>
+xnoremap <silent><F7>        :call commands#ToggleList()<CR>
+inoremap <silent><F7>        :call commands#ToggleList()<CR>
+nnoremap <silent><Space><F7> :call commands#TrimWhiteSpace()<CR>
+xnoremap <silent><Space><F7> :call commands#TrimWhiteSpace()<CR>
 
 nnoremap  ,f  :find *
 nnoremap  ,b  :ls<CR>:buffer<Space>
@@ -93,7 +93,7 @@ nnoremap <C-w><Right> <C-W><<C-W><
 "window shortcuts
 nnoremap <Space>v <C-w>v
 nnoremap <Space>h <C-w>s
-nnoremap <Space>x :close<CR>
+nnoremap ,x :close<CR>
 nnoremap <Space>R <C-W>=
 
 " Toggle to last buffer
