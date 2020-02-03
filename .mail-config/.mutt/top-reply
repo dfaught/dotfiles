@@ -1,7 +1,9 @@
 # vi: set ft=muttrc.conf :
 
-# set indent_string = ">"
-# folder-hook =Work set indent_string = ' '
-# set text_flowed=no
+folder-hook =Work set signature="~/.mail-config/calsig"
+folder-hook =Work set sig_on_top=yes
 
-# set editor="vim +/\+\+\+"
+set indent_string = ">"
+set text_flowed=no
+
+set editor="vim +/\+\+\+"

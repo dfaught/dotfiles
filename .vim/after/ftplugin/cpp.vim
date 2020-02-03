@@ -6,6 +6,8 @@ augroup GEERAL
   autocmd FileType cpp set keywordprg=~/bin/mancpp.sh
 augroup END
 
+set tags=tags;/
+
 let OmniCpp_NamespaceSearch = 2
 let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_MayCompleteDot = 0

@@ -2,10 +2,15 @@
 
 rename-session "Vista"
 
-neww -n "src"
-send-keys -t "src" 'work' C-m
-send-keys -t "src" '. ./calenv.sh' C-m
-send-keys -t "src" 'vista' C-m
+neww -n "ofp"
+send-keys -t "ofp" 'work' C-m
+send-keys -t "ofp" '. ./calenv.sh' C-m
+send-keys -t "ofp" 'vista' C-m
+
+neww -n "68g5"
+send-keys -t "68g5" 'work' C-m
+send-keys -t "68g5" '. ./calenv.sh' C-m
+send-keys -t "68g5" 'linux/user_drivers/nai/68g5' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0

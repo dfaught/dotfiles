@@ -52,9 +52,9 @@ augroup     KEYBINDS
     autocmd FileType cpp,c xmap <F3>        <Plug>VgbAddBreak
     autocmd FileType cpp,c nmap <Space><F3> <Plug>VgbRemBreak
     autocmd FileType cpp,c xmap <Space><F3> <Plug>VgbRemBreak
-    autocmd FileType cs    nnoremap <F5>    :wa!<cr>:Dispatch<Space>
-    autocmd FileType c     nnoremap <F5>    :wa!<cr>:Make<Space>
-    autocmd FileType cpp   nnoremap <F5>    :wa!<cr>:Make<Space>
+    " autocmd FileType cs    nnoremap <F5>    :wa!<cr>:Dispatch<Space>
+    " autocmd FileType c     nnoremap <F5>    :wa!<cr>:Make<Space>
+    " autocmd FileType cpp   nnoremap <F5>    :wa!<cr>:Make<Space>
 
     " Used primarly from Mutt
     au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
@@ -144,10 +144,9 @@ nnoremap <silent><Space>s :MyGrep <C-r><C-w><CR>
 nnoremap <Space>S :MyGrep<Space>
 
 "make mappings for Dispatch
-nmap <Space><CR> :Dispatch!<Space>
-vmap <Space><CR> <Esc>:Make!<Space>
-nmap <C-M><C-C>  :make clean<CR>
-vmap <C-M><C-C>  <Esc>:make clean<CR>
+nnoremap <Space><BS> :Dispatch<Space>
+nnoremap <Space><CR> <Esc>:Make<CR>
+nnoremap <Space>mc :Make clean<CR>
 
 
 " Diff mappings
@@ -165,15 +164,16 @@ nmap ga <Plug>(EasyAlign)
 "ViMux mappings
 nnoremap <Space>vp :VimuxPromptCommand<CR>
 nnoremap <Space>vl :VimuxRunLastCommand<CR>
-nnoremap <Space>vo :VimuxOpenPane<CR>
-nnoremap <Space>vq :VimuxCloseRunner<CR>
+nnoremap ,vo :VimuxOpenPane<CR>
+nnoremap ,vq :VimuxCloseRunner<CR>
 
 " Move this to a project specific vimrc someday, since it only works for a specific project setup
-nnoremap <Space>ut :call RunUnitTests("./tests.sh")<CR>
+nnoremap <Space>ut :call commands#RunUnitTests("make check")<CR>
 
 "DoxygenToolkit mappings
 nnoremap <Space>dx :Dox<CR>
 nnoremap <Space>da :DoxAuthor<CR>
+nnoremap <Space>dl : DoxLic
 
 " paste mode
 nnoremap <silent><Space>tp :set paste!<CR>
