@@ -42,9 +42,10 @@ nnoremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 " 	F12        - System use - do not map
 "-------------------------------------------------------------------------------
 
-nnoremap  <silent><F2>         :set spell!<CR>
-xnoremap  <silent><F2>         :set spell!<CR>
-inoremap  <silent><F2>         :set spell!<CR>
+nnoremap <silent><F1> <NOP>
+nnoremap <silent><F2> :set spell!<CR>
+xnoremap <silent><F2> :set spell!<CR>
+inoremap <silent><F2> :set spell!<CR>
 
 augroup     KEYBINDS
     autocmd!
@@ -52,9 +53,6 @@ augroup     KEYBINDS
     autocmd FileType cpp,c xmap <F3>        <Plug>VgbAddBreak
     autocmd FileType cpp,c nmap <Space><F3> <Plug>VgbRemBreak
     autocmd FileType cpp,c xmap <Space><F3> <Plug>VgbRemBreak
-    " autocmd FileType cs    nnoremap <F5>    :wa!<cr>:Dispatch<Space>
-    " autocmd FileType c     nnoremap <F5>    :wa!<cr>:Make<Space>
-    " autocmd FileType cpp   nnoremap <F5>    :wa!<cr>:Make<Space>
 
     " Used primarly from Mutt
     au BufRead /tmp/neomutt-* nnoremap <CR><CR>  :wq<CR>
@@ -100,7 +98,7 @@ nnoremap <Space>R <C-W>=
 nnoremap <BS> <C-^>
 
 " Kill the current buffer
-nnoremap <Space>xb :bd<CR>
+nnoremap ,xb :bd<CR>
 
 nnoremap <Space>sa      :saveas<Space>
 nnoremap <Space><Space> :w<CR>
@@ -150,8 +148,8 @@ nnoremap <Space>mc :Make clean<CR>
 
 
 " Diff mappings
-nnoremap <Space>gl      :diffg MINE<CR>:diffupdate<CR>
-nnoremap <Space>gr      :diffg THEIRS<CR>:diffupdate<CR>
+nnoremap <Space>gl      :diffg LOCAL<CR>:diffupdate<CR>
+nnoremap <Space>gr      :diffg REMOTE<CR>:diffupdate<CR>
 nnoremap <Space>gb      :diffg BASE<CR>:diffupdate<CR>
 nnoremap <silent><Down> ]c
 nnoremap <silent><Up>   [c
@@ -199,7 +197,7 @@ nnoremap <silent>,cp <C-w><C-z>
 nnoremap <silent>,ch :helpclose<CR>
 
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
-nnoremap <Space>%  :%s/<C-r>=expand('<cword>')<CR>/
+nnoremap <Space>%  :%s/\(<C-r>=expand('<cword>')<CR>\)/
 
 " Auto expansions
 inoremap {<CR> {<CR>}<Esc>O
@@ -220,6 +218,8 @@ inoremap ,. <C-K>Sb
 nnoremap `` `.
 
 onoremap <silent> af :<C-U>normal! [[kV][j<CR>
+
+inoremap <silent><expr> ,, coc#refresh()
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'

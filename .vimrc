@@ -50,7 +50,6 @@ Plug 'dfaught/algorithm-mnemonics.vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'romainl/vim-qlist'
-" Plug 'romainl/vim-devdocs' .. not sure I'm in love with this.
 
 Plug 'dfaught/vim-gdb-break'
 
@@ -58,5 +57,9 @@ Plug 'markonm/traces.vim'
 
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
+
+" Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
