@@ -12,4 +12,11 @@ doc/tags
 *.lock
 .vim-flavor
 tags
-
+.gdb_history
+.vim/doc
+.vim/ftplugin
+.vim/plugged
+.vim/spell
+.vim/syntax
+mutt-colors-solarized
+.tmux/plugins
