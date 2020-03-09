@@ -51,6 +51,9 @@ hi User7 guibg=#073642 guifg=#cb4b16 cterm=NONE,bold gui=NONE,bold
 hi User8 guibg=#073642 guifg=#dc322f cterm=NONE,bold gui=NONE,bold
 hi User9 guibg=#073642 guifg=#b58900 cterm=NONE gui=NONE
 
+hi default link CocHintSign User6
+hi default link CocErrorSign User8
+
 function! s:UpdateStatus()
     for win in range(1, winnr('$'))
         call setwinvar(win, '&statusline', '%!statusline#StatusLine(' . win . ')')

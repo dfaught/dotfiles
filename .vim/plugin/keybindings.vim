@@ -228,5 +228,5 @@ for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
 
-nmap <C-]> <Plug>(coc-definition)
-nmap <C-[> <Plug>(coc-declaration)
+nmap <space>] <Plug>(coc-definition)
+nmap <space>[ <Plug>(coc-declaration)
