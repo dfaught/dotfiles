@@ -162,8 +162,8 @@ nmap ga <Plug>(EasyAlign)
 "ViMux mappings
 nnoremap <Space>vp :VimuxPromptCommand<CR>
 nnoremap <Space>vl :VimuxRunLastCommand<CR>
-nnoremap ,vo :VimuxOpenPane<CR>
-nnoremap ,vq :VimuxCloseRunner<CR>
+nnoremap <silent>,vo :call VimuxOpenRunner()<CR>
+nnoremap <silent>,vq :call VimuxCloseRunner()<CR>
 
 " Move this to a project specific vimrc someday, since it only works for a specific project setup
 nnoremap <Space>ut :call commands#RunUnitTests("make check")<CR>
@@ -220,6 +220,8 @@ nnoremap `` `.
 onoremap <silent> af :<C-U>normal! [[kV][j<CR>
 
 inoremap <silent><expr> ,, coc#refresh()
+nmap <space>] <Plug>(coc-definition)
+nmap <space>[ <Plug>(coc-declaration)
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
@@ -228,5 +230,3 @@ for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
 
-nmap <space>] <Plug>(coc-definition)
-nmap <space>[ <Plug>(coc-declaration)

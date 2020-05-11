@@ -3,6 +3,7 @@
 set keywordprg=~/bin/mancpp.sh
 set tags=tags;/
 set cinoptions=g0,c4,b1,l1
+set formatprg=astyle
 
 let OmniCpp_NamespaceSearch = 2
 let OmniCpp_ShowPrototypeInAbbr = 1

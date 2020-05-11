@@ -24,3 +24,4 @@ set print pretty on
 set pagination off
 set confirm off
 set output-radix 16
+set breakpoint pending on
