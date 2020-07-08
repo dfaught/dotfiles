@@ -4,16 +4,13 @@ rename-session "cal_utils_v2"
 
 neww -n "cuv2-src"
 send-keys -t "cuv2-src" 'work' C-m
-send-keys -t "cuv2-src" '. ./calenv.sh' C-m
 send-keys -t "cuv2-src" 'cuv2' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
 send-keys -t 0 'work' C-m
-send-keys -t 0 '. ./calenv.sh' C-m
 send-keys -t 0 'cuv2' C-m
 send-keys -t 1 'work' C-m
-send-keys -t 1 '. ./calenv.sh' C-m
 send-keys -t 1 'cuv2' C-m
 
 neww -n "Docker"

@@ -105,7 +105,9 @@ nnoremap <Space><Space> :w<CR>
 
 " Yank the line
 nnoremap Y y$
+nnoremap <Space>y "+yy
 xnoremap <Space>y "+y
+nnoremap <Space>d "+dd
 xnoremap <Space>d "+d
 nnoremap <Space>p "+p
 nnoremap <Space>P "+P
@@ -144,6 +146,7 @@ nnoremap <Space>S :MyGrep<Space>
 "make mappings for Dispatch
 nnoremap <Space><BS> :Dispatch<Space>
 nnoremap <Space><CR> <Esc>:Make<CR>
+" nnoremap <Space><CR> <Esc>:Dispatch ./build.sh --debug --nodep --notest --noconfig <CR>
 nnoremap <Space>mc :Make clean<CR>
 
 
@@ -166,7 +169,7 @@ nnoremap <silent>,vo :call VimuxOpenRunner()<CR>
 nnoremap <silent>,vq :call VimuxCloseRunner()<CR>
 
 " Move this to a project specific vimrc someday, since it only works for a specific project setup
-nnoremap <Space>ut :call commands#RunUnitTests("make check")<CR>
+nnoremap <Space>ut :call commands#RunUnitTests("./unit_tests.sh")<CR>
 
 "DoxygenToolkit mappings
 nnoremap <Space>dx :Dox<CR>
@@ -197,6 +200,7 @@ nnoremap <silent>,cp <C-w><C-z>
 nnoremap <silent>,ch :helpclose<CR>
 
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
+nnoremap <Space>sG :.,$s/<C-r>=expand('cword')<CR>/
 nnoremap <Space>%  :%s/\(<C-r>=expand('<cword>')<CR>\)/
 
 " Auto expansions

@@ -4,16 +4,13 @@ rename-session "Lear5"
 
 neww -n "src"
 send-keys -t "src" 'work' C-m
-send-keys -t "src" '. ./calenv.sh' C-m
 send-keys -t "src" 'lear5' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
 send-keys -t 0 'work' C-m
-send-keys -t 0 '. ./calenv.sh' C-m
 send-keys -t 0 'cd lear5' C-m
 send-keys -t 1 'work' C-m
-send-keys -t 1 '. ./calenv.sh' C-m
 send-keys -t 1 'cd lear5' C-m
 
 neww -n "Docker"
@@ -61,6 +58,5 @@ send-keys -t "Remote" 'work' C-m
 selectw -t 1
 renamew "Project"
 send-keys -t "Project" 'work' C-m
-send-keys -t "Project" '. ./calenv.sh' C-m
 splitw -h -p 25 -t 0
 send-keys -t 1 'work' C-m

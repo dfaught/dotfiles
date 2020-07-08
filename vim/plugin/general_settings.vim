@@ -27,8 +27,7 @@ set wildcharm=<Tab>
 set scrolljump=5
 set scrolloff=3
 
-set infercase
-set smartcase
+set noignorecase
 
 "indent
 set autoindent

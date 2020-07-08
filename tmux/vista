@@ -4,21 +4,17 @@ rename-session "Vista"
 
 neww -n "ofp"
 send-keys -t "ofp" 'work' C-m
-send-keys -t "ofp" '. ./calenv.sh' C-m
 send-keys -t "ofp" 'vista' C-m
 
 neww -n "68g5"
 send-keys -t "68g5" 'work' C-m
-send-keys -t "68g5" '. ./calenv.sh' C-m
 send-keys -t "68g5" 'linux/user_drivers/nai/68g5' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
 send-keys -t 0 'work' C-m
-send-keys -t 0 '. ./calenv.sh' C-m
 send-keys -t 0 'cd vista' C-m
 send-keys -t 1 'work' C-m
-send-keys -t 1 '. ./calenv.sh' C-m
 send-keys -t 1 'cd vista' C-m
 
 neww -n "Docker"
@@ -66,6 +62,5 @@ send-keys -t "Remote" 'work' C-m
 selectw -t 1
 renamew "Project"
 send-keys -t "Project" 'work' C-m
-send-keys -t "Project" '. ./calenv.sh' C-m
 splitw -h -p 25 -t 0
 send-keys -t 1 'work' C-m

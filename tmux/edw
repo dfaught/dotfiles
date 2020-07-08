@@ -1,0 +1,61 @@
+# dev session
+
+rename-session "edw"
+
+neww -n "rex"
+send-keys -t "rex" 'edw' C-m
+send-keys -t "rex" '. ./edwenv.sh' C-m
+send-keys -t "rex" 'vista' C-m
+
+neww -n "t-38"
+send-keys -t "t-38" 'edw' C-m
+send-keys -t "t-38" 't-38' C-m
+
+neww -n "Build"
+splitw -h -p 50 -t 0
+send-keys -t 0 'edw' C-m
+send-keys -t 0 'cd vista' C-m
+send-keys -t 1 'edw' C-m
+send-keys -t 1 'cd vista' C-m
+
+neww -n "Debug-1"
+splitw -h -p 40
+select-pane -t 2
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+splitw -h -p 50
+send-keys -t 0 'edw' C-m
+send-keys -t 1 'edw' C-m
+send-keys -t 1 'tty' C-m
+send-keys -t 2 'edw' C-m
+send-keys -t 3 'edw' C-m
+send-keys -t 4 'edw' C-m
+
+neww -n "Debug-2"
+splitw -h -p 40
+select-pane -t 2
+splitw -v -p 50
+select-pane -t 1
+splitw -h -p 50
+select-pane -t 0
+splitw -h -p 50
+send-keys -t 0 'edw' C-m
+send-keys -t 0 'tty' C-m
+send-keys -t 1 'edw' C-m
+send-keys -t 1 'tty' C-m
+send-keys -t 2 'edw' C-m
+send-keys -t 3 'edw' C-m
+send-keys -t 4 'edw' C-m
+neww -n Tools
+send-keys -t "Tools" 'edw' C-m
+
+neww -n Remote
+send-keys -t "Remote" 'edw' C-m
+
+selectw -t 1
+renamew "Project"
+send-keys -t "Project" 'edw' C-m
+splitw -h -p 25 -t 0
+send-keys -t 1 'edw' C-m
