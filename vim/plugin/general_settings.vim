@@ -59,3 +59,5 @@ set grepformat^=%f-%l:%c:%m
 
 set showfulltag
 set completeopt=menuone,preview
+
+set nrformats+=alpha

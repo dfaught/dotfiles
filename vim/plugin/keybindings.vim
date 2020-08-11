@@ -200,7 +200,7 @@ nnoremap <silent>,cp <C-w><C-z>
 nnoremap <silent>,ch :helpclose<CR>
 
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
-nnoremap <Space>sG :.,$s/<C-r>=expand('cword')<CR>/
+nnoremap <Space>sG :.,$s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Space>%  :%s/\(<C-r>=expand('<cword>')<CR>\)/
 
 " Auto expansions
@@ -210,7 +210,7 @@ inoremap {, {<CR>},<Esc>O
 inoremap [<CR> [<CR>]<Esc>O
 inoremap [; [];<Esc>2hi
 
-nnoremap <Space>i :Ilist /
+nnoremap <Space>i :Ilist <C-r>=expand('<cword>')<CR>
 nnoremap ' `
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -226,6 +226,8 @@ onoremap <silent> af :<C-U>normal! [[kV][j<CR>
 inoremap <silent><expr> ,, coc#refresh()
 nmap <space>] <Plug>(coc-definition)
 nmap <space>[ <Plug>(coc-declaration)
+nmap <space>g] <Plug>(coc-references)
+nmap <space>gr <Plug>(coc-refactor)
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
