@@ -58,8 +58,6 @@ Plug 'markonm/traces.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 
-" Plug 'ludovicchabant/vim-gutentags'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()

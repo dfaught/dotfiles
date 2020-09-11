@@ -38,11 +38,11 @@ set mask="!^\\.[^.]"
 source ~/.config/mutt/mailboxes
 
 virtual-mailboxes \
-    "Flagged"       "notmuch://?query=tag:flagged"  \
-    "Orders"        'notmuch://?query=folder:"/.*Orders/"' \
+    "Flagged"       "notmuch://?query=tag:flagged"\
+    "Orders"        'notmuch://?query=folder:"/.*Orders/"'\
     "Unread"        'notmuch://?query=tag:unread and NOT folder:"/.+Spam/" and NOT folder:"/.+Trash/" and NOT folder:"/Hack/"'
 
-set alias_file=~/dotfiles/.mail-config/.aliases
+set alias_file=~/dotfiles/mail-config/.aliases
 set sort_alias=alias
 set reverse_alias=yes
 source $alias_file
@@ -110,10 +110,6 @@ folder-hook =Work set from = "derek.faught@calspan.com"
 folder-hook =Work set postponed="+Work/Drafts/"   # Where to store draft messages
 folder-hook =Work set query_command= "~/.mail-config/.mutt/mutt-ldap.pl '%s'"
 folder-hook =Work set record=""   # Where to store sent messages
-# folder-hook =red-phoenix set from = "derek@red-phoenix.com"
-# folder-hook =red-phoenix set postponed="+red-phoenix/RedPhoenix-Inbox.RedPhoenix-Drafts/"   # Where to store draft messages
-# folder-hook =red-phoenix set record="+red-phoenix/RedPhoenix-Inbox.RedPhoenix-Sent/"   # Where to store sent messages
-# folder-hook =red-phoenix set query_command = "~/.mail-config/.mutt/gbquery.sh '%s'"
 
 set mail_check_stats = yes
 #

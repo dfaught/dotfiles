@@ -29,7 +29,7 @@
 
 [general]
 accounts = Personal, family-mail, Work 
-pythonfile = /home/derek/dotfiles/.mail-config/.mutt/offlineimap-2.py
+pythonfile = /home/derek/dotfiles/mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
 
