@@ -5,7 +5,7 @@ import subprocess
 import sys
 
 def get_password(ring, account):
-    return subprocess.check_output(['/home/derek/dotfiles/.mail-config/.mutt/offlineimap.py', ring, account]).rstrip()
+    return subprocess.check_output(['/home/derek/.mail-config/.mutt/offlineimap.py', ring, account]).rstrip()
 
 
 if __name__ == '__main__':
