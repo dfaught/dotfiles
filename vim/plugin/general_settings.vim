@@ -10,12 +10,12 @@ set modeline
 set nowrap
 set smarttab
 set textwidth=120
-set tabstop=8
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" set path+=**
+set path+=.,**
 
 set wildmenu
 set wildmode=list:longest

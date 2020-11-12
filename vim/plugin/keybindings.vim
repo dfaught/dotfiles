@@ -146,7 +146,6 @@ nnoremap <Space>S :MyGrep<Space>
 "make mappings for Dispatch
 nnoremap <Space><BS> :Dispatch<Space>
 nnoremap <Space><CR> <Esc>:Make<CR>
-" nnoremap <Space><CR> <Esc>:Dispatch ./build.sh --debug --nodep --notest --noconfig <CR>
 nnoremap <Space>mc :Make clean<CR>
 
 

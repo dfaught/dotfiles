@@ -4,11 +4,11 @@ rename-session "Vista"
 
 neww -n "ofp"
 send-keys -t "ofp" 'work' C-m
-send-keys -t "ofp" 'vista' C-m
+send-keys -t "ofp" 'gen_ofp_shell' C-m
 
-neww -n "68g5"
+neww -n "ofp lib"
 send-keys -t "68g5" 'work' C-m
-send-keys -t "68g5" 'linux/user_drivers/nai/68g5' C-m
+send-keys -t "68g5" 'VISTA/ofp_lib' C-m
 
 neww -n "Build"
 splitw -h -p 50 -t 0
@@ -16,13 +16,6 @@ send-keys -t 0 'work' C-m
 send-keys -t 0 'cd vista' C-m
 send-keys -t 1 'work' C-m
 send-keys -t 1 'cd vista' C-m
-
-neww -n "Docker"
-splitw -h -p 50
-send-keys -t 0 'work' C-m
-send-keys -t 0 'cd docker' C-m
-send-keys -t 1 'work' C-m
-send-keys -t 1 'cd docker' C-m
 
 neww -n "Debug-1"
 splitw -h -p 40

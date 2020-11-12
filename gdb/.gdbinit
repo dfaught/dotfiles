@@ -2,7 +2,7 @@ set auto-load safe-path /
 
 python
 import sys
-sys.path.insert(0, '/home/derek/workspaces/stlpretty')
+sys.path.insert(0, '/home/derek/workspaces/gcc/libstdc++-v3/python')
 from libstdcxx.v6.printers import register_libstdcxx_printers
 register_libstdcxx_printers (None)
 end
