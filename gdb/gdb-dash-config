@@ -26,9 +26,9 @@ dashboard source -style
 dashboard assembly -style height 20
 dashboard stack -style limit 10
 dashboard stack -style local False
-dashboard stack -style arguments True
+dashboard stack -style arguments False
 
-dashboard -layout breakpoints threads history expressions memory registers assembly source stack
+dashboard -layout breakpoints threads history expressions memory registers assembly source variables stack
 
 define do
 dashboard -output /dev/pts/$arg0
@@ -36,4 +36,12 @@ end
 
 define doh
 dashboard history -output /dev/pts/$arg0
+end
+
+define dew
+dashboard expressions watch $arg0
+end
+
+define dmw
+dashboard memory watch $arg0
 end

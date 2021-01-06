@@ -145,7 +145,7 @@ nnoremap <Space>S :MyGrep<Space>
 
 "make mappings for Dispatch
 nnoremap <Space><BS> :Dispatch<Space>
-nnoremap <Space><CR> <Esc>:Make<CR>
+nnoremap <Space><CR> :wa<Esc>:Make<CR>
 nnoremap <Space>mc :Make clean<CR>
 
 
@@ -214,7 +214,7 @@ nnoremap ' `
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 
 nnoremap == =%
 inoremap ,. <C-K>Sb
@@ -227,6 +227,7 @@ nmap <space>] <Plug>(coc-definition)
 nmap <space>[ <Plug>(coc-declaration)
 nmap <space>g] <Plug>(coc-references)
 nmap <space>gr <Plug>(coc-refactor)
+nmap <space>dh :call CocActionAsync('doHover')<cr>
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'

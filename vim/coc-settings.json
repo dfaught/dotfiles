@@ -9,7 +9,10 @@
     "suggest.timeout": 500,
 
     // not make vim select first item on completion start
-    "suggest.noselect": true,
+    "suggest.noselect": false,
+
+    // minimum characters required for trigger
+    "suggest.minTriggerInputLength": 0,
 
     // enable formatOnType feature
     "coc.preferences.formatOnType": false,
@@ -19,11 +22,11 @@
 
     // enable diagnostic
     "diagnostic.enable": true,
-    "diagnostic.signOffset": 1000,
     "diagnostic.errorSign": "✘",
     "diagnostic.warningSign": "☢",
     "diagnostic.infoSign": "I",
     "diagnostic.hintSign": "H",
+
 
     "languageserver" : {
         "ccls" : {
@@ -31,7 +34,19 @@
             "args" : [],
             "filetypes" : ["c", "cpp"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "initializationOptions" : {"cacheDirectory" : "/tmp/ccls"}
+            "initializationOptions" : {
+                "cacheDirectory" : "/tmp/ccls",
+                "highlight" : { "lsRanges": true }
+            },
+            "client": {
+                "snippetSupport": true
+            }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
         }
     }
 }

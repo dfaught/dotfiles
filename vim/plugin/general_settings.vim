@@ -5,6 +5,7 @@ set nobackup
 set nowb
 set noswapfile
 set modeline
+set hidden
 
 "text width & wrap
 set nowrap
@@ -58,6 +59,6 @@ endif
 set grepformat^=%f-%l:%c:%m
 
 set showfulltag
-set completeopt=menuone,preview
+set completeopt=preview,noselect
 
 set nrformats+=alpha

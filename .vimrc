@@ -60,4 +60,6 @@ Plug 'inkarkat/vim-mark'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 call plug#end()
