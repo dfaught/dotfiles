@@ -20,14 +20,14 @@ highlight LspCxxHlGroupEnumConstant guifg=#6c71c4 cterm=NONE,bold gui=NONE,bold
 " hi default link LspCxxHlSymClass Type
 " hi default link LspCxxHlSymStruct Type
 highlight LspCxxHlSymEnum guifg=#6c71c4 cterm=NONE gui=NONE
-" hi default link LspCxxHlSymTypeAlias Type
+highlight LspCxxHlSymTypeAlias guifg=#b58900 gui=reverse
 " hi default link LspCxxHlSymTypeParameter Type
 "
 " " Function
 " hi default link LspCxxHlSymFunction Function
 " hi default link LspCxxHlSymMethod Function
 " hi default link LspCxxHlSymStaticMethod Function
-" hi default link LspCxxHlSymConstructor Function
+hi default LspCxxHlSymConstructor guifg=#268bd2 gui=reverse
 "
 " " EnumConstant
 " hi default link LspCxxHlSymEnumMember LspCxxHlGroupEnumConstant

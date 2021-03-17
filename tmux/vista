@@ -8,7 +8,7 @@ send-keys -t "ofp" 'gen_ofp_shell' C-m
 
 neww -n "ofp lib"
 send-keys -t "ofp lib" 'work' C-m
-send-keys -t "ofp_lib" 'VISTA/ofp_lib' C-m
+send-keys -t "ofp lib" 'cd VISTA/vista_ofp' C-m
 
 neww -n "68g5"
 send-keys -t "68g5" 'work' C-m
@@ -17,9 +17,9 @@ send-keys -t "68g5" 'nai_68g5_io' C-m
 neww -n "Build"
 splitw -h -p 50 -t 0
 send-keys -t 0 'work' C-m
-send-keys -t 0 'cd vista' C-m
+send-keys -t 0 'cd VISTA/vista_ofp'
 send-keys -t 1 'work' C-m
-send-keys -t 1 'cd vista' C-m
+send-keys -t 1 'cd VISTA/vista_ofp' C-m
 
 neww -n "Debug-1"
 splitw -h -p 40
@@ -30,11 +30,17 @@ splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
 send-keys -t 0 'work' C-m
+send-keys -t 0 'cd VISTA/vista_ofp' C-m
+send-keys -t 0 'tty' C-m
 send-keys -t 1 'work' C-m
+send-keys -t 1 'cd VISTA/vista_ofp' C-m
 send-keys -t 1 'tty' C-m
 send-keys -t 2 'work' C-m
+send-keys -t 2 'cd VISTA/vista_ofp' C-m
 send-keys -t 3 'work' C-m
+send-keys -t 3 'cd VISTA/vista_ofp' C-m
 send-keys -t 4 'work' C-m
+send-keys -t 4 'cd VISTA/vista_ofp' C-m
 
 neww -n "Debug-2"
 splitw -h -p 40
@@ -45,11 +51,18 @@ splitw -h -p 50
 select-pane -t 0
 splitw -h -p 50
 send-keys -t 0 'work' C-m
+send-keys -t 0 'cd VISTA/vista_ofp' C-m
+send-keys -t 0 'tty' C-m
 send-keys -t 1 'work' C-m
+send-keys -t 1 'cd VISTA/vista_ofp' C-m
 send-keys -t 1 'tty' C-m
 send-keys -t 2 'work' C-m
+send-keys -t 2 'cd VISTA/vista_ofp' C-m
 send-keys -t 3 'work' C-m
+send-keys -t 3 'cd VISTA/vista_ofp' C-m
 send-keys -t 4 'work' C-m
+send-keys -t 4 'cd VISTA/vista_ofp' C-m
+
 neww -n Tools
 send-keys -t "Tools" 'work' C-m
 

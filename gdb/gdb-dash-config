@@ -28,7 +28,7 @@ dashboard stack -style limit 10
 dashboard stack -style local False
 dashboard stack -style arguments False
 
-dashboard -layout breakpoints threads registers assembly source variables stack
+dashboard -layout breakpoints threads memory expressions history registers assembly source variables stack
 
 define do
 dashboard -output /dev/pts/$arg0

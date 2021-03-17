@@ -11,13 +11,13 @@ end
  source ~/.gdb/gdb-dash-config
  source ~/.gdb/gdb-prompts
 
-skip -gfi /usr/include/c++/*/*/*
-skip -gfi /usr/include/c++/*/*
-skip -gfi /usr/include/c++/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*
-skip -rfu ^std::.*
+# skip -gfi /usr/include/c++/*/*/*
+# skip -gfi /usr/include/c++/*/*
+# skip -gfi /usr/include/c++/*
+# skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*/*
+# skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*
+# skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*
+# skip -rfu ^std::.*
 
 set history save on
 set print pretty on
