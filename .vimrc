@@ -29,8 +29,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benmills/vimux'
