@@ -226,7 +226,7 @@ inoremap <silent><expr> ,, coc#refresh()
 nmap <space>] <Plug>(coc-definition)
 nmap <space>[ <Plug>(coc-declaration)
 nmap <space>g] <Plug>(coc-references)
-nmap <space>gr <Plug>(coc-refactor)
+nmap <space>gR <Plug>(coc-refactor)
 nmap <space>dh :call CocActionAsync('doHover')<cr>
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]

@@ -35,7 +35,6 @@ set autoindent
 filetype plugin indent on
 
 " Search & replace stuff.
-set gdefault
 set hlsearch
 set incsearch
 
