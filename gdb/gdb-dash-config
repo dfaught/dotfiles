@@ -35,6 +35,7 @@ dashboard -output /dev/pts/$arg0
 dashboard history -output /dev/pts/$arg1
 dashboard memory -output /dev/pts/$arg1
 dashboard expressions -output /dev/pts/$arg1
+dashboard variables -output /dev/pts/$arg1
 end
 
 define doh

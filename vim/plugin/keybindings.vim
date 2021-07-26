@@ -201,6 +201,7 @@ nnoremap <silent>,ch :helpclose<CR>
 nnoremap <Space>sr :'{,'}s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Space>sG :.,$s/<C-r>=expand('<cword>')<CR>/
 nnoremap <Space>%  :%s/\(<C-r>=expand('<cword>')<CR>\)/
+nnoremap <Space>sc  :%s/\(<C-r>=expand('<cword>')<CR>\)//c<Left><Left>
 
 " Auto expansions
 inoremap {<CR> {<CR>}<Esc>O

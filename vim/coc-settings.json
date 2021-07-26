@@ -20,6 +20,10 @@
     // command used for jump to other buffer
     "coc.preferences.jumpCommand": "edit",
 
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "pyright.disableDiagnostics": false,
+
     // enable diagnostic
     "diagnostic.enable": true,
     "diagnostic.errorSign": "✘",

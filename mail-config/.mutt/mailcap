@@ -1,4 +1,4 @@
-text/html; chromium '%s' test=test -n "$DISPLAY"; needsterminal; nametemplate=%s.html
+text/html; brave '%s' test=test -n "$DISPLAY"; needsterminal; nametemplate=%s.html
 text/html; elinks -dump %s; copiousoutput;
 
 text/calendar; cat %s | parse_remind.pl;
