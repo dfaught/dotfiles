@@ -2,7 +2,7 @@
 
 set keywordprg=~/bin/mancpp.sh
 set tags=tags;/
-set cinoptions=g0,c4,b1,l1
+set cinoptions=g0,c4,b1,l1,=0
 set formatprg=astyle
 set omnifunc=
 
