@@ -14,9 +14,9 @@ end
 skip -gfi /usr/include/c++/*/*/*
 skip -gfi /usr/include/c++/*/*
 skip -gfi /usr/include/c++/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*/*
-skip -gfi /build/gcc/src/gcc-build/x86_64-pc-linux-gnu/*
+skip -gfi /usr/lib/gcc/x86_64-pc-linux-gnu/*/*/*
+skip -gfi /usr/lib/gcc/x86_64-pc-linux-gnu/*/*
+skip -gfi /usr/lib/gcc/x86_64-pc-linux-gnu/*
 skip -rfu ^std::.*
 
 set history save on
