@@ -179,7 +179,7 @@ nnoremap <Space>dl : DoxLic
 nnoremap <silent><Space>tp :set paste!<CR>
 
 "spelling stuff
-nnoremap <Space>w :call FixLastSpellingError()<cr>
+nnoremap <Space>w :call commands#FixLastSpellingError()<cr>
 nnoremap <Space>W z=
 
 " obtained from /u/romainl vimrc excerpts and gists
