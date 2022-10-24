@@ -56,8 +56,10 @@ Plug 'markonm/traces.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 call plug#end()
