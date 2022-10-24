@@ -5,14 +5,23 @@ set use_from = yes
 set envelope_from = yes
 set attribution = "+++ %n [%D]:"
 set include=yes
-set include_onlyfirst=yes
 set text_flowed=no
-set forward_quote=yes
 set copy=yes
 set delete=yes
 set confirmappend=no
 set fast_reply=yes
-set mime_forward=yes
+set forward_quote=yes
+set forward_decode=yes
+set forward_edit=yes
+set forward_references=yes
+set forward_attachments=yes
+set askcc
+unset mime_forward
+unset help
+set quit
+unset mark_old
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
 
 set indent_string = "> "
 
@@ -36,11 +45,9 @@ set mask="!^\\.[^.]"
 
 # offlineimap generates our mailboxes
 source ~/.config/mutt/mailboxes
+set nm_default_uri = "notmuch:///home/derek/home-ext/Maildir"
 
-virtual-mailboxes \
-    "Flagged"       "notmuch://?query=tag:flagged"\
-    "Orders"        'notmuch://?query=folder:"/.*Orders/"'\
-    "Unread"        'notmuch://?query=tag:unread and NOT folder:"/.+Spam/" and NOT folder:"/.+Trash/" and NOT folder:"/Hack/"'
+virtual-mailboxes "Flagged"  "notmuch://?query=tag:flagged"
 
 set alias_file=~/dotfiles/mail-config/.aliases
 set sort_alias=alias
@@ -178,13 +185,10 @@ set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
-set mark_old=no
 set narrow_tree = yes
 set date_format = "%F %R %z"
 set index_format = "%4C %Z %[%a %b %d %Y %R]     %M %30L (%c) %s      %?y?(%.40Y) ? "
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-
-set nm_default_uri = "notmuch:///home/derek/home-ext/Maildir"
 
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 

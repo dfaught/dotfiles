@@ -1,5 +1,4 @@
 "ultisnips.vim
-"
 
 let g:UltiSnipsExpandTrigger=";;"
 let g:UltiSnipsListSnippets="<C-s>"
