@@ -7,7 +7,7 @@ set formatprg=astyle
 set omnifunc=
 
 "Check for current job's build system
-set makeprg=build\ --debug\ --nodep\ --notest\ --flags=\"-O0\"\ --buildPreBuilt
+set makeprg=build\ --debug\ --nodep\ --notest\ --flags="-O0\ -no-omit-frame-pointer"\ --buildPreBuilt
 
 "hi default LspCxxHlGroupNamespace ctermfg=Yellow guifg=#BBBB00 cterm=none gui=none
 highlight LspCxxHlGroupMemberVariable guifg=#a29d91 cterm=NONE,italic gui=NONE,italic

@@ -72,3 +72,7 @@ let g:netrw_liststyle = 1
 let g:netrw_sizestyle = 'H'
 let g:netrw_winsize = '25'
 
+
+" hi CocMenuSel guibg=#657b83 guifg=#002b36 gui=None,reverse
+" hi CocMenuSel guifg=#657b83 guibg=#eee8d5 gui=None,reverse
+hi CocMenuSel guifg=#268bd2 gui=None,bold

@@ -1,11 +1,11 @@
 set auto-load safe-path /
 
-python
-import sys
-sys.path.insert(0, '/usr/share/gcc-11.1.0/python')
-from libstdcxx.v6.printers import register_libstdcxx_printers
-register_libstdcxx_printers (None)
-end
+# python
+# import sys
+# sys.path.insert(0, '/usr/share/gcc-11.2.0/python')
+# from libstdcxx.v6.printers import register_libstdcxx_printers
+# register_libstdcxx_printers (None)
+# end
 
  source ~/.gdb/gdb-dashboard
  source ~/.gdb/gdb-dash-config

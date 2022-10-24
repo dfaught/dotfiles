@@ -1,6 +1,6 @@
 nnoremap <Space> <Nop>
 let mapleader=" "
-let maplocalleader='\'
+" let maplocalleader='\'
 
 "if has("autocmd")
 "    "autocmd BufEnter * :lchdir %:p:h
