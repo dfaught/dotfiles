@@ -4,10 +4,11 @@ set keywordprg=~/bin/mancpp.sh
 set tags=tags;/
 set cinoptions=g0,c4,b1,l1,=0
 set formatprg=astyle
+set equalprg=astyle
 set omnifunc=
 
 "Check for current job's build system
-set makeprg=build\ --debug\ --nodep\ --notest\ --flags=\"-O0\"\ --buildPreBuilt
+set makeprg=build\ --debug\ --nodep\ --notest\ --flags="-O0 -fno-omit-frame-pointer"\ --buildPreBuilt
 
 "hi default LspCxxHlGroupNamespace ctermfg=Yellow guifg=#BBBB00 cterm=none gui=none
 highlight LspCxxHlGroupMemberVariable guifg=#a29d91 cterm=NONE,italic gui=NONE,italic

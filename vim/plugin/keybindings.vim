@@ -228,6 +228,7 @@ nmap <space>] <Plug>(coc-definition)
 nmap <space>[ <Plug>(coc-declaration)
 nmap <space>g] <Plug>(coc-references)
 nmap <space>gR <Plug>(coc-refactor)
+nmap <space>g} <Plug>(coc-implementation)
 nmap <space>dh :call CocActionAsync('doHover')<cr>
 
 for char in ['<bar>', '/', '<bslash>', '*', '+', ':', ';', '_', '-', '#', ',', '.' ]
