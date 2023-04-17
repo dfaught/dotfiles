@@ -7,8 +7,8 @@ nnoremap <Space>. @:
 nnoremap <Esc><Esc> :noh<cr>
 
 "tab to move through brackets"
-nnoremap <tab> %
-xnoremap <tab> %
+ " nnoremap | %
+ " xnoremap | %
 
 "actions w %
 nnoremap c<tab> c%
@@ -212,6 +212,11 @@ inoremap [; [];<Esc>2hi
 
 nnoremap <Space>i :Ilist <C-r>=expand('<cword>')<CR>
 nnoremap ' `
+
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :

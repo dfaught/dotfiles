@@ -40,6 +40,7 @@ set incsearch
 
 set backspace=indent,eol,start
 set mousehide
+set mouse=
 set novisualbell
 
 " Spelling is annoying in code, I find it so even in comments, turn off by default.
