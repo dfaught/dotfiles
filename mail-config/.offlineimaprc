@@ -28,7 +28,7 @@
 ##################################################
 
 [general]
-accounts = Personal, family-mail, Work 
+accounts = family-mail, Work 
 pythonfile = /home/derek/dotfiles/mail-config/.mutt/offlineimap-2.py
 
 maxsyncaccounts = 3
@@ -99,35 +99,6 @@ maxconnections = 4
 folderfilter = lambda foldername: not re.search('Location|Junk|Unsent|Sync|Work|Trash|Calendar|AllItems|Deferred|Exchange|Finder|Freebusy|Mailbox|My|News|People|Recoverable|Reminders|RSS|Schedule|Sharing|Shortcuts|Spooler|System|Tracked|Views|Unwanted', foldername)
 nametrans = lambda folder: re.sub('INBOX', 'Work.Inbox', folder)
 
-[Account Personal]
-localrepository = personal-local
-remoterepository = personal-remote
-status-backend = sqlite
-autorefresh = 5
-quick = 10
-
-[Repository personal-local]
-type = Maildir
-localfolders = ~/home-ext/Maildir/Personal
-
-[Repository personal-remote]
-type = IMAP
-remotehost = mail.privateemail.com
-remoteport = 993
-ssl = yes
-maxconnections = 4
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-remoteuser = derek@derekfaught.com
-remotepasseval = get_password("system", "derek@derekfaught.com")
-realdelete=yes
-createfolders=False
-folderfilter = lambda foldername: not re.search('confirmed-ham|confirmed-spam|Archive|Queue|Unwanted', foldername)
-nametrans = lambda folder: re.sub('INBOX', 'Personal-Inbox',
- re.sub('Drafts', 'Personal-Drafts',
- re.sub('Sent', 'Personal-Sent',
- re.sub('Spam', 'Personal-Spam',
- re.sub('Trash', 'Personal-Trash', folder)))))
-
 [Account family-mail]
 localrepository = fm-local
 remoterepository = fm-remote
@@ -156,34 +127,3 @@ nametrans = lambda folder: re.sub('INBOX', 'Family-Inbox',
  re.sub('Sent', 'Family-Sent',
  re.sub('Spam', 'Family-Spam',
  re.sub('Trash', 'Family-Trash', folder)))))
-
-# [Account red-phoenix]
-# localrepository = rp-local
-# remoterepository = rp-remote
-# status-backend = sqlite
-# autorefresh = 5
-# quick = 10
-
-# [Repository rp-local]
-# type = Maildir
-# localfolders = ~/home-ext/Maildir/red-phoenix
-
-# [Repository rp-remote]
-# type = IMAP
-# remotehost = slmp-550-129.slc.westdc.net
-# remoteport = 993
-# ssl = yes
-# maxconnections = 1
-# sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-# remoteuser = "derek@red-phoenix.com"
-# remotepasseval = get_password("system", "derek@red-phoenix.com")
-# realdelete=yes
-# createfolders=False
-# nametrans = lambda folder: re.sub('INBOX', 'RedPhoenix-Inbox',
-#  re.sub('Drafts', 'RedPhoenix-Drafts',
-#  re.sub('Sent', 'RedPhoenix-Sent',
-#  re.sub('spam', 'RedPhoenix-spam',
-#  re.sub('Archive', 'RedPhoenix-Archive',
-#  re.sub('Junk', 'RedPhoenix-Junk',
-#  re.sub('Trash', 'RedPhoenix-Trash', folder)))))))
-

@@ -7,8 +7,8 @@ nnoremap <Space>. @:
 nnoremap <Esc><Esc> :noh<cr>
 
 "tab to move through brackets"
-nnoremap <tab> %
-xnoremap <tab> %
+" nnoremap <tab> %
+" xnoremap <tab> %
 
 "actions w %
 nnoremap c<tab> c%

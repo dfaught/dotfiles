@@ -28,7 +28,6 @@ do
     [ -n "${PID}" ] && kill ${PID}     # kill it and resync now
 
 echo "Filtering..."
-imapfilter -c ~/.imapfilter/config.lua
 imapfilter -c ~/.imapfilter/fm-config.lua
 
 echo "Fetching..."

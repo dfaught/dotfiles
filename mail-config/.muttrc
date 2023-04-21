@@ -76,7 +76,7 @@ set collapse_all
 #======================================================#
 # which editor do you want to use?
 # vim of course!
-set editor="vim"
+set editor="nvim"
 # folder-hook . source ./.mutt/bottom-repyly
 folder-hook =Work source ./.mutt/top-reply
 # folder-hook =red-phoenix source ./.mutt/top-reply
