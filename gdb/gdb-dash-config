@@ -18,7 +18,7 @@ dashboard -style style_selected_1 '0;34'
 dashboard -style divider_label_style_off_primary '33'
 # dashboard -style divider_fill_char_secondary '\xe2\x94\x80'
 dashboard -style style_low '0;32'
-dashboard -style syntax_highlighting 'solarized'
+dashboard -style syntax_highlighting 'solarized-dark'
 
 dashboard source -style height 40
 dashboard source -style
