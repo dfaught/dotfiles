@@ -35,7 +35,7 @@ nnoremap  <silent> <s-tab>       :if &modifiable && !&readonly &&
 " 	F6         - Mark word/selection as interesting
 " 	F7         - Toggle listchars
 " 	<Space>F7 - Trim trailing whites
-" 	F8         - 
+" 	F8         - Strip ANSI escape codes
 " 	F9         - 
 " 	F10        -
 " 	F11        - System intercepted
@@ -62,13 +62,15 @@ nmap <silent><F6>        <Plug>MarkSet
 xmap <silent><F6>        <Plug>MarkSet
 nmap <silent><Space><F6> <Plug>MarkRegex
 xmap <silent><Space><F6> <Plug>MarkRegex
-nmap <silent><M-F6>      <Plug>MarkAllClear
+nmap <silent>,<F6>      <Plug>MarkClear
 
 nnoremap <silent><F7>        :call commands#ToggleList()<CR>
 xnoremap <silent><F7>        :call commands#ToggleList()<CR>
 inoremap <silent><F7>        :call commands#ToggleList()<CR>
 nnoremap <silent><Space><F7> :call commands#TrimWhiteSpace()<CR>
 xnoremap <silent><Space><F7> :call commands#TrimWhiteSpace()<CR>
+
+nnoremap <silent><F8> :%s/\%x1b\[[0-9;]*[mGKHF]//g<CR>
 
 nnoremap  ,f  :find *
 nnoremap  ,b  :ls<CR>:buffer<Space>
@@ -212,6 +214,11 @@ inoremap [; [];<Esc>2hi
 
 nnoremap <Space>i :Ilist <C-r>=expand('<cword>')<CR>
 nnoremap ' `
+
+function! CheckBackspace() abort                                                                                                
+  let col = col('.') - 1                                                                                                      
+  return !col || getline('.')[col - 1]  =~ '\s'                                                                               
+endfunction
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
